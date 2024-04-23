@@ -17,9 +17,4 @@ export const contactInfoData: HeroInfo[] = [
     value: "Mimizan, France (40)",
     icon: <FaMapMarkerAlt />,
   },
-  {
-    label: "Birthday",
-    value: "Sept 17, 1992",
-    icon: <FaCalendarAlt />,
-  },
 ];
