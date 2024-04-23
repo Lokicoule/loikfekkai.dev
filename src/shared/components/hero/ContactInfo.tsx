@@ -1,5 +1,5 @@
 import IconWrapper from "../elements/IconWrapper";
-import { HeroViewModelProps } from "./HeroViewModel";
+import type { HeroViewModelProps } from "./HeroViewModel";
 
 type ContactInfoProps = HeroViewModelProps;
 type ContactInfoComponent = React.FC<ContactInfoProps>;

@@ -1,8 +1,4 @@
-import {
-  FaCalendarAlt,
-  FaEnvelopeOpenText,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
+import { FaEnvelopeOpenText, FaMapMarkerAlt } from "react-icons/fa";
 import { HeroInfo } from "../HeroViewModel";
 
 export const contactInfoData: HeroInfo[] = [
