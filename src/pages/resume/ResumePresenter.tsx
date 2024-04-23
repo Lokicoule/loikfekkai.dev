@@ -1,7 +1,7 @@
 import { TranslatingService } from "../../shared/services/translating/translatingService";
-import { GlobalCache } from "../../sharedKernel/persistence/GlobalCache";
-import { Presenter } from "../../sharedKernel/presentation/Presenter";
-import { SubscriptionManager } from "../../sharedKernel/presentation/SubscriptionManager";
+import { GlobalCache } from "../../shared/persistence/GlobalCache";
+import { Presenter } from "../../shared/presentation/Presenter";
+import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
 import { ResumeViewModel } from "./ResumeViewModel";
 import { educationData as educationDataEn } from "./datas/educationData.en";
 import { educationData as educationDataFr } from "./datas/educationData.fr";

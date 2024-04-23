@@ -1,8 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import {
-  GlobalCache,
-  Language,
-} from "../../../sharedKernel/persistence/GlobalCache";
+import { GlobalCache, Language } from "../../../shared/persistence/GlobalCache";
 import { translatingService } from "../../composition";
 import { Notification } from "../../services/notifications/domainObjects/Notification";
 import { NotificationService } from "../../services/notifications/notificationsService";

@@ -1,6 +1,6 @@
-import { GlobalCache } from "../../../sharedKernel/persistence/GlobalCache";
-import { Presenter } from "../../../sharedKernel/presentation/Presenter";
-import { SubscriptionManager } from "../../../sharedKernel/presentation/SubscriptionManager";
+import { GlobalCache } from "../../../shared/persistence/GlobalCache";
+import { Presenter } from "../../../shared/presentation/Presenter";
+import { SubscriptionManager } from "../../../shared/presentation/SubscriptionManager";
 
 import { NavigationViewModel } from "./NavigationViewModel";
 

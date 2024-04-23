@@ -1,6 +1,6 @@
 import { SocialLinkProps } from "../../shared/components/elements/SocialLinks";
 import { StackProps } from "../../shared/components/elements/Stack";
-import { WorkFilter } from "../../sharedKernel/persistence/GlobalCache";
+import { WorkFilter } from "../../shared/persistence/GlobalCache";
 
 type KeyFeaturesProps = {
   id: string;
