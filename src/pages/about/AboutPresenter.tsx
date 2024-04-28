@@ -3,8 +3,8 @@ import { GlobalCache } from "../../shared/persistence/GlobalCache";
 import { Presenter } from "../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
 import { AboutViewModel } from "./AboutViewModel";
-import { serviceData as serviceDataEn } from "./datas/serviceData.en";
-import { serviceData as serviceDataFr } from "./datas/serviceData.fr";
+import { aboutDataEn as dataEn } from "./datas/aboutData.en";
+import { aboutDataFr as dataFr } from "./datas/aboutData.fr";
 
 export class AboutPresenter extends Presenter<AboutViewModel> {
   private subscriptionManager: SubscriptionManager;
@@ -27,11 +27,9 @@ export class AboutPresenter extends Presenter<AboutViewModel> {
   }
 
   protected rebuildViewModel(lang: string) {
-    const services = lang === "fr" ? serviceDataFr : serviceDataEn;
+    const data = lang === "fr" ? dataFr : dataEn;
 
-    this.vm = new AboutViewModel({
-      services,
-    });
+    this.vm = new AboutViewModel(data);
   }
 
   public load(cb: (vm?: AboutViewModel) => void): void {
