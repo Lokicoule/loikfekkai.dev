@@ -5,6 +5,7 @@ import HeroContactInfo from "./ContactInfo";
 import { HeroPresenter } from "./HeroPresenter";
 import { HeroViewModel } from "./HeroViewModel";
 import img from "/avatar.jpg";
+import hover_img from "/avatar-hover.jpg";
 
 const socialLinks = [
   {
@@ -39,8 +40,15 @@ const HeroView: HeroViewComponent = ({ presenter }) => {
   return (
     <div className="w-full mb-6 lg:mb-0 mx-auto relative bg-primary text-center px-6 rounded-[20px] mt-[180px] md:mt-[220px] lg:mt-0">
       <img
+        src={hover_img}
+        className="w-[240px] absolute left-[50%] transform -translate-x-[50%] h-[240px] drop-shadow-xl mx-auto rounded-[20px] -mt-[140px]"
+        alt="avatars"
+        title="avatars"
+        loading="lazy"
+      />
+      <img
         src={img}
-        className="w-[240px] absolute left-[50%] transform -translate-x-[50%] h-[240px] drop-shadow-xl mx-auto rounded-[20px] -mt-[140px] hover:brightness-125 transition duration-200 ease-linear"
+        className="w-[240px] absolute left-[50%] transform -translate-x-[50%] h-[240px] drop-shadow-xl mx-auto rounded-[20px] -mt-[140px] hover:opacity-0"
         alt="avatar"
         title="avatar"
         loading="lazy"
