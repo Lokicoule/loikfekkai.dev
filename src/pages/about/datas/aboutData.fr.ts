@@ -4,7 +4,7 @@ export const aboutDataFr: AboutViewModelProps = {
   whoAmI: {
     title: "Qui suis-je ?",
     description:
-      "Je suis un ingénieur logiciel passionné par la conception logicielle (pensez architecture de qualité, pas seulement UI/UX), l'open source et une réelle préoccupation pour notre planète. Ces cinq dernières années, j'ai peaufiné mes compétences chez Atos en travaillant en Java avec Spring et Angular sur des projets d'entreprise de plus ou moins grande envergure. J'ai même eu le privilège de participer à trois projets pour le Ministère de l'Écologie, une expérience qui a décuplé mon envie d'utiliser la technologie pour un impact environnemental positif. Depuis trois ans, je me suis lancé dans une stack plus moderne, explorant TypeScript, NestJS et React en profondeur. Mon but ultime ? Rendre les systèmes complexes élégamment simples.",
+      "Je suis un ingénieur logiciel passionné par la conception logicielle et soucieux de l'avenir de notre planète. Au cours des six premières années de ma carrière, j'ai affiné mes compétences chez Atos en travaillant principalement sur une pile technologique Java, Spring et Angular. J'ai eu le privilège de participer au développement de plusieurs projets pour le Ministère de l'Écologie, une expérience qui a renforcé mon désir d'utiliser la technologie pour un impact environnemental positif. Depuis trois ans, je me suis tourné vers des technologies plus modernes, explorant en profondeur TypeScript, NestJS et React. Mon objectif ? Revenir à l'essentiel en simplifiant ce qui peut l'être.",
   },
   whatDoIOffer: {
     title: "Que puis-je vous offrir ?",
@@ -12,11 +12,12 @@ export const aboutDataFr: AboutViewModelProps = {
       {
         title: "Une expertise en conception logicielle",
         description:
-          "j'adore créer un code bien structuré et facilement maintenable.",
+          "j'adore écrire du code facile à lire, à maintenir, à tester et à faire évoluer.",
       },
       {
         title: "Polyvalent",
-        description: "je suis à l'aise aussi bien en front-end qu'en back-end.",
+        description:
+          "je suis à l'aise aussi bien en front-end qu'en back-end bien que j'ai une préférence pour la partie back-end.",
       },
       {
         title: "Une capacité à résoudre les problèmes",
@@ -28,11 +29,11 @@ export const aboutDataFr: AboutViewModelProps = {
   whatKindOfProjects: {
     title: "Quels types de projets m'intéressent ?",
     description:
-      "Je suis motivé par les projets qui me permettent de mettre mes compétences en conception logicielle et en développement au service de solutions innovantes. Et si ces projets incluent des technologies modernes comme NestJS (ou AdonisJS) et React, c'est un bonus !",
+      "Je suis motivé par les projets qui me permettent de mettre mes compétences en conception logicielle et en développement au service de solutions innovantes et durables. Et si ces projets impliquent des technologies comme NestJS (ou AdonisJS) et React, c'est encore mieux !",
   },
   livingTheDream: {
-    title: "Vivre le rêve (à distance) !",
+    title: "Living the Dream (Remotely!)",
     description:
-      "Quand je ne suis pas devant mon écran, vous me trouverez sur les vagues de Mimizan, une petite ville côtière pleine de charme près de Bordeaux. Et la bonne nouvelle, c'est que, en tant que développeur à distance, je peux apporter cette même passion et cet engagement à vos projets, où que je sois.",
+      "Quand je ne suis pas devant mon écran, vous me trouverez sur les vagues de Mimizan, une petite ville côtière près de Bordeaux. Et la bonne nouvelle, c'est que, en tant que développeur à distance, je peux apporter cette même passion et cet engagement à vos projets, où que je sois.",
   },
 };
