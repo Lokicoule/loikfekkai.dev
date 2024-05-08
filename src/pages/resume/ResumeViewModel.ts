@@ -48,7 +48,7 @@ export type SkillProps = {
 export type KnowledgeProps = {
   id: string;
   name: string;
-  type: "framework" | "library" | "database" | "tool" | "architecture";
+  type: "architecture" | "methodology";
 };
 
 export interface ResumeViewModelProps {

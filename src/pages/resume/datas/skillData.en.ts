@@ -4,7 +4,7 @@ export const skillData: SkillProps[] = [
   {
     id: "skill-1",
     name: "Typescript",
-    value: 80,
+    value: 95,
     type: "hard",
   },
   {
@@ -16,37 +16,25 @@ export const skillData: SkillProps[] = [
   {
     id: "skill-3",
     name: "React",
-    value: 80,
-    type: "hard",
-  },
-  {
-    id: "skill-4",
-    name: "NextJS",
-    value: 80,
+    value: 85,
     type: "hard",
   },
   {
     id: "skill-8",
     name: "Clean Code",
-    value: 90,
-    type: "soft",
-  },
-  {
-    id: "skill-9",
-    name: "Clean Architecture",
-    value: 80,
+    value: 95,
     type: "soft",
   },
   {
     id: "skill-10",
     name: "Retro Engineering",
-    value: 80,
+    value: 100,
     type: "soft",
   },
   {
     id: "skill-11",
     name: "Autonomy",
-    value: 90,
+    value: 100,
     type: "soft",
   },
 ];

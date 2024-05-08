@@ -16,7 +16,6 @@ const SkillItem: React.FC<SkillProps> = ({ name, value, type }) => {
     <div className="mb-4">
       <div className="flex justify-between">
         <h5 className="font-semibold text-primary">{name}</h5>
-        <span className="text-xs text-primary">{value}%</span>
       </div>
       <ProgressBar progress={value} bgColor={bgColor} />
     </div>
