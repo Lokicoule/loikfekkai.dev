@@ -20,8 +20,7 @@ export const workData: WorkProps[] = [
     ],
     tag: "Open Source",
     description:
-      "Ce projet vise à simplifier la mise en œuvre d'un système d'authentification sécurisé et évolutif dans les applications NestJS en utilisant Amazon Cognito, un service d'authentification géré par AWS.\n" +
-      "L'idée m'est venue lors du développement d'une application NestJS pour un client. J'ai trouvé que l'intégration d'Amazon Cognito était fastidieuse et mal documentée. J'ai donc créé un outil pour faciliter cette tâche et le rendre plus accessible à la communauté NestJS.",
+      "NestJS-Cognito est un ensemble de packages qui vise à simplifier l'intégration d'Amazon Cognito dans les applications NestJS. Ces packages offrent des fonctionnalités d'authentification et d'autorisation robustes en utilisant AWS Cognito comme fournisseur d'identité.",
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["NestJS", "Apollo GraphQL"],
@@ -61,14 +60,6 @@ export const workData: WorkProps[] = [
           "Facilite les tests d'intégrations et end-to-end des applications NestJS utilisant les packages auth et graphql.",
         ],
       },
-      {
-        id: "key-features-5",
-        key: "Couverture de test optimale",
-        features: [
-          "Les packages core, auth et graphql sont testés à hauteur de 95%.",
-          "La branch main est protégée par des tests unitaires, d'intégration et end-to-end.",
-        ],
-      },
     ],
   },
   {
@@ -89,8 +80,7 @@ export const workData: WorkProps[] = [
     ],
     tag: "Open Source",
     description:
-      "Ce projet vise à simplifier le processus d'écriture des messages de commit en utilisant la forme conventionnelle ou red-green-refactor spécifique relative au TDD.\n" +
-      "L'idée m'est venue lors de l'application du TDD dans un projet. J'ai trouvé que le processus d'écriture des messages de commit était fastidieux et j'ai donc créé un outil pour faciliter cette tâche.",
+      "Commitizard est un outil en ligne de commande (CLI) qui simplifie le processus de création de messages de commit en utilisant des conventions de commit.",
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["NodeJS"],
@@ -99,76 +89,57 @@ export const workData: WorkProps[] = [
     keyFeatures: [
       {
         id: "key-features-1",
-        key: "Génération de messages de commit en mode assistant:",
+        key: "Stratégies de commit",
         features: [
-          "Prend en charge les stratégies de commit conventionnelles et red-green-refactor (TDD).",
+          "Supporte les stratégies de commit conventionnelles et red-green-refactor (TDD).",
           "Entièrement configurable via .commitizard.json.",
-          "Gestion des git hooks.",
-        ],
-      },
-      {
-        id: "key-features-2",
-        key: "Couverture de test maximale",
-        features: [
-          "La couverture de code est de 100%.",
-          "La branch main est protégée par des tests unitaires, d'intégration et end-to-end.",
+          "Gestion des hooks Git.",
         ],
       },
     ],
   },
   {
     id: "work-3",
-    name: "Portfolio",
+    name: "Pathfinding Viewer",
     category: "frontend",
     socialLinks: [
       {
         icon: <FaLink />,
         iconClassName: "text-[#0072b1] bg-secondary",
-        href: "https://www.lokicoule.dev",
+        href: "https://pathfinding-viewer.vercel.app/",
       },
       {
         icon: <FaGithub />,
         iconClassName: "text-[#0072b1] bg-secondary",
-        href: "https://www.github.com/lokicoule/portfolio",
+        href: "https://www.github.com/lokicoule/pathfinding-viewer",
       },
     ],
     tag: "Personal",
     description:
-      "Ce portfolio a été créé dans le but de présenter mes compétences, projets et expériences professionnelles. J'ai délibérément choisi de ne pas utiliser NextJS afin de bénéficier d'une plus grande liberté de conception et d'architecture.",
+      "Pathfinding Viewer est une application web qui permet de visualiser les algorithmes de génération de labyrinthes et de recherche de chemins. Cette application a été créée pour explorer les algorithmes de recherche de chemin et de génération de labyrinthes.",
     technologiesUsed: {
       languages: ["Typescript"],
-      libraries: ["React", "TailwindCSS", "@headlessui"],
+      libraries: ["React", "TailwindCSS"],
       tools: ["Vite"],
-      architectures: ["MVVM", "PubSub"],
     },
     keyFeatures: [
       {
         id: "key-features-1",
-        key: "Responsive Design:",
+        key: "Algorithmes de génération de labyrinthes:",
         features: [
-          "Le portfolio est conçu pour être responsive et s'adapter à tous les types d'appareils.",
+          "Recursive Division",
+          "Recursive Backtracking",
+          "Prim's Algorithm",
         ],
       },
       {
         id: "key-features-2",
-        key: "Dark Mode:",
-        features: ["Le portfolio supporte le mode sombre."],
-      },
-      {
-        id: "key-features-3",
-        key: "Internationalization:",
-        features: ["Le portfolio est disponible en français et en anglais."],
-      },
-      {
-        id: "key-features-4",
-        key: "SEO:",
-        features: ["Le portfolio est optimisé pour les moteurs de recherche."],
-      },
-      {
-        id: "key-features-5",
-        key: "State Global:",
+        key: "Algorithmes de recherche de chemin:",
         features: [
-          "Le portfolio utilise un système de gestion d'état basé sur le pattern PubSub.",
+          "Dijkstra",
+          "A*",
+          "Breadth-first search",
+          "Depth-first search",
         ],
       },
     ],
@@ -211,14 +182,6 @@ Lors du développement de Commitizard, j'ai préalablement utilisé la biblioth�
         id: "key-features-2",
         key: "Compatibilité avec les systèmes de modules JavaScript",
         features: ["CommonJS", "ECMAScript Modules (ESM)"],
-      },
-      {
-        id: "key-features-4",
-        key: "Couverture de test maximale",
-        features: [
-          "La couverture de code est de 100%.",
-          "La branch main est protégée par des tests unitaires, d'intégration et end-to-end.",
-        ],
       },
     ],
   },
