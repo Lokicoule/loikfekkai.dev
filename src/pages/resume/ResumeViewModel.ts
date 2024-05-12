@@ -19,7 +19,7 @@ export interface ExperienceProps {
   place: string;
   roleAndResponsibilities: string;
   technologiesUsed: StackProps;
-  keyAchievements: string[];
+  keyAchievements?: string[];
   personalExperience: string[];
   link?: string;
   linkText?: string;

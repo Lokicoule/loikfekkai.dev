@@ -153,4 +153,32 @@ export const experienceData: ExperienceProps[] = [
       "Utilisation des designs patterns et de l'architecture logicielle.",
     ],
   },
+  {
+    id: "experience-5",
+    company: "Atos",
+    tag: "Optimisation des processus de messagerie internationale",
+    client: {
+      name: "La Poste",
+    },
+    internship: {
+      duration: "Stage de fin d'année, durée 3 mois",
+    },
+    name: "TMA La Poste",
+    description:
+      "Stage axé sur l'amélioration des processus systémiques de messagerie internationale, notamment par l'analyse grammaticale, le stockage sécurisé et la transformation des fichiers pour accroître l'efficacité et la sécurité des données.",
+    duration: "Juin 2014 - Août 2014",
+    place: "Marseille, France",
+    roleAndResponsibilities: "Développeur système (stagiaire)",
+    technologiesUsed: {
+      languages: ["C", "T-SQL"],
+      shells: ["Bash", "Ksh"],
+      operatingSystems: ["AIX 5.1"],
+      databases: ["Sybase"],
+      tools: ["SVN"],
+    },
+    personalExperience: [
+      "Mise en pratique des connaissances acquises en développement système.",
+      "Expérience enrichissante dans un environnement de grande entreprise, augmentant ma compréhension des systèmes opérationnels et de la gestion des données.",
+    ],
+  },
 ];

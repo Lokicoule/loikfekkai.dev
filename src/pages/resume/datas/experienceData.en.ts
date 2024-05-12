@@ -153,4 +153,32 @@ export const experienceData: ExperienceProps[] = [
       "Use of design patterns and software architecture.",
     ],
   },
+  {
+    id: "experience-5",
+    company: "Atos",
+    tag: "Optimisation of international messaging processes",
+    client: {
+      name: "La Poste",
+    },
+    internship: {
+      duration: "End-of-year internship, duration 3 months",
+    },
+    name: "AMO La Poste",
+    description:
+      "Internship focused on improving systemic processes for international messaging, notably through grammatical analysis, secure storage, and file transformation to increase data efficiency and security.",
+    duration: "June 2014 - August 2014",
+    place: "Marseille, France",
+    roleAndResponsibilities: "System developer (intern)",
+    technologiesUsed: {
+      languages: ["C", "T-SQL"],
+      shells: ["Bash", "Ksh"],
+      operatingSystems: ["AIX 5.1"],
+      databases: ["Sybase"],
+      tools: ["SVN"],
+    },
+    personalExperience: [
+      "Application of knowledge acquired in system development.",
+      "Enriching experience in a large enterprise environment, increasing my understanding of operational systems and data management.",
+    ],
+  },
 ];

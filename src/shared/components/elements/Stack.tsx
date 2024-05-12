@@ -7,6 +7,8 @@ export interface StackProps {
   frameworks?: string[];
   libraries?: string[];
   tools?: string[];
+  shells?: string[];
+  operatingSystems?: string[];
   architectures?: string[];
   databases?: string[];
   tag?: {
