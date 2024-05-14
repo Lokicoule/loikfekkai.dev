@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import PageLayout from "../../shared/components/layouts/PageLayout";
 import { ResumePresenter } from "./ResumePresenter";
 import { ResumeViewModel } from "./ResumeViewModel";
@@ -6,6 +7,7 @@ import EducationSection from "./components/education/EducationSection";
 import ExperienceSection from "./components/experience/ExperienceSection";
 import KnowledgeSection from "./components/knowledge/KnowledgeSection";
 import SkillSection from "./components/skill/SkillSection";
+import StackSection from "./components/stack/StackSection";
 
 type ResumeViewProps = {
   presenter: ResumePresenter;
@@ -49,10 +51,13 @@ const ResumeView: ResumeViewComponent = ({ presenter }) => {
       <div className="container py-12 px-2 sm:px-5 md:px-10 lg:px-14 bg-secondary">
         <div className="grid grid-cols-1  md:grid-cols-2 gap-8">
           <div className="col-span-1">
-            <SkillSection
-              title={presenter.translateAndSanitize("resume.skill.title")}
-              items={viewModel.skills}
-            />
+            <div className="flex flex-col space-y-12">
+              <StackSection />
+              <SkillSection
+                title={presenter.translateAndSanitize("resume.skill.title")}
+                items={viewModel.skills}
+              />
+            </div>
           </div>
 
           <div className="col-span-1">

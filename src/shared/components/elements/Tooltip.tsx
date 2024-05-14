@@ -1,4 +1,4 @@
-import React, {
+import {
   ComponentPropsWithRef,
   MouseEventHandler,
   useRef,
@@ -26,21 +26,22 @@ const Tooltip: TooltipComponent = ({ children, text, ...rest }) => {
   };
 
   return (
-    <>
-      <div
-        ref={ref}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        {...rest}
-      >
-        {children}
-      </div>
+    <div
+      ref={ref}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative inline-block"
+      {...rest}
+    >
+      {children}
       {show && target && (
-        <div className="absolute z-10 bg-gray-700 text-white text-xs rounded p-2 bg-opacity-90 shadow-md">
-          {text}
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 z-10">
+          <div className="max-w-xs bg-gray-700 text-white text-xs rounded p-2 bg-opacity-90 shadow-md relative">
+            <div className="whitespace-nowrap">{text}</div>
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

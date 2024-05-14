@@ -154,7 +154,7 @@ export const experienceData: ExperienceProps[] = [
     internship: {
       duration: "End-of-year internship, duration 3 months",
     },
-    name: "AMO La Poste",
+    name: "La Poste (AMO)",
     description:
       "Internship focused on improving systemic processes for international messaging, notably through grammatical analysis, secure storage, and file transformation to increase data efficiency and security.",
     duration: "June 2014 - August 2014",

@@ -154,7 +154,7 @@ export const experienceData: ExperienceProps[] = [
     internship: {
       duration: "Stage de fin d'année, durée 3 mois",
     },
-    name: "TMA La Poste",
+    name: "La Poste (TMA)",
     description:
       "Stage axé sur l'amélioration des processus systémiques de messagerie internationale, notamment par l'analyse grammaticale, le stockage sécurisé et la transformation des fichiers pour accroître l'efficacité et la sécurité des données.",
     duration: "Juin 2014 - Août 2014",
