@@ -49,7 +49,7 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
               key={index}
               className="text-md leading-8 mb-6 text-tertiary text-justify"
             >
-              <strong>{item.title}:</strong> {item.description}
+              <strong>{item.title}</strong> {item.description}
             </p>
           ))}
         </div>

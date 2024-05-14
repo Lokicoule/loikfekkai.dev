@@ -1,9 +1,11 @@
 import IconWrapper from "./IconWrapper";
+import type { IconWrapperProps } from "./IconWrapper";
 
 export interface SocialLinkProps {
   href: string;
   icon: JSX.Element;
   iconClassName?: string;
+  iconInvariant?: IconWrapperProps["variant"];
 }
 
 interface Props {
@@ -20,7 +22,12 @@ const SocialLinks: React.FC<Props> = ({ socialLinks }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IconWrapper className={link.iconClassName}>{link.icon}</IconWrapper>
+          <IconWrapper
+            className={link.iconClassName}
+            variant={link.iconInvariant}
+          >
+            {link.icon}
+          </IconWrapper>
         </a>
       ))}
     </div>

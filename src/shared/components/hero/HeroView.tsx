@@ -10,12 +10,12 @@ const socialLinks = [
   {
     href: "https://fr.linkedin.com/in/lo%C3%AFk-fekka%C3%AF-074919142",
     icon: <FaLinkedinIn />,
-    iconClassName: "text-[#0072b1] bg-secondary",
+    iconClassName: "text-[#0072b1] bg-secondary text-xl",
   },
   {
     href: "https://www.github.com/lokicoule/",
     icon: <FaGithub />,
-    iconClassName: "text-[#0072b1] bg-secondary",
+    iconClassName: "text-[#0072b1] bg-secondary text-xl",
   },
 ];
 

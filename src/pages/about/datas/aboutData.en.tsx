@@ -10,16 +10,16 @@ export const aboutDataEn: AboutViewModelProps = {
     title: "What do I offer?",
     description: [
       {
-        title: "Software Design Expertise",
+        title: "Software Design Expertise:",
         description: "I love crafting well-structured, maintainable code.",
       },
       {
-        title: "Full-Stack Fluency",
+        title: "Full-Stack Fluency:",
         description:
           "Comfortable on both the front-end and back-end with a love for TypeScript.",
       },
       {
-        title: "Problem-Solving Prowess",
+        title: "Problem-Solving Prowess:",
         description:
           "Unraveling complex challenges and simplifying them is my jam.",
       },
@@ -32,7 +32,16 @@ export const aboutDataEn: AboutViewModelProps = {
   },
   livingTheDream: {
     title: "Living the Dream (Remotely!)",
-    description:
-      "When I'm not coding, you'll find me catching waves in Mimizan, a charming coastal town near Bordeaux. The good news for you? Being a remote developer means I can bring that same passion and focus to your projects, wherever I am.",
+    description: (
+      <>
+        When I'm not in front of a computer, you'll find me on the waves in
+        Mimizan, a small coastal town near Bordeaux. Surfing and coding are the
+        perfect balance for me, providing essential life equilibrium.
+        <br />
+        As a remote developer, I harmonize these two passions to foster personal
+        growth while bringing renewed energy and total commitment to your
+        projects, no matter where I am.
+      </>
+    ),
   },
 };

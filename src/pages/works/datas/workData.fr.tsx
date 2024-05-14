@@ -9,12 +9,12 @@ export const workData: WorkProps[] = [
     socialLinks: [
       {
         icon: <FaNpm />,
-        iconClassName: "text-[#0072b1] bg-secondary",
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
         href: "https://www.npmjs.com/package/@nestjs-cognito/auth",
       },
       {
         icon: <FaGithub />,
-        iconClassName: "text-[#0072b1] bg-secondary",
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
         href: "https://www.github.com/lokicoule/nestjs-cognito",
       },
     ],
@@ -69,12 +69,12 @@ export const workData: WorkProps[] = [
     socialLinks: [
       {
         icon: <FaNpm />,
-        iconClassName: "text-[#0072b1] bg-secondary",
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
         href: "https://www.npmjs.com/package/commitizard",
       },
       {
         icon: <FaGithub />,
-        iconClassName: "text-[#0072b1] bg-secondary",
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
         href: "https://www.github.com/lokicoule/commitizard",
       },
     ],
@@ -105,12 +105,12 @@ export const workData: WorkProps[] = [
     socialLinks: [
       {
         icon: <FaLink />,
-        iconClassName: "text-[#0072b1] bg-secondary",
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
         href: "https://pathfinding-viewer.vercel.app/",
       },
       {
         icon: <FaGithub />,
-        iconClassName: "text-[#0072b1] bg-secondary",
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
         href: "https://www.github.com/lokicoule/pathfinding-viewer",
       },
     ],
@@ -151,12 +151,12 @@ export const workData: WorkProps[] = [
     socialLinks: [
       {
         icon: <FaNpm />,
-        iconClassName: "text-[#0072b1] bg-secondary",
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
         href: "https://www.npmjs.com/package/commandzen",
       },
       {
         icon: <FaGithub />,
-        iconClassName: "text-[#0072b1] bg-secondary",
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
         href: "https://www.github.com/lokicoule/commandzen",
       },
     ],

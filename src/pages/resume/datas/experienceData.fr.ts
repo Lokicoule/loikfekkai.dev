@@ -134,9 +134,9 @@ export const experienceData: ExperienceProps[] = [
       architectures: ["SOA", "ESB", "MVVM"],
     },
     keyAchievements: [
-      "Développement de l'orchestrateur (ESB) en collaboration avec 2 autres développeurs",
-      "Développement de services SOAP qui servent d'interface entre SAP, l'orchestrateur et les applications web et tablette",
-      "Mise en place d'un bridge JNDI (Java) pour interconnecter une application C++ et une application C#",
+      "Développement de l'orchestrateur (ESB) en collaboration avec 2 autres développeurs.",
+      "Développement de services SOAP qui servent d'interface entre SAP, l'orchestrateur et les applications web et tablette.",
+      "Mise en place d'un bridge JNDI (Java) pour interconnecter une application C++ et une application C#.",
     ],
     personalExperience: [
       "Intégration dans une équipe de 12 à 15 personnes.",

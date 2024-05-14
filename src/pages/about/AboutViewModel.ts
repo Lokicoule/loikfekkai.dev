@@ -16,7 +16,7 @@ export interface AboutViewModelProps {
   };
   livingTheDream: {
     title: string;
-    description: string;
+    description: JSX.Element;
   };
 }
 

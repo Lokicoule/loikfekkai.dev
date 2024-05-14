@@ -26,7 +26,14 @@ const WorkModalTitle: WorkModalTitleComponent = ({ work }) => {
           </span>
         </div>
         <div className="flex justify-center space-x-3">
-          <SocialLinks socialLinks={work.socialLinks} />
+          <SocialLinks
+            socialLinks={work.socialLinks.map((x) => {
+              return {
+                ...x,
+                iconInvariant: "secondary",
+              };
+            })}
+          />
         </div>
       </div>
     </Modal.Title>
