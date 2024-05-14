@@ -9,7 +9,7 @@ export interface ExperienceProps {
   id: string;
   name: string;
   tag: string;
-  description: string;
+  description?: string;
   internship?: {
     duration: string;
   };
@@ -20,7 +20,7 @@ export interface ExperienceProps {
   roleAndResponsibilities: string;
   technologiesUsed: StackProps;
   keyAchievements?: string[];
-  personalExperience: string[];
+  personalExperience?: string[];
   link?: string;
   linkText?: string;
 }

@@ -5,27 +5,18 @@ export const experienceData: ExperienceProps[] = [
     id: "experience-1",
     name: "Freelance",
     tag: "Développement d'applications web",
-    description:
-      "Pendant cette période, je me suis principalement concentré sur l'amélioration de mes compétences en développement web, ainsi que sur la découverte et la compréhension de la blockchain et de ses implications futures. En parallèle, j'ai participé occasionnellement à des missions.",
     duration: "2020 - Présent",
     place: "Remote",
+    description:
+      "En tant que développeur freelance, j'ai eu l'opportunité unique de consacrer une grande partie de mon temps à peaufiner mon style (de code) et à approfondir mes compétences en architecture logicielle. Cette période d'indépendance m'a permis de me concentrer sur l'excellence technique, résultant en des solutions logicielles hautement optimisées et performantes. Mes projets, visibles sur mon profil GitHub, témoignent de cette quête constante de perfectionnement et d'innovation dans mon travail.",
     roleAndResponsibilities: "Développeur fullstack",
     technologiesUsed: {
       languages: ["Typescript"],
-      frameworks: ["React", "Next.js", "Node.js", "NestJS"],
-      tools: ["Git", "Docker", "SonarQube"],
+      frameworks: ["React", "Node.js", "Next.js", "NestJS"],
+      tools: ["Git", "Docker", "SonarQube", "AWS"],
       databases: ["MongoDB", "PostgreSQL"],
       architectures: ["Microservices", "Micro-frontend", "MVC", "MVVM", "CQRS"],
     },
-    keyAchievements: [
-      "Auto-apprentissage de nouvelles technologies, frameworks et langages pertinents pour le développement web.",
-      "Suivi attentif des tendances et évolutions du développement web pour rester à jour avec les dernières avancées technologiques.",
-      "Travail sur des concepts et des projets personnels pour mettre en pratique les connaissances acquises, même si tous les projets n'ont pas abouti.",
-    ],
-    personalExperience: [
-      "Solide compréhension des dernières technologies web",
-      "Capacité à apprendre de manière autonome et à m'adapter rapidement aux nouvelles tendances",
-    ],
   },
   {
     id: "experience-2",

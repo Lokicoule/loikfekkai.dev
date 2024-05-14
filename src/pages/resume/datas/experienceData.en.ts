@@ -5,27 +5,18 @@ export const experienceData: ExperienceProps[] = [
     id: "experience-1",
     name: "Freelance",
     tag: "Web application development",
-    description:
-      "During this period, I mainly focused on improving my web development skills, as well as discovering and understanding blockchain and its future implications. In parallel, I occasionally participated in missions.",
     duration: "2020 - Present",
     place: "Remote",
+    description:
+      "As a freelance developer, I had the unique opportunity to dedicate a large part of my time to refining my coding style and deepening my skills in software architecture. This period of independence allowed me to focus on technical excellence, resulting in highly optimized and performant software solutions. My projects, visible on my GitHub profile, testify to this constant quest for improvement and innovation in my work.",
     roleAndResponsibilities: "Fullstack developer",
     technologiesUsed: {
       languages: ["Typescript"],
-      frameworks: ["React", "Next.js", "Node.js", "NestJS"],
-      tools: ["Git", "Docker", "SonarQube"],
+      frameworks: ["React", "Node.js", "Next.js", "NestJS"],
+      tools: ["Git", "Docker", "SonarQube", "AWS"],
       databases: ["MongoDB", "PostgreSQL"],
       architectures: ["Microservices", "Micro-frontend", "MVC", "MVVM", "CQRS"],
     },
-    keyAchievements: [
-      "Self-learning of new relevant web development technologies, frameworks, and languages.",
-      "Attentive monitoring of web development trends and evolutions to stay up-to-date with the latest technological advances.",
-      "Working on personal concepts and projects to put acquired knowledge into practice, even if not all projects have been successful.",
-    ],
-    personalExperience: [
-      "Solid understanding of the latest web technologies",
-      "Ability to learn autonomously and adapt quickly to new trends",
-    ],
   },
   {
     id: "experience-2",

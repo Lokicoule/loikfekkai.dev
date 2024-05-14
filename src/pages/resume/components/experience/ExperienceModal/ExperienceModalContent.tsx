@@ -20,11 +20,12 @@ const DisclosureSection = ({
   icon: React.ReactNode;
   title: string;
   content: React.ReactNode;
-}) => (
-  <Disclosure icon={icon} title={title} defaultOpen>
-    <div className="dark:text-white text-sm text-justify">{content}</div>
-  </Disclosure>
-);
+}) =>
+  content && (
+    <Disclosure icon={icon} title={title} defaultOpen>
+      <div className="dark:text-white text-sm text-justify">{content}</div>
+    </Disclosure>
+  );
 
 const ExperienceModalContent: React.FC<ExperienceModalContentProps> = ({
   experience,
