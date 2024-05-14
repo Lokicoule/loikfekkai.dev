@@ -44,6 +44,7 @@ const HeroView: HeroViewComponent = ({ presenter }) => {
         alt="avatar"
         title="avatar"
         loading="lazy"
+        onContextMenu={(e) => e.preventDefault()}
       />
       <div className="pt-[100px] pb-8">
         <h1 className="mt-6 mb-1 text-5xl text-primary font-primary uppercase">
