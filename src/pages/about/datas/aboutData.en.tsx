@@ -36,7 +36,7 @@ export const aboutDataEn: AboutViewModelProps = {
       <>
         When I'm not in front of a computer, you'll find me on the waves in
         Mimizan, a small coastal town near Bordeaux. Surfing and coding are the
-        perfect balance for me, providing essential life equilibrium.
+        perfect balance for me, providing essential life balance.
         <br />
         As a remote developer, I harmonize these two passions to foster personal
         growth while bringing renewed energy and total commitment to your
