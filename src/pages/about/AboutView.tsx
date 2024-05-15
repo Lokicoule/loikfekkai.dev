@@ -34,7 +34,7 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
           <h2 className="text-[25px] text-secondary font-medium pb-5 font-primary">
             {viewModel.whoAmI.title}
           </h2>
-          <p className="text-md leading-8 mb-6 text-tertiary text-justify">
+          <p className="text-md leading-8 mb-6 text-tertiary text-justify rounded-2xl bg-primary p-5 lg:p-0 lg:bg-transparent">
             {viewModel.whoAmI.description}
           </p>
         </div>
@@ -47,7 +47,7 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
           {viewModel.whatDoIOffer.description.map((item, index) => (
             <p
               key={index}
-              className="text-md leading-8 mb-6 text-tertiary text-justify"
+              className="text-md leading-8 mb-6 text-tertiary text-justify rounded-2xl bg-primary p-5 lg:p-0 lg:bg-transparent"
             >
               <strong>{item.title}</strong> {item.description}
             </p>
@@ -59,7 +59,7 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
           <h2 className="text-[25px] text-secondary font-medium pb-5 font-primary">
             {viewModel.whatKindOfProjects.title}
           </h2>
-          <p className="text-md leading-8 mb-6 text-tertiary text-justify">
+          <p className="text-md leading-8 mb-6 text-tertiary text-justify rounded-2xl bg-primary p-5 lg:p-0 lg:bg-transparent">
             {viewModel.whatKindOfProjects.description}
           </p>
         </div>
@@ -69,7 +69,7 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
           <h2 className="text-[25px] text-secondary font-medium pb-5 font-primary">
             {viewModel.livingTheDream.title}
           </h2>
-          <p className="text-md leading-8 mb-6 text-tertiary text-justify">
+          <p className="text-md leading-8 mb-6 text-tertiary text-justify rounded-2xl bg-primary p-5 lg:p-0 lg:bg-transparent">
             {viewModel.livingTheDream.description}
           </p>
         </div>
