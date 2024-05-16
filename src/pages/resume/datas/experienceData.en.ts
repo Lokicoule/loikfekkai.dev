@@ -13,7 +13,7 @@ export const experienceData: ExperienceProps[] = [
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["React", "Node.js", "Next.js", "NestJS"],
-      tools: ["Git", "Docker", "SonarQube", "AWS"],
+      tools: ["Git", "Docker", "SonarQube", "AWS", "Redis"],
       databases: ["MongoDB", "PostgreSQL"],
       architectures: ["Microservices", "Micro-frontend", "MVC", "MVVM", "CQRS"],
     },
@@ -83,7 +83,7 @@ export const experienceData: ExperienceProps[] = [
       languages: ["Java", "Javascript"],
       frameworks: ["Spring", "Hibernate", "Struts"],
       libraries: ["AspectJ", "JasperReports"],
-      tools: ["Jenkins", "Maven", "Git", "Jira"],
+      tools: ["Jenkins", "Maven", "Git", "Jira", "Redis"],
       architectures: ["Layered Architecture", "monolithic"],
     },
     keyAchievements: [
