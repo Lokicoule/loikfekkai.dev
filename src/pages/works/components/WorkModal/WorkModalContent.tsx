@@ -59,6 +59,20 @@ const WorkModalContent: WorkModalContentComponent = ({ work }) => {
             </ul>
           </Disclosure>
         ) : null}
+
+        {work.link ? (
+          <Disclosure
+            icon={<FiBriefcase className="text-lg mr-2 inline-block" />}
+            title={translatingService.translate("works.preview")}
+            defaultOpen
+          >
+            <iframe
+              src={work.link}
+              className="w-full h-[500px] md:h-[500px] lg:h-[700px] xl:h-[800px] 2xl:h-[900px] border-none"
+              title={work.name}
+            />
+          </Disclosure>
+        ) : null}
       </div>
     </Modal.Content>
   );

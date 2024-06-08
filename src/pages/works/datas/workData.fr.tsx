@@ -102,6 +102,7 @@ export const workData: WorkProps[] = [
     id: "work-3",
     name: "Pathfinding Viewer",
     category: "frontend",
+    link: "https://pathfinding-viewer.vercel.app/",
     socialLinks: [
       {
         icon: <FaLink />,

@@ -15,6 +15,7 @@ export interface WorkProps {
   tag: string;
   description: string;
   logo?: JSX.Element;
+  link?: string;
   technologiesUsed: StackProps;
   keyFeatures?: KeyFeaturesProps[];
   socialLinks: SocialLinkProps[];

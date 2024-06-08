@@ -122,6 +122,7 @@ export const workData: WorkProps[] = [
       libraries: ["React", "TailwindCSS"],
       tools: ["Vite"],
     },
+    link: "https://pathfinding-viewer.vercel.app/",
     keyFeatures: [
       {
         id: "key-features-1",
