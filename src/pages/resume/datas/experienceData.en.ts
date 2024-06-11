@@ -9,7 +9,7 @@ export const experienceData: ExperienceProps[] = [
     place: "Remote",
     description:
       "As a freelance developer, I had the unique opportunity to dedicate a large part of my time to refining my coding style and deepening my skills in software architecture. This period of independence allowed me to focus on technical excellence, resulting in highly optimized and performant software solutions. My projects, visible on my GitHub profile, testify to this constant quest for improvement and innovation in my work.",
-    roleAndResponsibilities: "Fullstack developer",
+    roleAndResponsibilities: "Full-stack developer",
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["React", "Node.js", "Next.js", "NestJS"],
@@ -112,10 +112,10 @@ export const experienceData: ExperienceProps[] = [
     },
     name: "FalconTab",
     description:
-      "Fullstack developer for the Falcontab project as part of a fixed-price project.\n\nFalcontab is a dematerialization solution for maintenance management for Dassault Aviation's Falcon aircraft (civil branch). The objective was to reduce paper consumption, simplify maintenance tasks and technical documents management, while promoting the transition to all-digital.",
+      "Full-stack developer for the Falcontab project as part of a fixed-price project.\n\nFalcontab is a dematerialization solution for maintenance management for Dassault Aviation's Falcon aircraft (civil branch). The objective was to reduce paper consumption, simplify maintenance tasks and technical documents management, while promoting the transition to all-digital.",
     duration: "2015 - 2017",
     place: "Aix-en-Provence, France (13)",
-    roleAndResponsibilities: "Fullstack developer (internship)",
+    roleAndResponsibilities: "Full-stack developer (internship)",
     technologiesUsed: {
       languages: ["Java", "C#", "Typescript"],
       libraries: ["Aspose"],

@@ -1,8 +1,8 @@
 {
   "about": {
     "description": {
-      "content": "Hi! I'm Loïk, a passionate <span class='gradient-underline-animation'>fullstack software engineer</span> with a keen interest in technology and the environment. Throughout my career, my commitment to environmental causes has guided my project choices, with significant experience in projects focused on dematerialization. I have a particular interest in blockchain and the opportunities for freedom and transparency it offers.<br /><br />Naturally, I'm looking for an opportunity in a company focused on <span class='gradient-underline-animation'>innovation</span> and <span class='gradient-underline-animation'>collaboration</span> that shares my environmental values and interest in decentralization.",
-      "meta": "Discover who I am, my background, and my values as a fullstack software engineer."
+      "content": "Hi! I'm Loïk, a passionate <span class='gradient-underline-animation'>full-stack software engineer</span> with a keen interest in technology and the environment. Throughout my career, my commitment to environmental causes has guided my project choices, with significant experience in projects focused on dematerialization. I have a particular interest in blockchain and the opportunities for freedom and transparency it offers.<br /><br />Naturally, I'm looking for an opportunity in a company focused on <span class='gradient-underline-animation'>innovation</span> and <span class='gradient-underline-animation'>collaboration</span> that shares my environmental values and interest in decentralization.",
+      "meta": "Discover who I am, my background, and my values as a full-stack software engineer."
     },
     "services": "My Services",
     "title": "About"
@@ -28,7 +28,7 @@
   "duration": "Duration",
   "hero": {
     "downloadResume": "Download resume",
-    "jobTitle": "Fullstack Software Engineer"
+    "jobTitle": "Full-Stack Software Engineer"
   },
   "name": "Name",
   "notFound": {
@@ -43,7 +43,7 @@
   "project": "Project",
   "resume": {
     "description": {
-      "meta": "Discover my resume, experiences, and skills as a fullstack software engineer."
+      "meta": "Discover my resume, experiences, and skills as a full-stack software engineer."
     },
     "education": {
       "title": "Education"

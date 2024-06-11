@@ -1,8 +1,8 @@
 {
   "about": {
     "description": {
-      "content": "Salut ! Je suis Loïk, un  <span class='gradient-underline-animation'>ingénieur logiciel fullstack</span> passionné par la technologie et l'environnement. Depuis le début de ma carrière, mon engagement pour la cause environnementale a guidé mes choix de projets, avec une expérience significative dans des projets axés sur la dématérialisation. J'ai un attrait tout particulier pour la blockchain et les opportunités de liberté et de transparence que celle-ci offre.<br /><br />C'est tout naturellement que je recherche une opportunité dans une entreprise axée sur l'<span class='gradient-underline-animation'>innovation</span> et la  <span class='gradient-underline-animation'>collaboration</span> et qui partage mes valeurs environnementales et mon intérêt pour la décentralisation.",
-      "meta": "Découvrez qui je suis, mon parcours et mes valeurs en tant qu'ingénieur logiciel fullstack."
+      "content": "Salut ! Je suis Loïk, un  <span class='gradient-underline-animation'>ingénieur logiciel full-stack</span> passionné par la technologie et l'environnement. Depuis le début de ma carrière, mon engagement pour la cause environnementale a guidé mes choix de projets, avec une expérience significative dans des projets axés sur la dématérialisation. J'ai un attrait tout particulier pour la blockchain et les opportunités de liberté et de transparence que celle-ci offre.<br /><br />C'est tout naturellement que je recherche une opportunité dans une entreprise axée sur l'<span class='gradient-underline-animation'>innovation</span> et la  <span class='gradient-underline-animation'>collaboration</span> et qui partage mes valeurs environnementales et mon intérêt pour la décentralisation.",
+      "meta": "Découvrez qui je suis, mon parcours et mes valeurs en tant qu'ingénieur logiciel full-stack."
     },
     "services": "Mes services",
     "title": "À propos"
@@ -28,7 +28,7 @@
   "duration": "Durée",
   "hero": {
     "downloadResume": "Télécharger mon CV",
-    "jobTitle": "Ingénieur Logiciel Fullstack"
+    "jobTitle": "Ingénieur Logiciel Full-Stack"
   },
   "name": "Nom",
   "notFound": {
@@ -43,7 +43,7 @@
   "project": "Projet",
   "resume": {
     "description": {
-      "meta": "Découvrez mon CV, mes expériences et mes compétences en tant qu'ingénieur logiciel fullstack."
+      "meta": "Découvrez mon CV, mes expériences et mes compétences en tant qu'ingénieur logiciel full-stack."
     },
     "education": {
       "title": "Formation"

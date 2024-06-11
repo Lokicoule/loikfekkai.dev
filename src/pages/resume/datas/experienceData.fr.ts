@@ -9,7 +9,7 @@ export const experienceData: ExperienceProps[] = [
     place: "Remote",
     description:
       "En tant que développeur freelance, j'ai eu l'opportunité unique de consacrer une grande partie de mon temps à peaufiner mon style (de code) et à approfondir mes compétences en architecture logicielle. Cette période d'indépendance m'a permis de me concentrer sur l'excellence technique, résultant en des solutions logicielles hautement optimisées et performantes. Mes projets, visibles sur mon profil GitHub, témoignent de cette quête constante de perfectionnement et d'innovation dans mon travail.",
-    roleAndResponsibilities: "Développeur fullstack",
+    roleAndResponsibilities: "Développeur full-stack",
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["React", "Node.js", "Next.js", "NestJS"],
@@ -112,10 +112,10 @@ export const experienceData: ExperienceProps[] = [
     },
     name: "FalconTab",
     description:
-      "Développeur fullstack en alternance pour le projet Falcontab dans le cadre d'un projet au forfait.\n\nFalcontab est une solution de dématérialisation de la gestion de la maintenance pour les avions Falcon de Dassault Aviation (branche civile). L'objectif était de réduire la consommation de papier, simplifier la gestion des tâches de maintenance et des documents techniques, tout en favorisant la transition vers le tout numérique.",
+      "Développeur full-stack en alternance pour le projet Falcontab dans le cadre d'un projet au forfait.\n\nFalcontab est une solution de dématérialisation de la gestion de la maintenance pour les avions Falcon de Dassault Aviation (branche civile). L'objectif était de réduire la consommation de papier, simplifier la gestion des tâches de maintenance et des documents techniques, tout en favorisant la transition vers le tout numérique.",
     duration: "2015 - 2017",
     place: "Aix-en-Provence, France (13)",
-    roleAndResponsibilities: "Développeur fullstack (alternance)",
+    roleAndResponsibilities: "Développeur full-stack (alternance)",
     technologiesUsed: {
       languages: ["Java", "C#", "Typescript"],
       libraries: ["Aspose"],

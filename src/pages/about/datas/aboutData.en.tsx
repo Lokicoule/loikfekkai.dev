@@ -4,7 +4,7 @@ export const aboutDataEn: AboutViewModelProps = {
   whoAmI: {
     title: "Who am I?",
     description:
-      "I am a fullstack developer passionate about software design and concerned about the future of our planet. In the early years of my career, I honed my skills at Atos, primarily working with a Java, Spring, and Angular stack. I had the privilege of contributing to several projects for the Ministry of Ecology, an experience that reinforced my desire to use technology for a positive environmental impact. For the past three years, I have turned to more modern technologies, exploring TypeScript, NodeJS, and React in depth. My goal? To get back to basics by simplifying what can be simplified.",
+      "I am a full-stack developer passionate about software design and concerned about the future of our planet. In the early years of my career, I honed my skills at Atos, primarily working with a Java, Spring, and Angular stack. I had the privilege of contributing to several projects for the Ministry of Ecology, an experience that reinforced my desire to use technology for a positive environmental impact. For the past three years, I have turned to more modern technologies, exploring TypeScript, NodeJS, and React in depth. My goal? To get back to basics by simplifying what can be simplified.",
   },
   whatDoIOffer: {
     title: "What do I offer?",

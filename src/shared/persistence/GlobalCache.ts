@@ -1,11 +1,5 @@
 export type Language = "en" | "fr";
-export type WorkFilter =
-  | "all"
-  | "backend"
-  | "frontend"
-  | "fullstack"
-  | "other"
-  | "tools";
+export type WorkFilter = "all" | "backend" | "frontend" | "tools";
 
 type GlobalState = {
   lang: Language;
