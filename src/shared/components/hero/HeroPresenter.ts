@@ -1,4 +1,7 @@
-import { GlobalCache } from "../../../shared/persistence/GlobalCache";
+import {
+  GlobalCache,
+  type Language,
+} from "../../../shared/persistence/GlobalCache";
 import { Presenter } from "../../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../../shared/presentation/SubscriptionManager";
 import { TranslatingService } from "../../services/translating/translatingService";
@@ -45,5 +48,9 @@ export class HeroPresenter extends Presenter<HeroViewModel> {
 
   public translateAndSanitize(key: string): string {
     return this.translatingService.translateAndSanitize(key);
+  }
+
+  public getLang(): Language {
+    return this.subscriptionManager.getValue() as Language;
   }
 }

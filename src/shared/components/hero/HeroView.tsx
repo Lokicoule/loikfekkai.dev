@@ -62,14 +62,16 @@ const HeroView: HeroViewComponent = ({ presenter }) => {
           <HeroContactInfo infos={viewModel.infos} />
         </div>
 
-        <a
-          href={resume}
-          download
-          className="inline-flex items-center mx-auto bg-sky-to-blue duration-200 transition ease-linear px-8 py-3 text-lg text-white rounded-[35px] mt-6 hover:brightness-125"
-        >
-          <FaDownload className="mr-2" />
-          {presenter.translateAndSanitize("hero.downloadResume")}
-        </a>
+        {presenter.getLang() === "fr" && (
+          <a
+            href={resume}
+            download
+            className="inline-flex items-center mx-auto bg-sky-to-blue duration-200 transition ease-linear px-8 py-3 text-lg text-white rounded-[35px] mt-6 hover:brightness-125"
+          >
+            <FaDownload className="mr-2" />
+            {presenter.translateAndSanitize("hero.downloadResume")}
+          </a>
+        )}
       </div>
     </div>
   );
