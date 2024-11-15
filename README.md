@@ -1,27 +1,128 @@
-# React + TypeScript + Vite
+# Portfolio Website - [loikfekkai.dev](https://loikfekkai.dev)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Project Status: Active](https://img.shields.io/badge/Project_Status-Active-green)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0.2-blue)
+![React](https://img.shields.io/badge/React-18.2-blue)
 
-Currently, two official plugins are available:
+An internationalized portfolio website built with React, showcasing professional experience and projects using a clean architecture pattern.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 🌍 Internationalization (English/French)
+- 📱 Fully responsive layout
+- ⚡ Optimized performance
+- 🧩 Modular architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+- **React** - Frontend library for building user interfaces
+- **Vite** - Next generation frontend tooling
+- **Tailwind CSS** - Utility-first CSS framework
+- **HeadlessUI** - Unstyled, accessible UI components
+- **React Router** - Client-side routing
+- **TypeScript** - Static typing for enhanced development experience
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## Project Overview
+
+This project demonstrates how to build a scalable React application using clean architecture principles. Instead of placing all logic within components or relying solely on state management libraries, it utilizes a thoughtful approach with clear boundaries between different parts of the application.
+
+By implementing the MVP (Model-View-Presenter) pattern along with controllers, the project achieves a separation of concerns, making the codebase more maintainable, testable, and scalable.
+
+### The Big Picture
+
+```
+Frontend (React + Vite)
+   │
+   ├── Views (React Components)
+   │      Pure presentation, no business logic
+   │
+   ├── Controllers
+   │      Handle user interactions and coordinate services
+   │
+   ├── Presenters
+   │      Manage view state and presentation logic
+   │
+   ├── ViewModels
+   │      Immutable data structures for views
+   │
+   ├── Services
+   │      Core business logic and external integrations
+   │
+   └── Domain Objects
+         The building blocks of my business logic
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Architecture
+
+The project follows a clean architecture pattern with clear separation of concerns, implementing the MVP (Model-View-Presenter) pattern with additional controllers for complex interactions.
+
+### Core Architectural Components
+
+#### 1. Presentation Layer
+
+- **View (React Components)**
+  - Purely presentational components
+  - Receive data through props
+  - Emit user actions to presenters/controllers
+- **Presenter**
+
+  - Manages view state through ViewModels
+  - Handles business logic
+  - Communicates with services
+
+#### 2. Domain Layer
+
+- **Services**
+
+  - Handle core business logic
+  - Provide interfaces for data operations
+  - Examples: `TranslatingService`, `MailingService`, `NotificationsService`
+
+- **Controllers**
+  - Handle complex user interactions
+  - Coordinate between multiple services
+  - Example: `LangController` for language switching
+
+#### 3. Data Layer
+
+- **Cache**
+  - Manages application state
+  - Provides subscription mechanism
+  - Example: `GlobalCache` for language preferences
+
+## Getting Started
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/Lokicoule/loikfekkai.dev.git
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Start the development server
+
+```bash
+npm run dev
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Prior art and inspirations
+
+- [DDD Forum](https://github.com/stemmlerjs/dddforumv2)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
