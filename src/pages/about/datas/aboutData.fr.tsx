@@ -4,45 +4,45 @@ export const aboutDataFr: AboutViewModelProps = {
   whoAmI: {
     title: "Qui suis-je ?",
     description:
-      "Je suis un développeur full-stack passionné par la conception logicielle et soucieux de l'avenir de notre planète. Au cours des premières années de ma carrière, j'ai perfectionné mes compétences chez Atos en travaillant principalement sur une stack Java, Spring et Angular. J'ai eu le privilège de participer au développement de plusieurs projets pour le Ministère de l'Écologie, une expérience qui a renforcé mon désir d'utiliser la technologie pour un impact environnemental positif. Depuis trois ans, je me suis tourné vers des technologies plus modernes, explorant en profondeur TypeScript, NodeJS et React. Mon objectif ? Revenir à l'essentiel en simplifiant ce qui peut l'être.",
+      "Développeur senior full-stack passionné par l'innovation technologique et la transformation digitale. Avec plus de 8 ans d'expérience, j'ai construit mon parcours autour de la création de solutions logicielles intelligentes et performantes. " +
+      "Mon parcours m'a conduit de grands groupes comme Atos à l'entrepreneuriat, en passant par des projets de transformation digitale innovants. J'ai développé une expertise solide dans les écosystèmes Node.js, TypeScript et React, toujours animé par la volonté de simplifier et d'optimiser les systèmes informatiques.",
   },
   whatDoIOffer: {
-    title: "Que puis-je vous offrir ?",
+    title: "Mes compétences",
     description: [
       {
         title: "Une expertise en conception logicielle :",
         description:
-          "J'adore écrire du code facile à lire, à maintenir, à tester et à faire évoluer.",
+          "Je prends soin de développer un code clair, maintenable, testable et évolutif. Chaque ligne de code est pensée pour sa lisibilité et sa performance.",
       },
       {
         title: "De la polyvalence :",
         description:
-          "Je suis à l'aise aussi bien en front-end qu'en back-end et j'adore TypeScript.",
+          "Également à l'aise en front-end et back-end, je trouve mon équilibre avec TypeScript comme langage de prédilection.",
       },
       {
         title: "Une capacité à résoudre les problèmes :",
         description:
-          "J'adore décomposer les problématiques complexes pour les rendre plus simples à appréhender et à résoudre.",
+          "J'excelle dans la transformation digitale, la conception de microservices et l'optimisation des processus. Mon approche repose sur une analyse approfondie et des solutions pragmatiques qui génèrent une réelle valeur ajoutée.",
       },
     ],
   },
   whatKindOfProjects: {
-    title: "Quels types de projets m'intéressent ?",
+    title: "Projets et motivations",
     description:
-      "Je suis motivé par les projets qui me permettent de mettre mes compétences en conception logicielle et en développement au service de solutions innovantes et durables. Et si ces projets impliquent des technologies comme NestJS (ou AdonisJS) et React, c'est encore mieux !",
+      "Je suis attiré comme un développeur vers un bon café par les projets innovants et durables. Mon objectif : mettre mes compétences au service de solutions qui ont du sens.",
   },
   livingTheDream: {
-    title: "Living the Dream (Remotely!)",
+    title: "Équilibre professionnel",
     description: (
       <>
-        Quand je ne suis pas devant mon écran, vous me trouverez sur les vagues
-        de Mimizan, petite ville côtière près de Bordeaux. Le surf et le code
-        sont pour moi une combinaison parfaite, qui m’offre un équilibre de vie
-        essentiel.
+        Basé à Mimizan, près de Bordeaux, je travaille à distance avec une
+        approche flexible et dynamique. Le surf, ma passion parallèle, me permet
+        de maintenir un équilibre qui se reflète dans ma créativité et mon
+        engagement professionnel.
         <br />
-        En tant que développeur à distance, j’harmonise ces deux passions pour
-        favoriser mon épanouissement personnel tout en apportant une énergie
-        renouvelée et un engagement total à vos projets, où que je sois.
+        Mon objectif est simple : apporter une valeur ajoutée à chaque projet,
+        avec rigueur, innovation et une vision à long terme.
       </>
     ),
   },
