@@ -1,8 +1,8 @@
+import { GlobalCache } from "../../shared/persistence/GlobalCache";
 import {
   Notification,
   NotificationService,
 } from "../../shared/services/notifications";
-import { GlobalCache } from "../../shared/persistence/GlobalCache";
 
 enum WorkFilter {
   All = "all",

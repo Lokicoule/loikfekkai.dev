@@ -1,5 +1,5 @@
+import { FaGithub, FaLink, FaNpm } from "react-icons/fa";
 import { WorkProps } from "../WorksViewModel";
-import { FaGithub, FaNpm, FaLink } from "react-icons/fa";
 
 export const workData: WorkProps[] = [
   {
@@ -100,47 +100,66 @@ export const workData: WorkProps[] = [
   },
   {
     id: "work-3",
-    name: "Pathfinding Viewer",
-    category: "frontend",
-    link: "https://pathfinding-viewer.vercel.app/",
+    name: "@lokiverse/emitter",
+    category: "tools",
     socialLinks: [
-      {
-        icon: <FaLink />,
-        iconClassName: "text-[#0072b1] bg-secondary text-xl",
-        href: "https://pathfinding-viewer.vercel.app/",
-      },
       {
         icon: <FaGithub />,
         iconClassName: "text-[#0072b1] bg-secondary text-xl",
-        href: "https://www.github.com/lokicoule/pathfinding-viewer",
+        href: "https://github.com/lokicoule-stack/emitter",
+      },
+      {
+        icon: <FaNpm />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://www.npmjs.com/package/@lokiverse/emitter",
       },
     ],
-    tag: "Personal",
+    tag: "Open Source",
     description:
-      "Pathfinding Viewer est une application web qui permet de visualiser les algorithmes de génération de labyrinthes et de recherche de chemins. Cette application a été créée pour explorer les algorithmes de recherche de chemin et de génération de labyrinthes.",
+      "Un émetteur d'événements TypeScript-first qui exploite des modèles de composition avancés et une architecture basée sur des proxies. Conçu pour les développeurs qui valorisent la typesafety, une architecture propre, et qui ne veulent pas remettre en question leurs choix de vie lors de la gestion des événements.",
     technologiesUsed: {
-      languages: ["Typescript"],
-      libraries: ["React", "TailwindCSS"],
-      tools: ["Vite"],
+      languages: ["TypeScript"],
+      runtimes: ["NodeJS", "Browser"],
+      tools: ["GitHub Actions", "Vitest", "Codecov"],
+      architectures: ["Composition-based", "Proxy Pattern", "Event-Driven"],
     },
     keyFeatures: [
       {
-        id: "key-features-1",
-        key: "Algorithmes de génération de labyrinthes:",
+        id: "emitter-features-1",
+        key: "Advanced Composition Patterns",
         features: [
-          "Recursive Division",
-          "Recursive Backtracking",
-          "Prim's Algorithm",
+          "Architecture émergente grâce à une composition stratégique",
+          "Implémentation basée sur des proxies pour un design API élégant",
         ],
       },
       {
-        id: "key-features-2",
-        key: "Algorithmes de recherche de chemin:",
+        id: "emitter-features-2",
+        key: "True Typesafety",
         features: [
-          "Dijkstra",
-          "A*",
-          "Breadth-first search",
-          "Depth-first search",
+          "Conception TypeScript-first - parce que 'any' c'est admettre la défaite",
+          "Compatible avec les IDE avec inférence complète des types",
+          "Vérification des types d'événements à la compilation",
+          "Validation des charges utiles d'événements sécurisée par le type",
+        ],
+      },
+      {
+        id: "emitter-features-3",
+        key: "Advanced Namespacing",
+        features: [
+          "Vrai nommage, pas seulement des préfixes de chaîne",
+          "Isolation des espaces de noms par composition",
+          "API fluente pour la gestion des espaces de noms",
+          "Séparation claire des préoccupations via les espaces de noms",
+        ],
+      },
+      {
+        id: "emitter-features-4",
+        key: "Sophisticated Event Handling",
+        features: [
+          "Écouteurs globaux sans la complexité des expressions régulières",
+          "Abonnements d'événements one-time",
+          "Correspondance de motifs d'événements avec '*' et des génériques hiérarchiques",
+          "API chaînable pour la gestion des événements",
         ],
       },
     ],
@@ -183,6 +202,53 @@ Lors du développement de Commitizard, j'ai préalablement utilisé la biblioth�
         id: "key-features-2",
         key: "Compatibilité avec les systèmes de modules JavaScript",
         features: ["CommonJS", "ECMAScript Modules (ESM)"],
+      },
+    ],
+  },
+  {
+    id: "work-5",
+    name: "Pathfinding Viewer",
+    category: "frontend",
+    link: "https://pathfinding-viewer.vercel.app/",
+    socialLinks: [
+      {
+        icon: <FaLink />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://pathfinding-viewer.vercel.app/",
+      },
+      {
+        icon: <FaGithub />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://www.github.com/lokicoule/pathfinding-viewer",
+      },
+    ],
+    tag: "Personal",
+    description:
+      "Pathfinding Viewer est une application web qui permet de visualiser les algorithmes de génération de labyrinthes et de recherche de chemins. Cette application a été créée pour explorer les algorithmes de recherche de chemin et de génération de labyrinthes.",
+    technologiesUsed: {
+      languages: ["Typescript"],
+      libraries: ["React", "TailwindCSS"],
+      tools: ["Vite"],
+    },
+    keyFeatures: [
+      {
+        id: "key-features-1",
+        key: "Algorithmes de génération de labyrinthes:",
+        features: [
+          "Recursive Division",
+          "Recursive Backtracking",
+          "Prim's Algorithm",
+        ],
+      },
+      {
+        id: "key-features-2",
+        key: "Algorithmes de recherche de chemin:",
+        features: [
+          "Dijkstra",
+          "A*",
+          "Breadth-first search",
+          "Depth-first search",
+        ],
       },
     ],
   },

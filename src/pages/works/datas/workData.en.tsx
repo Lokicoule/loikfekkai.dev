@@ -1,5 +1,5 @@
+import { FaGithub, FaLink, FaNpm } from "react-icons/fa";
 import { WorkProps } from "../WorksViewModel";
-import { FaGithub, FaNpm, FaLink } from "react-icons/fa";
 
 export const workData: WorkProps[] = [
   {
@@ -100,6 +100,112 @@ export const workData: WorkProps[] = [
   },
   {
     id: "work-3",
+    name: "@lokiverse/emitter",
+    category: "tools",
+    socialLinks: [
+      {
+        icon: <FaGithub />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://github.com/lokicoule-stack/emitter",
+      },
+      {
+        icon: <FaNpm />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://www.npmjs.com/package/@lokiverse/emitter",
+      },
+    ],
+    tag: "Open Source",
+    description:
+      "A TypeScript-first event emitter that leverages advanced composition patterns and proxy-based architecture. Built for developers who value type safety, clean architecture, and don't want to question their life choices when handling events.",
+    technologiesUsed: {
+      languages: ["TypeScript"],
+      runtimes: ["NodeJS", "Browser"],
+      tools: ["GitHub Actions", "Vitest", "Codecov"],
+      architectures: ["Composition-based", "Proxy Pattern", "Event-Driven"],
+    },
+    keyFeatures: [
+      {
+        id: "emitter-features-1",
+        key: "Advanced Composition Patterns",
+        features: [
+          "Emergent architecture through strategic composition",
+          "Proxy-based implementation for elegant API design",
+        ],
+      },
+      {
+        id: "emitter-features-2",
+        key: "True Type Safety",
+        features: [
+          "TypeScript-first design - because 'any' is admitting defeat",
+          "IDE-friendly with full type inference",
+          "Compile-time event type checking",
+          "Type-safe event payload validation",
+        ],
+      },
+      {
+        id: "emitter-features-3",
+        key: "Advanced Namespacing",
+        features: [
+          "Real namespacing, not just string prefixes",
+          "Namespace isolation through composition",
+          "Fluent API for namespace management",
+          "Clean separation of concerns through namespaces",
+        ],
+      },
+      {
+        id: "emitter-features-4",
+        key: "Sophisticated Event Handling",
+        features: [
+          "Wildcard listeners without the RegEx complexity",
+          "One-time event subscriptions",
+          "Event pattern matching with '*' and hierarchical wildcards",
+          "Chainable API for event management",
+        ],
+      },
+    ],
+  },
+  {
+    id: "work-4",
+    name: "Commandzen",
+    category: "tools",
+    socialLinks: [
+      {
+        icon: <FaNpm />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://www.npmjs.com/package/commandzen",
+      },
+      {
+        icon: <FaGithub />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://www.github.com/lokicoule/commandzen",
+      },
+    ],
+    tag: "Open Source",
+    description: `Create sleek, efficient command-line interface applications using Commandzen, a TypeScript-based library designed for simplicity and effectiveness.`,
+    technologiesUsed: {
+      languages: ["Typescript"],
+      frameworks: ["NodeJS"],
+      tools: ["GitHub Actions"],
+    },
+    keyFeatures: [
+      {
+        id: "key-features-1",
+        key: "Simple and intuitive API for creating CLI applications",
+        features: [
+          "Supports commands, subcommands, and options",
+          "Supports command aliases",
+          "Automatic generation of help for commands and subcommands",
+        ],
+      },
+      {
+        id: "key-features-2",
+        key: "Compatibility with JavaScript module systems",
+        features: ["CommonJS", "ECMAScript Modules (ESM)"],
+      },
+    ],
+  },
+  {
+    id: "work-5",
     name: "Pathfinding Viewer",
     category: "frontend",
     socialLinks: [
@@ -142,46 +248,6 @@ export const workData: WorkProps[] = [
           "Breadth-first search",
           "Depth-first search",
         ],
-      },
-    ],
-  },
-  {
-    id: "work-4",
-    name: "Commandzen",
-    category: "tools",
-    socialLinks: [
-      {
-        icon: <FaNpm />,
-        iconClassName: "text-[#0072b1] bg-secondary text-xl",
-        href: "https://www.npmjs.com/package/commandzen",
-      },
-      {
-        icon: <FaGithub />,
-        iconClassName: "text-[#0072b1] bg-secondary text-xl",
-        href: "https://www.github.com/lokicoule/commandzen",
-      },
-    ],
-    tag: "Open Source",
-    description: `Create sleek, efficient command-line interface applications using Commandzen, a TypeScript-based library designed for simplicity and effectiveness.`,
-    technologiesUsed: {
-      languages: ["Typescript"],
-      frameworks: ["NodeJS"],
-      tools: ["GitHub Actions"],
-    },
-    keyFeatures: [
-      {
-        id: "key-features-1",
-        key: "Simple and intuitive API for creating CLI applications",
-        features: [
-          "Supports commands, subcommands, and options",
-          "Supports command aliases",
-          "Automatic generation of help for commands and subcommands",
-        ],
-      },
-      {
-        id: "key-features-2",
-        key: "Compatibility with JavaScript module systems",
-        features: ["CommonJS", "ECMAScript Modules (ESM)"],
       },
     ],
   },

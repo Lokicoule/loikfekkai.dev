@@ -5,6 +5,7 @@ import { Tag } from "./Tag";
 export interface StackProps {
   languages?: string[];
   frameworks?: string[];
+  runtimes?: string[];
   libraries?: string[];
   tools?: string[];
   shells?: string[];
@@ -21,6 +22,7 @@ type StackComponent = React.FC<StackProps>;
 const Stack: StackComponent = ({
   languages,
   frameworks,
+  runtimes,
   libraries,
   tools,
   architectures,
@@ -37,6 +39,11 @@ const Stack: StackComponent = ({
       title: "Frameworks",
       icon: <FiLayout className="inline-block mr-2" />,
       items: frameworks,
+    },
+    {
+      title: "Runtimes",
+      icon: <FiCode className="inline-block mr-2" />,
+      items: runtimes,
     },
     {
       title: "Libraries",

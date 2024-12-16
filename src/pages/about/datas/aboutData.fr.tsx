@@ -4,7 +4,7 @@ export const aboutDataFr: AboutViewModelProps = {
   whoAmI: {
     title: "Qui suis-je ?",
     description:
-      "Développeur senior full-stack passionné par l'innovation technologique et la transformation digitale. Avec plus de 8 ans d'expérience, j'ai construit mon parcours autour de la création de solutions logicielles intelligentes et performantes. " +
+      "Développeur full-stack passionné par l'innovation technologique et la transformation digitale. J'ai construit mon parcours autour de la création de solutions logicielles intelligentes et performantes. " +
       "Mon parcours m'a conduit de grands groupes comme Atos à l'entrepreneuriat, en passant par des projets de transformation digitale innovants. J'ai développé une expertise solide dans les écosystèmes Node.js, TypeScript et React, toujours animé par la volonté de simplifier et d'optimiser les systèmes informatiques.",
   },
   whatDoIOffer: {
