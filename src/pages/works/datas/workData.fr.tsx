@@ -116,7 +116,7 @@ export const workData: WorkProps[] = [
     ],
     tag: "Open Source",
     description:
-      "Un émetteur d'événements TypeScript-first qui exploite des modèles de composition avancés et une architecture basée sur des proxies. Conçu pour les développeurs qui valorisent la typesafety, une architecture propre, et qui ne veulent pas remettre en question leurs choix de vie lors de la gestion des événements.",
+      "Un émetteur d'événements TypeScript-first qui exploite des modèles de composition avancés et une architecture basée sur des proxies.",
     technologiesUsed: {
       languages: ["TypeScript"],
       runtimes: ["NodeJS", "Browser"],

@@ -10,14 +10,11 @@ export interface AboutViewModelProps {
       description: string;
     }>;
   };
-  whatKindOfProjects: {
-    title: string;
-    description: string;
-  };
   livingTheDream: {
     title: string;
     description: JSX.Element;
   };
+  outro?: JSX.Element;
 }
 
 export class AboutViewModel {
@@ -31,11 +28,11 @@ export class AboutViewModel {
     return this.props.whatDoIOffer;
   }
 
-  public get whatKindOfProjects() {
-    return this.props.whatKindOfProjects;
-  }
-
   public get livingTheDream() {
     return this.props.livingTheDream;
+  }
+
+  public get outro() {
+    return this.props.outro;
   }
 }

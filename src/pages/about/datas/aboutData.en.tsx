@@ -25,11 +25,6 @@ export const aboutDataEn: AboutViewModelProps = {
       },
     ],
   },
-  whatKindOfProjects: {
-    title: "What kind of projects am I interested in?",
-    description:
-      "I'm energized by projects that allow me to leverage my software design skills and full-stack capabilities to build innovative solutions. Bonus points if they involve modern technologies like NestJS (or AdonisJS) and React!",
-  },
   livingTheDream: {
     title: "Living the Dream (Remotely!)",
     description: (

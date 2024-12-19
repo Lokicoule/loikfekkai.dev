@@ -4,7 +4,7 @@ export const aboutDataFr: AboutViewModelProps = {
   whoAmI: {
     title: "Qui suis-je ?",
     description:
-      "Développeur full-stack passionné par l'innovation technologique et la transformation digitale. J'ai construit mon parcours autour de la création de solutions logicielles intelligentes et performantes. " +
+      "Développeur full-stack passionné par l'innovation technologique et la transformation digitale, j'ai construit mon parcours autour de la création de solutions logicielles intelligentes et performantes. " +
       "Mon parcours m'a conduit de grands groupes comme Atos à l'entrepreneuriat, en passant par des projets de transformation digitale innovants. J'ai développé une expertise solide dans les écosystèmes Node.js, TypeScript et React, toujours animé par la volonté de simplifier et d'optimiser les systèmes informatiques.",
   },
   whatDoIOffer: {
@@ -27,23 +27,25 @@ export const aboutDataFr: AboutViewModelProps = {
       },
     ],
   },
-  whatKindOfProjects: {
-    title: "Projets et motivations",
-    description:
-      "Je suis attiré comme un développeur vers un bon café par les projets innovants et durables. Mon objectif : mettre mes compétences au service de solutions qui ont du sens.",
-  },
   livingTheDream: {
     title: "Équilibre professionnel",
     description: (
       <>
-        Basé à Mimizan, près de Bordeaux, je travaille à distance avec une
-        approche flexible et dynamique. Le surf, ma passion parallèle, me permet
-        de maintenir un équilibre qui se reflète dans ma créativité et mon
-        engagement professionnel.
+        Quand je ne suis pas devant mon écran, vous me trouverez sur les vagues
+        de Mimizan, petite ville côtière près de Bordeaux. Le surf et le code
+        sont pour moi une combinaison parfaite, qui m’offre un équilibre de vie
+        essentiel.
         <br />
-        Mon objectif est simple : apporter une valeur ajoutée à chaque projet,
-        avec rigueur, innovation et une vision à long terme.
+        En tant que développeur à distance, j’harmonise ces deux passions pour
+        favoriser mon épanouissement personnel tout en apportant une énergie
+        renouvelée et un engagement total à vos projets, où que je sois.
       </>
     ),
   },
+  outro: (
+    <>
+      Mon objectif est simple : apporter une valeur ajoutée à chaque projet,
+      avec rigueur, innovation et une vision à long terme.
+    </>
+  ),
 };
