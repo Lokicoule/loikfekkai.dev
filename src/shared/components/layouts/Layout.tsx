@@ -24,19 +24,27 @@ const Layout: LayoutComponent = ({ children, lang, hero }) => {
   const hideHero = pathname !== "/" && pathname !== "/about";
 
   return (
-    <div className="dark:bg-gradient-to-t from-[#FCDAB7] via-[#1E5F74] via-[#133B5C] to-[#1D2D50] bg-no-repeat bg-fixed h-full">
+    <div className="min-h-screen bg-gradient-to-t from-[#FFEEBB] via-[#A7ECEE] via-[#99DBF5] to-[#9AC5F4] dark:from-[#FCDAB7] dark:via-[#1E5F74] dark:via-[#133B5C] dark:to-[#1D2D50] bg-no-repeat bg-fixed">
       <Header lang={lang} />
-      <main className="container grid grid-cols-12 md:gap-10 lg:mt-[120px] ">
-        <div
-          className={`col-span-12 lg:col-span-4 lg:h-screen lg:sticky top-44 p-4 ${
-            hideHero ? "hidden lg:block" : ""
-          }`}
-        >
-          <Hero presenter={hero.presenter} />
-        </div>
-        <div className="col-span-12 lg:col-span-8">
-          <DesktopMenu />
-          {children}
+
+      <main className="container mx-auto px-4 lg:px-8 lg:mt-[120px] relative">
+        <div className="grid grid-cols-12 gap-8 lg:gap-10">
+          <div
+            className={`col-span-12 lg:col-span-4 ${
+              hideHero ? "hidden lg:block" : ""
+            }`}
+          >
+            <div className="lg:sticky lg:top-44 transition-none">
+              <Hero presenter={hero.presenter} />
+            </div>
+          </div>
+
+          <div className="col-span-12 lg:col-span-8 min-h-[calc(100vh-180px)]">
+            <div className="space-y-6">
+              <DesktopMenu />
+              <div className="transition-opacity duration-200">{children}</div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
