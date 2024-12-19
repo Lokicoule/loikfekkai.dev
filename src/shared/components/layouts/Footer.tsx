@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="lg:rounded-2xl lg:bg-primary">
+    <footer className="w-full bg-transparent rounded-2xl">
       <p className="text-center py-6 text-secondary">
         © {new Date().getFullYear()} All Rights Reserved by{" "}
         <a

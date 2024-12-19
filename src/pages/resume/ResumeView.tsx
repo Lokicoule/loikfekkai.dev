@@ -48,7 +48,7 @@ const ResumeView: ResumeViewComponent = ({ presenter }) => {
         </div>
       </div>
 
-      <div className="container py-12 px-2 sm:px-5 md:px-10 lg:px-14 bg-secondary">
+      <div className="container py-12 px-2 sm:px-5 md:px-10 lg:px-14">
         <div className="grid grid-cols-1  md:grid-cols-2 gap-8">
           <div className="col-span-1">
             <div className="flex flex-col space-y-12">

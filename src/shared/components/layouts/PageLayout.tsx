@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
-import Footer from "./Footer";
 import Head, { HeadProps } from "../elements/Head";
+import Footer from "./Footer";
 
 interface PageLayoutProps extends React.PropsWithChildren {
   className?: string;
@@ -20,49 +20,55 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   className,
 }) => {
   return (
-    <div className={className}>
-      {head ? <Head {...head} /> : null}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key="content"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.1 }}
-        >
-          <motion.section
-            variants={containerVariants}
+    // Main container that takes full viewport height and uses flex column
+    <div className="min-h-screen flex flex-col">
+      {/* Content wrapper that will grow to fill available space */}
+      <div className={`flex-1 ${className}`}>
+        {head ? <Head {...head} /> : null}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key="content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.1 }}
           >
-            <h2 className="text-5xl font-primary text-primary relative inline-block pt-12 px-2 sm:px-5 md:px-10 lg:px-14 mb-12 md:mb-[30px]">
-              {title}
-            </h2>
-            <motion.div
+            <motion.section
               variants={containerVariants}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              {children}
-            </motion.div>
-          </motion.section>
-
-          <motion.div
-            key="footer"
-            variants={containerVariants}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, delay: 1 }}
-          >
-            <Footer />
+              <h2 className="text-5xl font-primary text-primary relative inline-block pt-12 px-2 sm:px-5 md:px-10 lg:px-14 mb-12 md:mb-[30px]">
+                {title}
+              </h2>
+              <motion.div
+                variants={containerVariants}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                {children}
+              </motion.div>
+            </motion.section>
           </motion.div>
-        </motion.div>
-      </AnimatePresence>
+        </AnimatePresence>
+      </div>
+
+      {/* Footer will always stay at the bottom */}
+      <motion.div
+        key="footer"
+        variants={containerVariants}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5, delay: 1 }}
+        className="mt-auto" // This ensures the footer stays at the bottom
+      >
+        <Footer />
+      </motion.div>
     </div>
   );
 };
