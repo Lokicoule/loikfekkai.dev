@@ -8,6 +8,11 @@ export const workData: WorkProps[] = [
     category: "backend",
     socialLinks: [
       {
+        icon: <FaLink />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://lokicoule.github.io/nestjs-cognito/",
+      },
+      {
         icon: <FaNpm />,
         iconClassName: "text-[#0072b1] bg-secondary text-xl",
         href: "https://www.npmjs.com/package/@nestjs-cognito/auth",
