@@ -29,9 +29,9 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
       title={presenter.translateAndSanitize("about.title")}
       className="lg:rounded-2xl lg:bg-primary"
     >
-      <div className="flex flex-col space-y-8 pb-8">
+      <div className="flex flex-col space-y-8 pb-8 px-4 sm:px-6 lg:px-8">
         {viewModel.whoAmI && (
-          <div className="container mx-auto px-4 md:px-10 lg:px-14">
+          <div className="w-full">
             <h2 className="text-[25px] text-secondary font-medium pb-5 font-primary">
               {viewModel.whoAmI.title}
             </h2>
@@ -41,7 +41,7 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
           </div>
         )}
         {viewModel.whatDoIOffer && (
-          <div className="container mx-auto px-4 md:px-10 lg:px-14">
+          <div className="w-full">
             <h2 className="text-[25px] text-secondary font-medium pb-5 font-primary">
               {viewModel.whatDoIOffer.title}
             </h2>
@@ -58,7 +58,7 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
           </div>
         )}
         {viewModel.livingTheDream && (
-          <div className="container mx-auto px-4 md:px-10 lg:px-14">
+          <div className="w-full">
             <h2 className="text-[25px] text-secondary font-medium pb-5 font-primary">
               {viewModel.livingTheDream.title}
             </h2>
@@ -68,8 +68,8 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
           </div>
         )}
         {viewModel.outro && (
-          <section className="container mx-auto px-4 md:px-10 lg:px-14">
-            <p className="text-center font-medium text-lg font-primary text-tertiary ">
+          <section className="w-full">
+            <p className="text-center font-medium text-lg font-primary text-tertiary">
               {viewModel.outro}
             </p>
           </section>
