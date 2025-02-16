@@ -21,7 +21,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 }) => {
   return (
     <div className="min-h-screen flex flex-col">
-      <div className={`flex-1 ${className}`}>
+      <div className={`flex-1 mx-auto w-full ${className}`}>
         {head ? <Head {...head} /> : null}
         <AnimatePresence mode="wait">
           <motion.div
@@ -37,8 +37,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              className="container mx-auto"
             >
-              <h2 className="text-5xl font-primary text-primary relative inline-block pt-12 px-2 sm:px-5 md:px-10 lg:px-14 mb-12 md:mb-[30px]">
+              <h2 className="text-5xl font-primary text-primary relative inline-block pt-12 px-4 sm:px-5 md:px-10 lg:px-14 mb-12 md:mb-[30px]">
                 {title}
               </h2>
               <motion.div
