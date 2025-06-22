@@ -20,7 +20,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   className,
 }) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col items-center">
       <div className={`flex-1 ${className}`}>
         {head ? <Head {...head} /> : null}
         <AnimatePresence mode="wait">

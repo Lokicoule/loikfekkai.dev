@@ -25,9 +25,10 @@ const Layout: LayoutComponent = ({ children, lang, hero }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-t from-[#FFEEBB] via-[#A7ECEE] via-[#99DBF5] to-[#9AC5F4] dark:from-[#FCDAB7] dark:via-[#1E5F74] dark:via-[#133B5C] dark:to-[#1D2D50] bg-no-repeat bg-fixed">
+      <div className="flex flex-col items-center">
       <Header lang={lang} />
 
-      <main className="container mx-auto px-4 lg:px-8 lg:mt-[120px] relative">
+      <main className="container">
         <div className="grid grid-cols-12 gap-8 lg:gap-10">
           <div
             className={`col-span-12 lg:col-span-4 ${
@@ -47,6 +48,7 @@ const Layout: LayoutComponent = ({ children, lang, hero }) => {
           </div>
         </div>
       </main>
+      </div>
     </div>
   );
 };
