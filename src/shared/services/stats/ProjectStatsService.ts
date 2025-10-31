@@ -1,5 +1,5 @@
-import { GitHubService, GitHubStats } from "./github";
-import { NpmService, NpmStats } from "./npm";
+import { GitHubService, type GitHubStats } from "./github/GitHubService";
+import { NpmService, type NpmStats } from "./npm/NpmService";
 
 export interface ProjectStats {
   github?: GitHubStats;
