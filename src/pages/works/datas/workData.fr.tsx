@@ -25,7 +25,7 @@ export const workData: WorkProps[] = [
     ],
     tag: "Open Source",
     description:
-      "NestJS-Cognito est un ensemble de packages qui vise à simplifier l'intégration d'Amazon Cognito dans les applications NestJS. Ces packages offrent des fonctionnalités d'authentification et d'autorisation robustes en utilisant AWS Cognito comme fournisseur d'identité.",
+      "Avez-vous déjà essayé d'intégrer AWS Cognito dans une application NestJS ? Si oui, vous savez à quel point ça peut être fastidieux. Entre la configuration des JWT, la gestion des guards, et l'adaptation pour GraphQL, on se retrouve vite avec du code boilerplate partout.\n\nC'est exactement le problème que j'ai rencontré sur plusieurs projets. Au lieu de copier-coller ce code d'un projet à l'autre, j'ai décidé de créer un ensemble de packages réutilisables. NestJS-Cognito propose une architecture multi-module qui couvre tous les cas d'usage : REST, GraphQL, et même les tests.\n\nLe résultat ? Une intégration Cognito qui prend quelques lignes de configuration au lieu de centaines de lignes de code custom. Tout est typé, testé, et documenté.",
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["NestJS", "Apollo GraphQL"],
@@ -35,7 +35,7 @@ export const workData: WorkProps[] = [
     keyFeatures: [
       {
         id: "key-features-1",
-        key: "Core Package (@nestjs-cognito/core):",
+        key: "Core Package (@nestjs-cognito/core)",
         features: [
           "Facilite l'intégration d'Amazon Cognito dans les applications NestJS.",
           "Offre des options de configuration pour le fournisseur d'identité et la vérification JWT.",
@@ -43,7 +43,7 @@ export const workData: WorkProps[] = [
       },
       {
         id: "key-features-2",
-        key: "Authentication Package (@nestjs-cognito/auth):",
+        key: "Authentication Package (@nestjs-cognito/auth)",
         features: [
           "Utilise le package core.",
           "Ce package permet d'authentifier et d'autoriser les utilisateurs dans les applications NestJS en utilisant AWS Cognito comme fournisseur d'identité.",
@@ -51,7 +51,7 @@ export const workData: WorkProps[] = [
       },
       {
         id: "key-features-3",
-        key: "GraphQL Package (@nestjs-cognito/graphql):",
+        key: "GraphQL Package (@nestjs-cognito/graphql)",
         features: [
           "Utilise le package auth.",
           "Adapte les fonctionnalités d'authentification et d'autorisation aux applications NestJS basées sur GraphQL.",
@@ -59,7 +59,7 @@ export const workData: WorkProps[] = [
       },
       {
         id: "key-features-4",
-        key: "Testing Package (@nestjs-cognito/testing):",
+        key: "Testing Package (@nestjs-cognito/testing)",
         features: [
           "Utilise le package core.",
           "Facilite les tests d'intégrations et end-to-end des applications NestJS utilisant les packages auth et graphql.",
@@ -85,7 +85,7 @@ export const workData: WorkProps[] = [
     ],
     tag: "Open Source",
     description:
-      "Commitizard est un outil en ligne de commande (CLI) qui simplifie le processus de création de messages de commit en utilisant des conventions de commit.",
+      "Vous connaissez probablement Commitizen. C'est l'outil de référence pour maintenir des commits cohérents avec Conventional Commits. Le problème ? Il embarque beaucoup de dépendances et de fonctionnalités dont on n'a pas toujours besoin.\n\nQuand j'ai voulu créer un outil simple pour mes projets, j'avais besoin de quelque chose de plus léger et flexible. Surtout un outil qui supporte aussi les workflows TDD (red-green-refactor) nativement, sans configuration compliquée.\n\nJ'ai donc créé Commitizard : une CLI minimaliste qui démarre rapidement et supporte aussi bien les conventions standard que les workflows TDD. Le tout configurable via un simple fichier JSON. Pas de magie, juste ce qu'il faut.",
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["NodeJS"],
@@ -121,7 +121,7 @@ export const workData: WorkProps[] = [
     ],
     tag: "Open Source",
     description:
-      "Un émetteur d'événements TypeScript-first qui exploite des modèles de composition avancés et une architecture basée sur des proxies.",
+      "Les event emitters en JavaScript, on les utilise tous. Node's EventEmitter, EventEmitter3, mitt... Le problème ? Avec les approches classiques en `emit('eventName')`, TypeScript ne peut pas vraiment vous aider. Vous définissez vos types d'événements, mais rien ne vous empêche de typer `emit('usr:created')` au lieu de `emit('user:created')`.\n\nJe voulais expérimenter avec les Template Literal Types de TypeScript : créer une API où le compilateur connaît tous les événements possibles et leurs payloads. Une API statique plutôt que dynamique, où l'autocomplétion et les erreurs de compilation vous guident vraiment. Et tant qu'à refaire, autant repenser l'architecture avec la composition et les proxies.\n\nLe résultat ? Un émetteur qui exploite l'inférence de types TypeScript à fond. Vous définissez votre schéma d'événements une fois, et TypeScript fait le reste : autocomplétion parfaite, erreurs à la compilation, payloads typés. Plus de string magiques qui cassent en silence.",
     technologiesUsed: {
       languages: ["TypeScript"],
       runtimes: ["NodeJS", "Browser"],
@@ -131,7 +131,7 @@ export const workData: WorkProps[] = [
     keyFeatures: [
       {
         id: "emitter-features-1",
-        key: "Advanced Composition Patterns",
+        key: "Type Safety de bout en bout",
         features: [
           "Architecture émergente grâce à une composition stratégique",
           "Implémentation basée sur des proxies pour un design API élégant",
@@ -139,7 +139,7 @@ export const workData: WorkProps[] = [
       },
       {
         id: "emitter-features-2",
-        key: "True Typesafety",
+        key: "Namespaces véritables",
         features: [
           "Conception TypeScript-first - parce que 'any' c'est admettre la défaite",
           "Compatible avec les IDE avec inférence complète des types",
@@ -149,7 +149,7 @@ export const workData: WorkProps[] = [
       },
       {
         id: "emitter-features-3",
-        key: "Advanced Namespacing",
+        key: "Gestion d'événements sophistiquée",
         features: [
           "Vrai nommage, pas seulement des préfixes de chaîne",
           "Isolation des espaces de noms par composition",
@@ -159,7 +159,7 @@ export const workData: WorkProps[] = [
       },
       {
         id: "emitter-features-4",
-        key: "Sophisticated Event Handling",
+        key: "Architecture par composition",
         features: [
           "Écouteurs globaux sans la complexité des expressions régulières",
           "Abonnements d'événements one-time",
@@ -186,8 +186,7 @@ export const workData: WorkProps[] = [
       },
     ],
     tag: "Open Source",
-    description: `Commandzen est une bibliothèque qui vise à simplifier la création d'applications d'interface en ligne de commande (CLI) en utilisant TypeScript et NodeJS.
-Lors du développement de Commitizard, j'ai préalablement utilisé la bibliothèque Commander mais la taille du bundle généré était trop importante pour mon cas d'usage. J'ai donc créé ma propre bibliothèque pour répondre à une problématique simple.`,
+    description: `Commander.js est génial. C'est LA référence pour créer des CLIs en Node. Mais quand j'ai développé Commitizard, je cherchais quelque chose de plus minimaliste pour les besoins spécifiques de mon outil.\n\nJ'avais besoin de parser des arguments, gérer des sous-commandes, afficher de l'aide... Les bases d'une CLI, sans les fonctionnalités avancées dont je n'avais pas besoin. Pourquoi embarquer tout un framework quand on utilise 10% de ses fonctionnalités ?\n\nDu coup, j'ai codé Commandzen : une bibliothèque CLI minimaliste qui fait exactement ce qu'il faut, rien de plus. API simple, légère, compatible CommonJS et ESM. Parfait pour les outils simples qui n'ont pas besoin d'un framework complet.`,
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["NodeJS"],
@@ -196,7 +195,7 @@ Lors du développement de Commitizard, j'ai préalablement utilisé la biblioth�
     keyFeatures: [
       {
         id: "key-features-1",
-        key: "API simple et intuitive pour la création d'applications CLI",
+        key: "API minimaliste et intuitive",
         features: [
           "Supporte les commandes, les sous-commandes et les options",
           "Supporte les alias de commandes",
@@ -229,7 +228,7 @@ Lors du développement de Commitizard, j'ai préalablement utilisé la biblioth�
     ],
     tag: "Personal",
     description:
-      "Pathfinding Viewer est une application web qui permet de visualiser les algorithmes de génération de labyrinthes et de recherche de chemins. Cette application a été créée pour explorer les algorithmes de recherche de chemin et de génération de labyrinthes.",
+      "J'ai toujours trouvé fascinant de voir comment fonctionnent les algorithmes de pathfinding. A*, Dijkstra, BFS... On les apprend à l'école, on les code pour des exercices, mais on ne les *voit* jamais vraiment en action.\n\nCette appli, je l'ai créée pour ça : visualiser comment ces algorithmes explorent un labyrinthe, case par case, jusqu'à trouver le chemin optimal. Vous pouvez générer des labyrinthes avec différents algos (Recursive Division, Prim's...), puis lancer un pathfinding et observer en temps réel comment il explore l'espace.\n\nC'est un projet perso pour apprendre et expérimenter, mais ça reste super satisfaisant de voir A* trouver le chemin le plus court en quelques millisecondes, ou de comparer visuellement l'efficacité de Dijkstra vs BFS.",
     technologiesUsed: {
       languages: ["Typescript"],
       libraries: ["React", "TailwindCSS"],

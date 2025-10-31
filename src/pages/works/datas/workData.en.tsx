@@ -25,7 +25,7 @@ export const workData: WorkProps[] = [
     ],
     tag: "Open Source",
     description:
-      "Enhance your NestJS applications with robust authentication and authorization functionalities through Amazon Cognito. This project simplifies the integration process, making it easier to leverage AWS’s managed authentication service.",
+      "Have you ever tried integrating AWS Cognito into a NestJS application? If so, you know how tedious it can be. Between JWT configuration, guards management, and GraphQL adaptation, you quickly end up with boilerplate code everywhere.\n\nThat's exactly the problem I encountered across multiple projects. Instead of copy-pasting this code from one project to another, I decided to create a set of reusable packages. NestJS-Cognito offers a multi-module architecture that covers all use cases: REST, GraphQL, and even testing.\n\nThe result? A Cognito integration that takes a few lines of configuration instead of hundreds of lines of custom code. Everything is typed, tested, and documented.",
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["NestJS", "Apollo GraphQL"],
@@ -85,7 +85,7 @@ export const workData: WorkProps[] = [
     ],
     tag: "Open Source",
     description:
-      "Optimize your commit message creation process with Commitizard, designed to support both conventional commit standards and red-green-refactor (TDD) methods.",
+      "You probably know Commitizen. It's the go-to tool for maintaining consistent commits with Conventional Commits. The issue? It comes with a lot of dependencies and features you don't always need.\n\nWhen I wanted to create a simple tool for my projects, I needed something lighter and more flexible. Especially a tool that natively supports TDD workflows (red-green-refactor) without complicated configuration.\n\nSo I built Commitizard: a minimalist CLI that starts quickly and supports both standard conventions and TDD workflows. All configurable through a simple JSON file. No magic, just what you need.",
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["NodeJS"],
@@ -121,7 +121,7 @@ export const workData: WorkProps[] = [
     ],
     tag: "Open Source",
     description:
-      "A TypeScript-first event emitter that leverages advanced composition patterns and proxy-based architecture. Built for developers who value type safety, clean architecture, and don't want to question their life choices when handling events.",
+      "Event emitters in JavaScript - we all use them. Node's EventEmitter, EventEmitter3, mitt... The problem? With classic approaches using `emit('eventName')`, TypeScript can't really help you. You define your event types, but nothing prevents you from typing `emit('usr:created')` instead of `emit('user:created')`.\n\nI wanted to experiment with TypeScript's Template Literal Types: create an API where the compiler knows all possible events and their payloads. A static API rather than dynamic, where autocomplete and compile-time errors actually guide you. And while rebuilding from scratch, why not rethink the architecture with composition and proxies?\n\nThe result? An emitter that fully leverages TypeScript's type inference. You define your event schema once, and TypeScript does the rest: perfect autocomplete, compile-time errors, typed payloads. No more magic strings that silently break.",
     technologiesUsed: {
       languages: ["TypeScript"],
       runtimes: ["NodeJS", "Browser"],
@@ -186,7 +186,7 @@ export const workData: WorkProps[] = [
       },
     ],
     tag: "Open Source",
-    description: `Create sleek, efficient command-line interface applications using Commandzen, a TypeScript-based library designed for simplicity and effectiveness.`,
+    description: `Commander.js is awesome. It's THE reference for building CLIs in Node. But when I was developing Commitizard, I was looking for something more minimalist for my tool's specific needs.\n\nI needed to parse arguments, handle subcommands, display help... The basics of a CLI, without the advanced features I didn't need. Why bundle an entire framework when you're using 10% of its functionality?\n\nSo I built Commandzen: a minimalist CLI library that does exactly what's needed, nothing more. Simple API, lightweight, compatible with both CommonJS and ESM. Perfect for simple tools that don't need a full-featured framework.`,
     technologiesUsed: {
       languages: ["Typescript"],
       frameworks: ["NodeJS"],
@@ -227,7 +227,7 @@ export const workData: WorkProps[] = [
     ],
     tag: "Personal",
     description:
-      "Discover and explore various pathfinding and maze generation algorithms with this interactive visualization tool.",
+      "I've always found it fascinating to see how pathfinding algorithms actually work. A*, Dijkstra, BFS... We learn them in school, code them for exercises, but we never really *see* them in action.\n\nI created this app for exactly that: visualizing how these algorithms explore a maze, cell by cell, until they find the optimal path. You can generate mazes with different algorithms (Recursive Division, Prim's...), then launch a pathfinding algorithm and watch in real-time as it explores the space.\n\nIt's a personal project for learning and experimenting, but it's still super satisfying to see A* find the shortest path in milliseconds, or visually compare the efficiency of Dijkstra vs BFS.",
     technologiesUsed: {
       languages: ["Typescript"],
       libraries: ["React", "TailwindCSS"],
