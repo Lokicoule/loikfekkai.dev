@@ -3,6 +3,7 @@ import Modal from "../../../../shared/components/adapters/@headlessui/Modal";
 import { WorkProps } from "../../WorksViewModel";
 import SocialLinks from "../../../../shared/components/elements/SocialLinks";
 import { translatingService } from "../../../../shared/composition";
+import ProjectStats from "../ProjectStats";
 
 type WorkModalTitleProps = {
   work: WorkProps;
@@ -16,6 +17,12 @@ const WorkModalTitle: WorkModalTitleComponent = ({ work }) => {
       <h2 className="text-primary text-4xl text-center font-primary">
         {work.name}
       </h2>
+
+      {work.stats && (
+        <div className="flex justify-center mt-2">
+          <ProjectStats stats={work.stats} />
+        </div>
+      )}
 
       <div className="flex flex-row flex-wrap lg:flex-row my-6 justify-between items-center flex-wrap">
         <div className="space-y-2">

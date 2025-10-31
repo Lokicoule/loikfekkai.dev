@@ -1,4 +1,4 @@
-import { translatingService } from ".";
+import { translatingService, projectStatsService } from "./setupServices";
 import { AboutPresenter } from "../../pages/about/AboutPresenter";
 import { ContactPresenter } from "../../pages/contact/ContactPresenter";
 import { NotFoundPresenter } from "../../pages/notFound/NotFoundPresenter";
@@ -14,7 +14,11 @@ const aboutPresenter = new AboutPresenter(cache, translatingService);
 const langPresenter = new LangPresenter(cache);
 const navigationPresenter = new NavigationPresenter(cache);
 const resumePresenter = new ResumePresenter(cache, translatingService);
-const worksPresenter = new WorksPresenter(cache, translatingService);
+const worksPresenter = new WorksPresenter(
+  cache,
+  translatingService,
+  projectStatsService
+);
 const contactPresenter = new ContactPresenter(cache, translatingService);
 const notFoundPresenter = new NotFoundPresenter(cache, translatingService);
 const heroPresenter = new HeroPresenter(cache, translatingService);

@@ -1,12 +1,18 @@
 import { SocialLinkProps } from "../../shared/components/elements/SocialLinks";
 import { StackProps } from "../../shared/components/elements/Stack";
 import { WorkFilter } from "../../shared/persistence/GlobalCache";
+import { ProjectStats } from "../../shared/services/stats/ProjectStatsService";
 
 type KeyFeaturesProps = {
   id: string;
   key: string;
   features: string[];
 };
+
+export interface ProjectStatsConfig {
+  github?: { owner: string; repo: string };
+  npm?: string;
+}
 
 export interface WorkProps {
   id: string;
@@ -19,6 +25,8 @@ export interface WorkProps {
   technologiesUsed: StackProps;
   keyFeatures?: KeyFeaturesProps[];
   socialLinks: SocialLinkProps[];
+  statsConfig?: ProjectStatsConfig;
+  stats?: ProjectStats;
 }
 
 export interface WorksViewModelProps {

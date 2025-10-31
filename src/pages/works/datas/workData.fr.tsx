@@ -6,6 +6,10 @@ export const workData: WorkProps[] = [
     id: "work-1",
     name: "@NestJS-Cognito",
     category: "backend",
+    statsConfig: {
+      github: { owner: "lokicoule", repo: "nestjs-cognito" },
+      npm: "@nestjs-cognito/auth",
+    },
     socialLinks: [
       {
         icon: <FaLink />,
@@ -71,6 +75,10 @@ export const workData: WorkProps[] = [
     id: "work-2",
     name: "Commitizard",
     category: "tools",
+    statsConfig: {
+      github: { owner: "lokicoule", repo: "commitizard" },
+      npm: "commitizard",
+    },
     socialLinks: [
       {
         icon: <FaNpm />,
@@ -107,6 +115,10 @@ export const workData: WorkProps[] = [
     id: "work-3",
     name: "@lokiverse/emitter",
     category: "tools",
+    statsConfig: {
+      github: { owner: "lokicoule-stack", repo: "emitter" },
+      npm: "@lokiverse/emitter",
+    },
     socialLinks: [
       {
         icon: <FaGithub />,
@@ -173,6 +185,10 @@ export const workData: WorkProps[] = [
     id: "work-4",
     name: "Commandzen",
     category: "tools",
+    statsConfig: {
+      github: { owner: "lokicoule", repo: "commandzen" },
+      npm: "commandzen",
+    },
     socialLinks: [
       {
         icon: <FaNpm />,
@@ -214,6 +230,9 @@ export const workData: WorkProps[] = [
     name: "Pathfinding Viewer",
     category: "frontend",
     link: "https://pathfinding-viewer.vercel.app/",
+    statsConfig: {
+      github: { owner: "lokicoule", repo: "pathfinding-viewer" },
+    },
     socialLinks: [
       {
         icon: <FaLink />,
