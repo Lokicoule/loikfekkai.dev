@@ -291,7 +291,7 @@ export const workData: WorkProps[] = [
       {
         icon: <FaGithub />,
         iconClassName: "text-[#0072b1] bg-secondary text-xl",
-        href: "https://github.com/loikfekkai/loikfekkai.dev",
+        href: "https://github.com/Lokicoule/loikfekkai.dev",
       },
     ],
     tag: "Playground",
