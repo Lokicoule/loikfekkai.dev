@@ -1,12 +1,7 @@
-import { NpmApiAdapter } from "../../../adapters";
+import { NpmApiAdapter } from "../../adapters";
+import type { NpmStats } from "./types";
 
-export interface NpmStats {
-  weeklyDownloads: number;
-  yearlyDownloads: number;
-  allTimeDownloads: number;
-}
-
-export class NpmService {
+export class NpmRepository {
   private readonly adapter: NpmApiAdapter;
 
   constructor(adapter?: NpmApiAdapter) {

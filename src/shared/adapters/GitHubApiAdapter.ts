@@ -20,16 +20,14 @@ export class GitHubApiAdapter {
       const response = await fetch(`${this.baseUrl}/repos/${owner}/${repo}`);
 
       if (!response.ok) {
-        console.warn(
-          `GitHub API returned ${response.status} for ${owner}/${repo}`
-        );
+        // Silent fail for rate limiting (403) and other API errors
         return null;
       }
 
       const data: GitHubRepositoryResponse = await response.json();
       return data;
     } catch (error) {
-      console.error("GitHub API adapter error:", error);
+      // Silent fail for network errors
       return null;
     }
   }

@@ -47,10 +47,8 @@ export class NpmApiAdapter {
         return null;
       }
 
-      const data: NpmDownloadsResponse = await response.json();
-      return data;
+      return await response.json();
     } catch (error) {
-      console.error("npm API adapter error (weekly):", error);
       return null;
     }
   }
@@ -66,16 +64,11 @@ export class NpmApiAdapter {
       );
 
       if (!response.ok) {
-        console.warn(
-          `npm API returned ${response.status} for range downloads of ${packageName}`
-        );
         return null;
       }
 
-      const data: NpmRangeDownloadsResponse = await response.json();
-      return data;
+      return await response.json();
     } catch (error) {
-      console.error("npm API adapter error (range):", error);
       return null;
     }
   }

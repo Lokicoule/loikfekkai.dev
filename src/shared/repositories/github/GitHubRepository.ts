@@ -1,18 +1,7 @@
-import { GitHubApiAdapter } from "../../../adapters";
+import { GitHubApiAdapter } from "../../adapters";
+import type { GitHubRepositoryConfig, GitHubStats } from "./types";
 
-export interface GitHubStats {
-  stars: number;
-  forks: number;
-  issues: number;
-  watchers: number;
-}
-
-export interface GitHubRepository {
-  owner: string;
-  repo: string;
-}
-
-export class GitHubService {
+export class GitHubRepository {
   private readonly adapter: GitHubApiAdapter;
 
   constructor(adapter?: GitHubApiAdapter) {
@@ -20,7 +9,7 @@ export class GitHubService {
   }
 
   async fetchRepositoryStats(
-    repository: GitHubRepository
+    repository: GitHubRepositoryConfig
   ): Promise<GitHubStats | null> {
     const { owner, repo } = repository;
     const data = await this.adapter.fetchRepository(owner, repo);

@@ -7,17 +7,17 @@ export abstract class Presenter<T> {
 
   constructor(cache: GlobalCache) {
     this.cache = cache;
-    this.cb = () => {};
+    this.cb = () => { };
   }
 
   protected abstract rebuildViewModel(...args: unknown[]): void;
 
-  public load(cb: (vm?: T) => void): void {
+  public load(cb: (vm?: T) => void, ..._args: unknown[]): void {
     this.cb = cb;
     this.cb(this.vm);
   }
 
   public unload(): void {
-    this.cb = () => {};
+    this.cb = () => { };
   }
 }

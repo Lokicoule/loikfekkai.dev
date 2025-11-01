@@ -3,7 +3,12 @@ import Modal from "../../../../shared/components/adapters/@headlessui/Modal";
 import { WorkProps } from "../../WorksViewModel";
 import SocialLinks from "../../../../shared/components/elements/SocialLinks";
 import { translatingService } from "../../../../shared/composition";
-import ProjectStats from "../ProjectStats";
+import GitHubStatsView from "../../../../shared/components/stats/github/GitHubStatsView";
+import NpmStatsView from "../../../../shared/components/stats/npm/NpmStatsView";
+import {
+  githubStatsPresenter,
+  npmStatsPresenter,
+} from "../../../../shared/composition/setupPresenters";
 
 type WorkModalTitleProps = {
   work: WorkProps;
@@ -18,9 +23,21 @@ const WorkModalTitle: WorkModalTitleComponent = ({ work }) => {
         {work.name}
       </h2>
 
-      {work.stats && (
+      {work.statsConfig?.github && (
         <div className="flex justify-center mt-2">
-          <ProjectStats stats={work.stats} />
+          <GitHubStatsView
+            repository={work.statsConfig.github}
+            presenter={githubStatsPresenter}
+          />
+        </div>
+      )}
+
+      {work.statsConfig?.npm && (
+        <div className="flex justify-center mt-2">
+          <NpmStatsView
+            packageName={work.statsConfig.npm}
+            presenter={npmStatsPresenter}
+          />
         </div>
       )}
 

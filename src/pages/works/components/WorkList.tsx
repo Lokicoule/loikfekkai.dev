@@ -3,6 +3,8 @@ import { GoRepo } from "react-icons/go";
 import SocialLinks from "../../../shared/components/elements/SocialLinks";
 import { WorkProps } from "../WorksViewModel";
 import WorkModal from "./WorkModal/WorkModal";
+import GitHubStatsView from "../../../shared/components/stats/github/GitHubStatsView";
+import { githubStatsPresenter } from "../../../shared/composition/setupPresenters";
 
 type WorkListProps = {
   works: WorkProps[];
@@ -34,8 +36,14 @@ const WorkList: WorkListComponent = ({ works }) => {
             {item.description.slice(0, 120)}...
           </p>
 
-          <div className="mt-4">
+          <div className="mt-4 flex items-center justify-between">
             <SocialLinks socialLinks={item.socialLinks} />
+            {item.statsConfig?.github && (
+              <GitHubStatsView
+                repository={item.statsConfig.github}
+                presenter={githubStatsPresenter}
+              />
+            )}
           </div>
         </div>
       ))}
