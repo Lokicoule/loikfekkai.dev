@@ -1,6 +1,6 @@
 import { SocialLinkProps } from "../../shared/components/elements/SocialLinks";
 import { StackProps } from "../../shared/components/elements/Stack";
-import { WorkFilter } from "../../shared/persistence/GlobalCache";
+import { WorkFilter } from "../../shared/persistence/GlobalStore";
 import { ProjectStats } from "../../shared/services/stats/ProjectStatsService";
 
 type KeyFeaturesProps = {

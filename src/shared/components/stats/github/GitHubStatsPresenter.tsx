@@ -1,4 +1,4 @@
-import { GlobalCache } from "../../../persistence/GlobalCache";
+import { GlobalStore } from "../../../persistence/GlobalStore";
 import { Presenter } from "../../../presentation/Presenter";
 import { GitHubRepository } from "../../../repositories/github/GitHubRepository";
 import { GitHubRepositoryConfig, GitHubStats } from "../../../repositories/github/types";
@@ -10,11 +10,11 @@ export class GitHubStatsPresenter extends Presenter<GitHubStatsViewModel> {
   private readonly cacheService: CacheService;
 
   constructor(
-    cache: GlobalCache,
+    store: GlobalStore,
     githubRepository: GitHubRepository,
     cacheService: CacheService
   ) {
-    super(cache);
+    super(store);
     this.githubRepository = githubRepository;
     this.cacheService = cacheService;
   }

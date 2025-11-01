@@ -1,4 +1,4 @@
-import { GlobalCache } from "../../shared/persistence/GlobalCache";
+import { GlobalStore } from "../../shared/persistence/GlobalStore";
 import {
   Notification,
   NotificationService,
@@ -13,13 +13,13 @@ enum WorkFilter {
 
 export class WorksController {
   constructor(
-    private readonly globalCache: GlobalCache,
+    private readonly store: GlobalStore,
     private readonly notificationService: NotificationService
   ) {}
 
   public setWorkFilter(filter: string): void {
     if (Object.values(WorkFilter).includes(filter as WorkFilter)) {
-      this.globalCache.set("workFilter", filter as WorkFilter);
+      this.store.set("workFilter", filter as WorkFilter);
     } else {
       this.notificationService.showToast(
         Notification.createWarning(`Filter ${filter} is not supported!`)

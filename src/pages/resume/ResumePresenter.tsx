@@ -1,5 +1,5 @@
 import { TranslatingService } from "../../shared/services/translating/translatingService";
-import { GlobalCache } from "../../shared/persistence/GlobalCache";
+import { GlobalStore } from "../../shared/persistence/GlobalStore";
 import { Presenter } from "../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
 import { ResumeViewModel } from "./ResumeViewModel";
@@ -15,10 +15,10 @@ export class ResumePresenter extends Presenter<ResumeViewModel> {
   private subscriptionManager: SubscriptionManager;
   private translatingService: TranslatingService;
 
-  constructor(cache: GlobalCache, translatingService: TranslatingService) {
-    super(cache);
+  constructor(store: GlobalStore, translatingService: TranslatingService) {
+    super(store);
     this.subscriptionManager = new SubscriptionManager(
-      cache,
+      store,
       "lang",
       ResumePresenter.name,
       (lang) => this.handleLangChange(lang)

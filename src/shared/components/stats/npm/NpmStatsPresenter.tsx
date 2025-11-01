@@ -1,4 +1,4 @@
-import { GlobalCache } from "../../../persistence/GlobalCache";
+import { GlobalStore } from "../../../persistence/GlobalStore";
 import { Presenter } from "../../../presentation/Presenter";
 import { NpmRepository } from "../../../repositories/npm/NpmRepository";
 import { NpmStats } from "../../../repositories/npm/types";
@@ -10,11 +10,11 @@ export class NpmStatsPresenter extends Presenter<NpmStatsViewModel> {
   private readonly cacheService: CacheService;
 
   constructor(
-    cache: GlobalCache,
+    store: GlobalStore,
     npmRepository: NpmRepository,
     cacheService: CacheService
   ) {
-    super(cache);
+    super(store);
     this.npmRepository = npmRepository;
     this.cacheService = cacheService;
   }

@@ -1,7 +1,7 @@
 import {
-  GlobalCache,
+  GlobalStore,
   type Language,
-} from "../../../shared/persistence/GlobalCache";
+} from "../../../shared/persistence/GlobalStore";
 import { Presenter } from "../../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../../shared/presentation/SubscriptionManager";
 import { TranslatingService } from "../../services/translating/translatingService";
@@ -12,10 +12,10 @@ export class HeroPresenter extends Presenter<HeroViewModel> {
   private subscriptionManager: SubscriptionManager;
   private translatingService: TranslatingService;
 
-  constructor(cache: GlobalCache, service: TranslatingService) {
-    super(cache);
+  constructor(store: GlobalStore, service: TranslatingService) {
+    super(store);
     this.subscriptionManager = new SubscriptionManager(
-      cache,
+      store,
       "lang",
       HeroPresenter.name,
       (lang) => this.handleContactChange(lang)

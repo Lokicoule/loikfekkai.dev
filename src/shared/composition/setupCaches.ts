@@ -1,6 +1,6 @@
+import { GlobalStore } from "../../shared/persistence/GlobalStore";
 import { translatingService } from "./setupServices";
-import { GlobalCache, Language } from "../../shared/persistence/GlobalCache";
 
-const cache = new GlobalCache(translatingService.language as Language, "all");
+const store = new GlobalStore(translatingService.language, "all");
 
-export { cache };
+export { store };

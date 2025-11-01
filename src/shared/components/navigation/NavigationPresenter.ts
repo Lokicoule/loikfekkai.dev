@@ -1,4 +1,4 @@
-import { GlobalCache } from "../../../shared/persistence/GlobalCache";
+import { GlobalStore } from "../../../shared/persistence/GlobalStore";
 import { Presenter } from "../../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../../shared/presentation/SubscriptionManager";
 
@@ -10,10 +10,10 @@ import { navigationData as navigationDataFr } from "./datas/navigationData.fr";
 export class NavigationPresenter extends Presenter<NavigationViewModel> {
   private subscriptionManager: SubscriptionManager;
 
-  constructor(cache: GlobalCache) {
-    super(cache);
+  constructor(store: GlobalStore) {
+    super(store);
     this.subscriptionManager = new SubscriptionManager(
-      cache,
+      store,
       "lang",
       NavigationPresenter.name,
       (lang) => this.handleLangChange(lang)

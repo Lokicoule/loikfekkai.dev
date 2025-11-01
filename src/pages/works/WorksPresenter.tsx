@@ -1,4 +1,4 @@
-import { GlobalCache } from "../../shared/persistence/GlobalCache";
+import { GlobalStore } from "../../shared/persistence/GlobalStore";
 import { Presenter } from "../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
 import { TranslatingService } from "../../shared/services/translating/translatingService";
@@ -11,16 +11,16 @@ export class WorksPresenter extends Presenter<WorksViewModel> {
   private filterSubscriptionManager: SubscriptionManager;
   private translatingService: TranslatingService;
 
-  constructor(cache: GlobalCache, translatingService: TranslatingService) {
-    super(cache);
+  constructor(store: GlobalStore, translatingService: TranslatingService) {
+    super(store);
     this.langSubscriptionManager = new SubscriptionManager(
-      cache,
+      store,
       "lang",
       WorksPresenter.name,
       (lang) => this.handleLangChange(lang)
     );
     this.filterSubscriptionManager = new SubscriptionManager(
-      cache,
+      store,
       "workFilter",
       WorksPresenter.name,
       (filter) => this.handleFilterChange(filter)

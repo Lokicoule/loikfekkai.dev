@@ -11,23 +11,23 @@ import { NavigationPresenter } from "../components/navigation/NavigationPresente
 import { GitHubStatsPresenter } from "../components/stats/github/GitHubStatsPresenter";
 import { NpmStatsPresenter } from "../components/stats/npm/NpmStatsPresenter";
 
-import { cache } from "./setupCaches";
+import { store } from "./setupCaches";
 
-const aboutPresenter = new AboutPresenter(cache, translatingService);
-const langPresenter = new LangPresenter(cache);
-const navigationPresenter = new NavigationPresenter(cache);
-const resumePresenter = new ResumePresenter(cache, translatingService);
-const worksPresenter = new WorksPresenter(cache, translatingService);
-const contactPresenter = new ContactPresenter(cache, translatingService);
-const notFoundPresenter = new NotFoundPresenter(cache, translatingService);
-const heroPresenter = new HeroPresenter(cache, translatingService);
+const aboutPresenter = new AboutPresenter(store, translatingService);
+const langPresenter = new LangPresenter(store);
+const navigationPresenter = new NavigationPresenter(store);
+const resumePresenter = new ResumePresenter(store, translatingService);
+const worksPresenter = new WorksPresenter(store, translatingService);
+const contactPresenter = new ContactPresenter(store, translatingService);
+const notFoundPresenter = new NotFoundPresenter(store, translatingService);
+const heroPresenter = new HeroPresenter(store, translatingService);
 const githubStatsPresenter = new GitHubStatsPresenter(
-  cache,
+  store,
   githubRepository,
   cacheService
 );
 const npmStatsPresenter = new NpmStatsPresenter(
-  cache,
+  store,
   npmRepository,
   cacheService
 );

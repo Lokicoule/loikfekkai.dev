@@ -12,7 +12,7 @@ export type Callback = (data: State) => void;
 
 export type KeyInCache = "lang" | "workFilter";
 
-export class GlobalCache {
+export class GlobalStore {
   private subscribers: Map<KeyInCache, Map<string, Callback>>;
   private data: Record<KeyInCache, GlobalState[KeyInCache]>;
 

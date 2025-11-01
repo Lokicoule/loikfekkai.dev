@@ -1,12 +1,12 @@
-import { GlobalCache } from "../persistence/GlobalCache";
+import { GlobalStore } from "../persistence/GlobalStore";
 
 export abstract class Presenter<T> {
   protected vm?: T;
   protected cb: (vm?: T) => void;
-  protected cache: GlobalCache;
+  protected store: GlobalStore;
 
-  constructor(cache: GlobalCache) {
-    this.cache = cache;
+  constructor(store: GlobalStore) {
+    this.store = store;
     this.cb = () => { };
   }
 

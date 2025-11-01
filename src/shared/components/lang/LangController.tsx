@@ -1,17 +1,17 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { GlobalCache, Language } from "../../../shared/persistence/GlobalCache";
+import { GlobalStore } from "../../../shared/persistence/GlobalStore";
 import { translatingService } from "../../composition";
 import { Notification } from "../../services/notifications/domainObjects/Notification";
 import { NotificationService } from "../../services/notifications/notificationsService";
 
 export class LangController {
   constructor(
-    private readonly cache: GlobalCache,
+    private readonly store: GlobalStore,
     private readonly notificationService: NotificationService
-  ) {}
+  ) { }
 
   public createHook() {
-    const cache = this.cache;
+    const store = this.store;
     const notificationService = this.notificationService;
 
     function useLangController() {
@@ -26,7 +26,7 @@ export class LangController {
           );
 
           translatingService.setLanguage(language);
-          cache.set("lang", language as Language);
+          store.set("lang", language);
 
           navigate(newPath, { replace: true });
         } else {

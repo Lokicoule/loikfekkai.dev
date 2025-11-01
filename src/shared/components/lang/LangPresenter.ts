@@ -1,4 +1,4 @@
-import { GlobalCache } from "../../../shared/persistence/GlobalCache";
+import { GlobalStore } from "../../../shared/persistence/GlobalStore";
 import { Presenter } from "../../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../../shared/presentation/SubscriptionManager";
 import { LangViewModel } from "./LangViewModel";
@@ -6,10 +6,10 @@ import { LangViewModel } from "./LangViewModel";
 export class LangPresenter extends Presenter<LangViewModel> {
   private subscriptionManager: SubscriptionManager;
 
-  constructor(cache: GlobalCache) {
-    super(cache);
+  constructor(store: GlobalStore) {
+    super(store);
     this.subscriptionManager = new SubscriptionManager(
-      cache,
+      store,
       "lang",
       LangPresenter.name,
       (lang) => this.handleLangChange(lang)

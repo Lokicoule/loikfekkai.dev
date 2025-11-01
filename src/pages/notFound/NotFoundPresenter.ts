@@ -1,5 +1,5 @@
 import { TranslatingService } from "../../shared/services/translating/translatingService";
-import { GlobalCache } from "../../shared/persistence/GlobalCache";
+import { GlobalStore } from "../../shared/persistence/GlobalStore";
 import { Presenter } from "../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
 import { NotFoundViewModel } from "./NotFoundViewModel";
@@ -8,10 +8,10 @@ export class NotFoundPresenter extends Presenter<NotFoundViewModel> {
   private subscriptionManager: SubscriptionManager;
   private translatingService: TranslatingService;
 
-  constructor(cache: GlobalCache, service: TranslatingService) {
-    super(cache);
+  constructor(store: GlobalStore, service: TranslatingService) {
+    super(store);
     this.subscriptionManager = new SubscriptionManager(
-      cache,
+      store,
       "lang",
       NotFoundPresenter.name,
       (lang) => this.handleNotFoundChange(lang)

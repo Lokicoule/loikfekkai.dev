@@ -1,18 +1,18 @@
-import { Callback, GlobalCache, KeyInCache } from "../persistence/GlobalCache";
+import { Callback, GlobalStore, KeyInCache } from "../persistence/GlobalStore";
 
 export class SubscriptionManager {
-  private cache: GlobalCache;
+  private store: GlobalStore;
   private key: KeyInCache;
   private subscriberName: string;
   private callback: Callback;
 
   constructor(
-    cache: GlobalCache,
+    store: GlobalStore,
     key: KeyInCache,
     subscriberName: string,
     callback: Callback
   ) {
-    this.cache = cache;
+    this.store = store;
     this.key = key;
     this.subscriberName = subscriberName;
     this.callback = callback;
@@ -20,14 +20,14 @@ export class SubscriptionManager {
   }
 
   private setupSubscription() {
-    this.cache.subscribe(this.key, this.subscriberName, this.callback);
+    this.store.subscribe(this.key, this.subscriberName, this.callback);
   }
 
   public getValue() {
-    return this.cache.get(this.key);
+    return this.store.get(this.key);
   }
 
   public unsubscribe(): void {
-    this.cache.unsubscribe(this.key, this.subscriberName);
+    this.store.unsubscribe(this.key, this.subscriberName);
   }
 }
