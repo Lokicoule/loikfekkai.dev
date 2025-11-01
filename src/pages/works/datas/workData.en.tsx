@@ -275,4 +275,53 @@ export const workData: WorkProps[] = [
       },
     ],
   },
+  {
+    id: "work-6",
+    name: "Portfolio Architecture",
+    category: "frontend",
+    statsConfig: {
+      github: { owner: "loikfekkai", repo: "loikfekkai.dev" },
+    },
+    socialLinks: [
+      {
+        icon: <FaLink />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://loikfekkai.dev",
+      },
+      {
+        icon: <FaGithub />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://github.com/loikfekkai/loikfekkai.dev",
+      },
+    ],
+    tag: "Playground",
+    description:
+      "Have you ever wondered what an MVP architecture could look like in a React application?\n\nI have. This portfolio is an architectural playground. I explore how to structure a SPA around true separation between Presenter, Controller, and View, and how far you can push it without falling into over-engineering.\n\nEvery abstraction has a purpose. The goal isn't to copy backend patterns, but to adapt proven design principles to frontend constraints. Repository and Adapter patterns have their place here too, but as support, never at the center.\n\nThe result? A codebase that owns its choices, pushes React's boundaries while staying clear and maintainable. Some patterns proved surprisingly effective, others simply taught me where complexity starts to hurt.\n\nIn short, this portfolio is as much an architectural experiment as it is a personal project — and I loved building it.",
+    technologiesUsed: {
+      languages: ["TypeScript"],
+      libraries: ["React", "TailwindCSS", "Framer Motion"],
+      tools: ["Vite", "i18next"],
+      architectures: ["MVP", "Observer Pattern", "Repository", "DI"],
+    },
+    keyFeatures: [
+      {
+        id: "portfolio-features-1",
+        key: "MVP Pattern in Practice",
+        features: [
+          "Presenters listen to state changes and rebuild ViewModels",
+          "Controllers handle user input and validate before updating state",
+          "Views are dumb - they just render what Presenters give them",
+          "Clean separation that actually makes sense (not just theory)",
+        ],
+      },
+      {
+        id: "portfolio-features-2",
+        key: "Controllers vs Presenters - Why Both?",
+        features: [
+          "Controllers: user clicks → validate → update Store → show notification",
+          "Presenters: Store changes → transform data → rebuild ViewModel → notify View",
+        ],
+      },
+    ],
+  },
 ];

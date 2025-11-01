@@ -275,4 +275,53 @@ export const workData: WorkProps[] = [
       },
     ],
   },
+  {
+    id: "work-6",
+    name: "Architecture du Portfolio",
+    category: "frontend",
+    statsConfig: {
+      github: { owner: "loikfekkai", repo: "loikfekkai.dev" },
+    },
+    socialLinks: [
+      {
+        icon: <FaLink />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://loikfekkai.dev",
+      },
+      {
+        icon: <FaGithub />,
+        iconClassName: "text-[#0072b1] bg-secondary text-xl",
+        href: "https://github.com/loikfekkai/loikfekkai.dev",
+      },
+    ],
+    tag: "Playground",
+    description:
+      "Vous êtes-vous déjà demandé à quoi pourrait ressembler une architecture MVP dans une application React ?\n\nMoi oui. Ce portfolio est un terrain d'expérimentation architectural. J'y explore comment structurer une SPA autour d'un vrai découplage entre Presenter, Controller et View, et jusqu'où on peut aller sans tomber dans le sur-engineering.\n\nChaque abstraction a un sens. L'objectif n'est pas de copier le backend, mais d'adapter des principes de conception éprouvés aux contraintes du frontend. Les patterns Repository et Adapter y trouvent aussi leur place, mais en soutien, jamais au centre.\n\nLe résultat ? Une codebase qui assume ses choix, pousse les limites de React tout en restant claire et maintenable. Certains patterns se sont révélés étonnamment efficaces, d'autres m'ont simplement appris où la complexité commence à nuire.\n\nBref, ce portfolio est autant une expérience d'architecture qu'un projet personnel que j'ai adoré construire.",
+    technologiesUsed: {
+      languages: ["TypeScript"],
+      libraries: ["React", "TailwindCSS", "Framer Motion"],
+      tools: ["Vite", "i18next"],
+      architectures: ["MVP", "Observer Pattern", "Repository", "DI"],
+    },
+    keyFeatures: [
+      {
+        id: "portfolio-features-1",
+        key: "Pattern MVP en pratique",
+        features: [
+          "Les Presenters écoutent les changements d'état et reconstruisent les ViewModels",
+          "Les Controllers gèrent l'input utilisateur et valident avant de mettre à jour l'état",
+          "Les Vues sont stupides - elles rendent juste ce que les Presenters leur donnent",
+          "Séparation claire qui a du sens (pas juste de la théorie)",
+        ],
+      },
+      {
+        id: "portfolio-features-2",
+        key: "Controllers vs Presenters - Pourquoi les deux ?",
+        features: [
+          "Controllers : clic utilisateur → validation → mise à jour du Store → notification",
+          "Presenters : changement du Store → transformation des données → reconstruction du ViewModel → notification de la Vue",
+        ],
+      },
+    ],
+  },
 ];
