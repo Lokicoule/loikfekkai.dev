@@ -1,7 +1,6 @@
 import { SocialLinkProps } from "../../shared/components/elements/SocialLinks";
 import { StackProps } from "../../shared/components/elements/Stack";
 import { WorkFilter } from "../../shared/persistence/GlobalStore";
-import { ProjectStats } from "../../shared/services/stats/ProjectStatsService";
 
 type KeyFeaturesProps = {
   id: string;
@@ -26,7 +25,6 @@ export interface WorkProps {
   keyFeatures?: KeyFeaturesProps[];
   socialLinks: SocialLinkProps[];
   statsConfig?: ProjectStatsConfig;
-  stats?: ProjectStats;
 }
 
 export interface WorksViewModelProps {
@@ -35,7 +33,7 @@ export interface WorksViewModelProps {
 }
 
 export class WorksViewModel {
-  constructor(private readonly props: WorksViewModelProps) {}
+  constructor(private readonly props: WorksViewModelProps) { }
 
   public get works() {
     return this.props.filter === "all"
