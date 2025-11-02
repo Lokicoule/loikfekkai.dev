@@ -53,8 +53,8 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit }) => {
         type="text"
         value={formData.name}
         onChange={handleChange}
-        min={2}
-        max={50}
+        minLength={2}
+        maxLength={50}
         required
         autoComplete="name"
       />
