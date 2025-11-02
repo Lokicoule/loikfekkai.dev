@@ -51,33 +51,23 @@ export type KnowledgeProps = {
   type: "architecture" | "methodology";
 };
 
-export interface ResumeViewModelProps {
+export type ExperienceLabels = {
+  description: string;
+  technologiesUsed: string;
+  keyAchievements: string;
+  personalExperience: string;
+  duration: string;
+  company: string;
+  place: string;
+  client: string;
+  project: string;
+  roleAndResponsibilities: string;
+};
+
+export type ResumeViewModel = {
   experiences: ExperienceProps[];
   educations: EducationProps[];
   skills: SkillProps[];
   knowledges: KnowledgeProps[];
-}
-
-export class ResumeViewModel {
-  constructor(private readonly props: ResumeViewModelProps) {}
-
-  public get experiences() {
-    return this.props.experiences;
-  }
-
-  public get educations() {
-    return this.props.educations;
-  }
-
-  public get skills() {
-    return this.props.skills;
-  }
-
-  public get knowledges() {
-    return this.props.knowledges;
-  }
-
-  public get attributes() {
-    return this.props;
-  }
-}
+  labels: ExperienceLabels;
+};

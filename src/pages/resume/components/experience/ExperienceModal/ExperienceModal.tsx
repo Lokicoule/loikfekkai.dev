@@ -1,11 +1,12 @@
 import Modal from "../../../../../shared/components/adapters/@headlessui/Modal";
-import { ExperienceProps } from "../../../ResumeViewModel";
+import { ExperienceLabels, ExperienceProps } from "../../../ResumeViewModel";
 import ExperienceModalContent from "./ExperienceModalContent";
 import ExperienceModalTitle from "./ExperienceModalTitle";
 
 type ExperienceModalProps = {
   experience: ExperienceProps;
   triggerButton: React.ReactElement;
+  labels: ExperienceLabels;
 };
 
 type ExperienceModalComponent = React.FC<ExperienceModalProps>;
@@ -13,6 +14,7 @@ type ExperienceModalComponent = React.FC<ExperienceModalProps>;
 const ExperienceModal: ExperienceModalComponent = ({
   experience,
   triggerButton,
+  labels,
 }) => {
   return (
     <Modal
@@ -22,8 +24,8 @@ const ExperienceModal: ExperienceModalComponent = ({
     >
       {() => (
         <>
-          <ExperienceModalTitle experience={experience} />
-          <ExperienceModalContent experience={experience} />
+          <ExperienceModalTitle experience={experience} labels={labels} />
+          <ExperienceModalContent experience={experience} labels={labels} />
         </>
       )}
     </Modal>

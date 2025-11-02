@@ -7,8 +7,7 @@ import {
 } from "react-icons/fi";
 import Modal from "../../../../../shared/components/adapters/@headlessui/Modal";
 import Tooltip from "../../../../../shared/components/elements/Tooltip";
-import { ExperienceProps } from "../../../ResumeViewModel";
-import { translatingService } from "../../../../../shared/composition";
+import { ExperienceLabels, ExperienceProps } from "../../../ResumeViewModel";
 
 type DetailItemProps = {
   icon: React.ReactNode;
@@ -18,6 +17,7 @@ type DetailItemProps = {
 
 type ExperienceModalTitleProps = {
   experience: ExperienceProps;
+  labels: ExperienceLabels;
 };
 
 type DetailItemComponent = React.FC<DetailItemProps>;
@@ -52,6 +52,7 @@ const renderClientValue = (client: ExperienceProps["client"]) => {
 
 const ExperienceModalTitle: ExperienceModalTitleComponent = ({
   experience,
+  labels,
 }) => {
   return (
     <Modal.Title>
@@ -63,17 +64,17 @@ const ExperienceModalTitle: ExperienceModalTitleComponent = ({
         <div className="space-y-2 lg:mr-6">
           <DetailItem
             icon={<FiClock />}
-            label={translatingService.translate("duration")}
+            label={labels.duration}
             value={experience.duration}
           />
           <DetailItem
             icon={<FiBriefcase />}
-            label={translatingService.translate("company")}
+            label={labels.company}
             value={experience.company}
           />
           <DetailItem
             icon={<FiMapPin />}
-            label={translatingService.translate("place")}
+            label={labels.place}
             value={experience.place}
           />
         </div>
@@ -81,17 +82,17 @@ const ExperienceModalTitle: ExperienceModalTitleComponent = ({
         <div className="space-y-2">
           <DetailItem
             icon={<FiUser />}
-            label={translatingService.translate("client")}
+            label={labels.client}
             value={renderClientValue(experience?.client)}
           />
           <DetailItem
             icon={<FiFilePlus />}
-            label={translatingService.translate("project")}
+            label={labels.project}
             value={experience.tag}
           />
           <DetailItem
             icon={<FiBriefcase />}
-            label={translatingService.translate("roleAndResponsibilities")}
+            label={labels.roleAndResponsibilities}
             value={experience.roleAndResponsibilities}
           />
         </div>

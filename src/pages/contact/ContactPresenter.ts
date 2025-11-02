@@ -1,48 +1,32 @@
-import { TranslatingService } from "../../shared/services/translating/translatingService";
+import { TranslationPort } from "../../shared/ports";
 import { GlobalStore } from "../../shared/persistence/GlobalStore";
-import { LegacyPresenter } from "../../shared/presentation/Presenter";
-import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
+import { Presenter } from "../../shared/presentation/Presenter";
 import { ContactViewModel } from "./ContactViewModel";
 
-export class ContactPresenter extends LegacyPresenter<ContactViewModel> {
-  private subscriptionManager: SubscriptionManager;
-  private translatingService: TranslatingService;
-
-  constructor(store: GlobalStore, service: TranslatingService) {
+export class ContactPresenter extends Presenter<ContactViewModel> {
+  constructor(store: GlobalStore, private readonly translator: TranslationPort) {
     super(store);
-    this.subscriptionManager = new SubscriptionManager(
-      store,
-      "lang",
-      ContactPresenter.name,
-      (lang) => this.handleContactChange(lang)
-    );
-    this.translatingService = service;
   }
 
-  private handleContactChange(lang: string) {
-    this.rebuildViewModel(lang);
-    this.cb(this.vm);
+  protected onActivate(): Array<() => void> {
+    return [this.store.subscribe("lang", () => this.notify())];
   }
 
-  protected rebuildViewModel(lang: string) {
-    this.vm = new ContactViewModel({
-      lang,
-    });
+  protected buildViewModel(): ContactViewModel {
+    return {
+      lang: this.store.get("lang"),
+      labels: {
+        name: this.translator.translate("contact.form.name"),
+        email: this.translator.translate("contact.form.email"),
+        message: this.translator.translate("contact.form.message"),
+        sending: this.translator.translate("contact.form.sending"),
+        submit: this.translator.translate("contact.form.submit"),
+        success: this.translator.translate("contact.form.success"),
+      },
+    };
   }
 
-  public load(cb: (vm?: ContactViewModel) => void): void {
-    this.rebuildViewModel(this.subscriptionManager.getValue());
-
-    super.load(cb);
-  }
-
-  public unload(): void {
-    this.subscriptionManager.unsubscribe();
-
-    super.unload();
-  }
-
-  public translateAndSanitize(key: string): string {
-    return this.translatingService.translateAndSanitize(key);
+  public translate(key: string): string {
+    return this.translator.translate(key);
   }
 }

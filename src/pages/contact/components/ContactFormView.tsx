@@ -5,7 +5,6 @@ import { SubmitResult } from "../ContactController";
 import TextInputField from "../../../shared/components/elements/form/TextInputField";
 import TextAreaField from "../../../shared/components/elements/form/TextAreaField";
 import { BsSendCheck } from "react-icons/bs";
-import { translatingService } from "../../../shared/composition";
 
 export interface ContactFormElements extends HTMLFormControlsCollection {
   name: HTMLInputElement;
@@ -19,9 +18,17 @@ interface ContactFormElement extends HTMLFormElement {
 
 interface ContactFormViewProps {
   onSubmit: (data: ContactFormData) => Promise<SubmitResult>;
+  labels: {
+    name: string;
+    email: string;
+    message: string;
+    sending: string;
+    submit: string;
+    success: string;
+  };
 }
 
-const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit }) => {
+const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit, labels }) => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -49,7 +56,7 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <TextInputField
-        label={translatingService.translate("contact.form.name")}
+        label={labels.name}
         name="name"
         type="text"
         value={formData.name}
@@ -60,7 +67,7 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit }) => {
         autoComplete="name"
       />
       <TextInputField
-        label={translatingService.translate("contact.form.email")}
+        label={labels.email}
         name="email"
         type="email"
         value={formData.email}
@@ -69,7 +76,7 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit }) => {
         autoComplete="email"
       />
       <TextAreaField
-        label={translatingService.translate("contact.form.message")}
+        label={labels.message}
         name="message"
         value={formData.message}
         onChange={handleChange}
@@ -87,16 +94,14 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit }) => {
               type="submit"
               disabled={status === "pending"}
             >
-              {status === "pending"
-                ? translatingService.translate("contact.form.sending")
-                : translatingService.translate("contact.form.submit")}
+              {status === "pending" ? labels.sending : labels.submit}
             </button>
           </div>
         </div>
       ) : (
         <span className="text-green-500 p-2 rounder-lg">
           <BsSendCheck className="inline-block mr-2 text-xl" />
-          {translatingService.translate("contact.form.success")}
+          {labels.success}
         </span>
       )}
     </form>

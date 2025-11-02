@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import PageLayout from "../../shared/components/layouts/PageLayout";
+import { usePresenter } from "../../shared/presentation/usePresenter";
 import { AboutPresenter } from "./AboutPresenter";
-import { AboutViewModel } from "./AboutViewModel";
 
 type AboutViewProps = {
   presenter: AboutPresenter;
@@ -10,11 +9,7 @@ type AboutViewProps = {
 type AboutViewComponent = React.FC<AboutViewProps>;
 
 const AboutView: AboutViewComponent = ({ presenter }) => {
-  const [viewModel, setViewModel] = useState<AboutViewModel | undefined>();
-
-  useEffect(() => {
-    presenter.load((vm) => setViewModel(vm));
-  }, [presenter]);
+  const viewModel = usePresenter(presenter);
 
   if (!viewModel) {
     return null;
@@ -23,10 +18,10 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
   return (
     <PageLayout
       head={{
-        title: presenter.translateAndSanitize("about.title"),
-        description: presenter.translateAndSanitize("about.description.meta"),
+        title: presenter.translate("about.title"),
+        description: presenter.translate("about.description.meta"),
       }}
-      title={presenter.translateAndSanitize("about.title")}
+      title={presenter.translate("about.title")}
       className="lg:rounded-2xl lg:bg-primary"
     >
       <div className="flex flex-col space-y-8 pb-8">

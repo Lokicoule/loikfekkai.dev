@@ -1,11 +1,3 @@
-export interface NotFoundViewModelProps {
-  lang: string;
-}
+import { Language } from "../../shared/persistence/GlobalStore";
 
-export class NotFoundViewModel {
-  constructor(private readonly props: NotFoundViewModelProps) {}
-
-  public get lang() {
-    return this.props.lang;
-  }
-}
+export type NotFoundViewModel = { lang: Language };

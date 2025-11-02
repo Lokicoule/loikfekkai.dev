@@ -1,13 +1,14 @@
 import React from "react";
-import { ExperienceProps } from "../../ResumeViewModel";
+import { ExperienceLabels, ExperienceProps } from "../../ResumeViewModel";
 import ExperienceModal from "./ExperienceModal/ExperienceModal";
 import Tooltip from "../../../../shared/components/elements/Tooltip";
 
 type ExperienceItemProps = {
   item: ExperienceProps;
+  labels: ExperienceLabels;
 };
 
-const ExperienceItem: React.FC<ExperienceItemProps> = ({ item }) => {
+const ExperienceItem: React.FC<ExperienceItemProps> = ({ item, labels }) => {
   const renderTooltip = () => {
     if (item.company && item.internship) {
       return (
@@ -45,6 +46,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({ item }) => {
               </button>
             }
             experience={item}
+            labels={labels}
           />
         </div>
         {item.client && (

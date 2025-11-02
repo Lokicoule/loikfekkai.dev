@@ -1,11 +1,13 @@
-export interface ContactViewModelProps {
-  lang: string;
-}
+import { Language } from "../../shared/persistence/GlobalStore";
 
-export class ContactViewModel {
-  constructor(private readonly props: ContactViewModelProps) {}
-
-  public get lang() {
-    return this.props.lang;
-  }
-}
+export type ContactViewModel = {
+  lang: Language;
+  labels: {
+    name: string;
+    email: string;
+    message: string;
+    sending: string;
+    submit: string;
+    success: string;
+  };
+};

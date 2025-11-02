@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
-
 import PageLayout from "../../shared/components/layouts/PageLayout";
+import { usePresenter } from "../../shared/presentation/usePresenter";
 import { ResumePresenter } from "./ResumePresenter";
-import { ResumeViewModel } from "./ResumeViewModel";
 import EducationSection from "./components/education/EducationSection";
 import ExperienceSection from "./components/experience/ExperienceSection";
 import KnowledgeSection from "./components/knowledge/KnowledgeSection";
@@ -16,11 +14,7 @@ type ResumeViewProps = {
 type ResumeViewComponent = React.FC<ResumeViewProps>;
 
 const ResumeView: ResumeViewComponent = ({ presenter }) => {
-  const [viewModel, setViewModel] = useState<ResumeViewModel | undefined>();
-
-  useEffect(() => {
-    presenter.load((vm) => setViewModel(vm));
-  }, [presenter]);
+  const viewModel = usePresenter(presenter);
 
   if (!viewModel) {
     return null;
@@ -28,21 +22,22 @@ const ResumeView: ResumeViewComponent = ({ presenter }) => {
 
   return (
     <PageLayout
-      title={presenter.translateAndSanitize("resume.title")}
+      title={presenter.translate("resume.title")}
       head={{
-        title: presenter.translateAndSanitize("resume.title"),
-        description: presenter.translateAndSanitize("resume.description.meta"),
+        title: presenter.translate("resume.title"),
+        description: presenter.translate("resume.description.meta"),
       }}
       className="lg:rounded-2xl lg:bg-primary"
     >
       <div className="px-2 sm:px-5 md:px-10 lg:px-14 px-4 md:px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-6">
           <ExperienceSection
-            title={presenter.translateAndSanitize("resume.experience.title")}
+            title={presenter.translate("resume.experience.title")}
             items={viewModel.experiences}
+            labels={viewModel.labels}
           />
           <EducationSection
-            title={presenter.translateAndSanitize("resume.education.title")}
+            title={presenter.translate("resume.education.title")}
             items={viewModel.educations}
           />
         </div>
@@ -54,7 +49,7 @@ const ResumeView: ResumeViewComponent = ({ presenter }) => {
             <div className="flex flex-col space-y-12">
               <StackSection />
               <SkillSection
-                title={presenter.translateAndSanitize("resume.skill.title")}
+                title={presenter.translate("resume.skill.title")}
                 items={viewModel.skills}
               />
             </div>
@@ -62,7 +57,7 @@ const ResumeView: ResumeViewComponent = ({ presenter }) => {
 
           <div className="col-span-1">
             <KnowledgeSection
-              title={presenter.translateAndSanitize("resume.knowledge.title")}
+              title={presenter.translate("resume.knowledge.title")}
               items={viewModel.knowledges}
             />
           </div>

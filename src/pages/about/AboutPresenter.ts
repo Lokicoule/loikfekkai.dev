@@ -1,9 +1,11 @@
 import { TranslationPort } from "../../shared/ports";
 import { GlobalStore } from "../../shared/persistence/GlobalStore";
 import { Presenter } from "../../shared/presentation/Presenter";
-import { NotFoundViewModel } from "./NotFoundViewModel";
+import { AboutViewModel } from "./AboutViewModel";
+import { aboutDataEn as dataEn } from "./datas/aboutData.en";
+import { aboutDataFr as dataFr } from "./datas/aboutData.fr";
 
-export class NotFoundPresenter extends Presenter<NotFoundViewModel> {
+export class AboutPresenter extends Presenter<AboutViewModel> {
   constructor(store: GlobalStore, private readonly translator: TranslationPort) {
     super(store);
   }
@@ -12,8 +14,8 @@ export class NotFoundPresenter extends Presenter<NotFoundViewModel> {
     return [this.store.subscribe("lang", () => this.notify())];
   }
 
-  protected buildViewModel(): NotFoundViewModel {
-    return { lang: this.store.get("lang") };
+  protected buildViewModel(): AboutViewModel {
+    return this.store.get("lang") === "fr" ? dataFr : dataEn;
   }
 
   public translate(key: string): string {

@@ -5,11 +5,11 @@ import {
   Modal,
 } from "../../../../../shared/components/adapters/@headlessui";
 import Stack from "../../../../../shared/components/elements/Stack";
-import { translatingService } from "../../../../../shared/composition";
-import { ExperienceProps } from "../../../ResumeViewModel";
+import { ExperienceLabels, ExperienceProps } from "../../../ResumeViewModel";
 
 type ExperienceModalContentProps = {
   experience: ExperienceProps;
+  labels: ExperienceLabels;
 };
 
 const DisclosureSection = ({
@@ -29,34 +29,31 @@ const DisclosureSection = ({
 
 const ExperienceModalContent: React.FC<ExperienceModalContentProps> = ({
   experience,
+  labels,
 }) => (
   <Modal.Content>
     <div className="my-6 whitespace-pre-wrap">
       <DisclosureSection
         icon={<FiBriefcase className="text-lg mr-2 inline-block" />}
-        title={translatingService.translate("description")}
+        title={labels.description}
         content={experience.description}
       />
 
       <DisclosureSection
         icon={<GoStack className="text-lg mr-2 inline-block" />}
-        title={translatingService.translate("technologiesUsed")}
+        title={labels.technologiesUsed}
         content={<Stack {...experience.technologiesUsed} />}
       />
 
       {[
         {
           items: experience.keyAchievements,
-          title: translatingService.translate(
-            "resume.experience.keyAchievements"
-          ),
+          title: labels.keyAchievements,
           icon: <FiAward className="text-lg mr-2 inline-block" />,
         },
         {
           items: experience.personalExperience,
-          title: translatingService.translate(
-            "resume.experience.personalExperience"
-          ),
+          title: labels.personalExperience,
           icon: <FiAlertCircle className="text-lg mr-2 inline-block" />,
         },
       ].map((section, index) =>

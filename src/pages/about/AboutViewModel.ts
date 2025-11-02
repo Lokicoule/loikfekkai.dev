@@ -14,22 +14,4 @@ export interface AboutViewModelProps {
   outro?: JSX.Element;
 }
 
-export class AboutViewModel {
-  constructor(private readonly props: AboutViewModelProps) { }
-
-  public get whoAmI() {
-    return this.props.whoAmI;
-  }
-
-  public get whatDoIOffer() {
-    return this.props.whatDoIOffer;
-  }
-
-  public get livingTheDream() {
-    return this.props.livingTheDream;
-  }
-
-  public get outro() {
-    return this.props.outro;
-  }
-}
+export type AboutViewModel = AboutViewModelProps;
