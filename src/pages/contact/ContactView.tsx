@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import PageLayout from "../../shared/components/layouts/PageLayout";
-import { NotificationService } from "../../shared/services/notifications/notificationsService";
 
 import { ContactController } from "./ContactController";
 import { ContactPresenter } from "./ContactPresenter";
@@ -38,16 +37,14 @@ const ContactView: ContactViewComponent = ({ controller, presenter }) => {
       title={presenter.translateAndSanitize("contact.title")}
       className="lg:rounded-2xl lg:bg-primary"
     >
-      {NotificationService.makeNotifiable(
-        <div className="mx-4 md:mx-[60px] p-4 md:p-16 border-1 border-primary bg-secondary rounded-xl bg-primary mb-[30px] md:mb-[60px]">
-          <h3 className="text-4xl leading-tight bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-500 inline-block text-transparent bg-clip-text">
-            {presenter.translateAndSanitize("contact.description.content")}
-          </h3>
-          <div className="mt-10">
-            <ContactFormView onSubmit={handleSubmit} />
-          </div>
+      <div className="mx-4 md:mx-[60px] p-4 md:p-16 border-1 border-primary bg-secondary rounded-xl bg-primary mb-[30px] md:mb-[60px]">
+        <h3 className="text-4xl leading-tight bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-500 inline-block text-transparent bg-clip-text">
+          {presenter.translateAndSanitize("contact.description.content")}
+        </h3>
+        <div className="mt-10">
+          <ContactFormView onSubmit={handleSubmit} />
         </div>
-      )}
+      </div>
     </PageLayout>
   );
 };

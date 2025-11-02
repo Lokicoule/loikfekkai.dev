@@ -1,4 +1,3 @@
-import { NotificationService } from "../../services/notifications/notificationsService";
 import { LangController } from "./LangController";
 import { LangPresenter } from "./LangPresenter";
 import LangView from "./LangView";
@@ -16,12 +15,10 @@ const LangContainer: LangContainerComponent = ({ controller, presenter }) => {
 
   return (
     <div className="flex items-center">
-      {NotificationService.makeNotifiable(
-        <LangView
-          onLanguageChange={handleLanguageChange}
-          presenter={presenter}
-        />
-      )}
+      <LangView
+        onLanguageChange={handleLanguageChange}
+        presenter={presenter}
+      />
     </div>
   );
 };

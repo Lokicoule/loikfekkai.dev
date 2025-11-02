@@ -1,4 +1,4 @@
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { Notification } from "./domainObjects/Notification";
 
 export class NotificationService {
@@ -14,25 +14,5 @@ export class NotificationService {
       render: notification.getMessage(),
       type: notification.getType(),
     });
-  }
-
-  public static makeNotifiable(children: JSX.Element) {
-    return (
-      <>
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
-        {children}
-      </>
-    );
   }
 }
