@@ -15,7 +15,6 @@ const localStorageService = new LocalStorageService();
 const cacheService = new CacheService(localStorageService);
 
 loggingService.init();
-translatingService.init();
 
 export {
   localStorageService,

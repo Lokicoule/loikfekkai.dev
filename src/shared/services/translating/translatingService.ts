@@ -48,5 +48,10 @@ export class TranslatingService {
         },
       },
     });
+
+    document.documentElement.lang = this.language;
+    i18next.on("languageChanged", () => {
+      document.documentElement.lang = this.language;
+    });
   }
 }
