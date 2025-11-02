@@ -5,7 +5,7 @@ import { ContactController } from "./ContactController";
 import { ContactPresenter } from "./ContactPresenter";
 import { ContactViewModel } from "./ContactViewModel";
 import ContactFormView from "./components/ContactFormView";
-import { ContactFormProps } from "./domainObjects/ContactForm";
+import { ContactFormData } from "./contactFormValidation";
 
 type ContactViewProps = {
   controller: ContactController;
@@ -24,8 +24,8 @@ const ContactView: ContactViewComponent = ({ controller, presenter }) => {
     return null;
   }
 
-  const handleSubmit = async (data: ContactFormProps) => {
-    await controller.submitContactForm(data);
+  const handleSubmit = (data: ContactFormData) => {
+    return controller.submitContactForm(data);
   };
 
   return (

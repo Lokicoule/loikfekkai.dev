@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAsyncCallback } from "../../../shared/hooks/useAsyncCallback";
-import { ContactFormProps } from "../domainObjects/ContactForm";
+import { ContactFormData } from "../contactFormValidation";
+import { SubmitResult } from "../ContactController";
 import TextInputField from "../../../shared/components/elements/form/TextInputField";
 import TextAreaField from "../../../shared/components/elements/form/TextAreaField";
 import { BsSendCheck } from "react-icons/bs";
@@ -17,16 +18,16 @@ interface ContactFormElement extends HTMLFormElement {
 }
 
 interface ContactFormViewProps {
-  onSubmit: (data: ContactFormProps) => Promise<void>;
+  onSubmit: (data: ContactFormData) => Promise<SubmitResult>;
 }
 
 const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit }) => {
-  const [formData, setFormData] = useState<ContactFormProps>({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     message: "",
   });
-  const [{ isLoading, isSuccessful }, sendMessage] = useAsyncCallback(onSubmit);
+  const [status, sendMessage] = useAsyncCallback(onSubmit);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -78,15 +79,15 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit }) => {
         maxLength={500}
       />
 
-      {!isSuccessful ? (
+      {status !== "success" ? (
         <div className="flex items-center justify-end rounded-lg mt-3">
           <div className="rounded-lg hover:bg-gradient-to-r from-sky-400 to-blue-600 transition-all duration-300  ease-in-out">
             <button
               className="font-semibold border-primary hover:border-transparent px-6  py-2 rounded-lg border-[2px] text-primary hover:text-white transition ease-in duration-200 "
               type="submit"
-              disabled={isLoading || isSuccessful}
+              disabled={status === "pending"}
             >
-              {isLoading
+              {status === "pending"
                 ? translatingService.translate("contact.form.sending")
                 : translatingService.translate("contact.form.submit")}
             </button>

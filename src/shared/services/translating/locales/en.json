@@ -20,7 +20,13 @@
       "name": "Name",
       "sending": "Sending...",
       "submit": "Submit",
-      "success": "Message sent successfully!"
+      "success": "Message sent successfully!",
+      "failure": "Message failed to send!",
+      "errors": {
+        "email": { "invalid": "Email must be valid" },
+        "name": { "length": "Name must be between 2 and 50 characters" },
+        "message": { "length": "Message must be between 10 and 500 characters" }
+      }
     },
     "title": "Contact"
   },

@@ -7,12 +7,14 @@ import {
   loggingService,
   mailingService,
   notificationsService,
+  translatingService,
 } from "./setupServices";
 
 const contactController = new ContactController(
   notificationsService,
   mailingService,
-  loggingService
+  loggingService,
+  translatingService
 );
 
 const langController = new LangController(store, notificationsService);
