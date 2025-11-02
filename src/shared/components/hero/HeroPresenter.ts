@@ -2,8 +2,7 @@ import { GlobalStore } from "../../../shared/persistence/GlobalStore";
 import { Presenter } from "../../../shared/presentation/Presenter";
 import { TranslationPort } from "../../ports";
 import { HeroViewModel } from "./HeroViewModel";
-import { contactInfoData as contactInfoDataEn } from "./datas/contactInfoData.en";
-import { contactInfoData as contactInfoDataFr } from "./datas/contactInfoData.fr";
+import { contactInfoData } from "./datas/contactInfoData";
 
 export class HeroPresenter extends Presenter<HeroViewModel> {
   constructor(store: GlobalStore, private readonly translator: TranslationPort) {
@@ -17,7 +16,7 @@ export class HeroPresenter extends Presenter<HeroViewModel> {
   protected buildViewModel(): HeroViewModel {
     const lang = this.store.get("lang");
     return {
-      infos: lang === "fr" ? contactInfoDataFr : contactInfoDataEn,
+      infos: contactInfoData.map((info) => ({ ...info, label: info.label[lang] })),
       lang,
     };
   }

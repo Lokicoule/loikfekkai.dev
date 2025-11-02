@@ -2,8 +2,7 @@ import { GlobalStore } from "../../shared/persistence/GlobalStore";
 import { Presenter } from "../../shared/presentation/Presenter";
 import { TranslationPort } from "../../shared/ports";
 import { WorksViewModel, filterWorks } from "./WorksViewModel";
-import { workData as workDataEn } from "./datas/workData.en";
-import { workData as workDataFr } from "./datas/workData.fr";
+import { workData } from "./datas/workData";
 
 export class WorksPresenter extends Presenter<WorksViewModel> {
   constructor(store: GlobalStore, private readonly translator: TranslationPort) {
@@ -18,8 +17,18 @@ export class WorksPresenter extends Presenter<WorksViewModel> {
   }
 
   protected buildViewModel(): WorksViewModel {
-    const works = this.store.get("lang") === "fr" ? workDataFr : workDataEn;
+    const lang = this.store.get("lang");
     const filter = this.store.get("workFilter");
+    const works = workData.map((work) => ({
+      ...work,
+      tag: work.tag[lang],
+      description: work.description[lang],
+      keyFeatures: work.keyFeatures?.map((feature) => ({
+        ...feature,
+        key: feature.key[lang],
+        features: feature.features[lang],
+      })),
+    }));
     return {
       works: filterWorks(works, filter),
       filter,

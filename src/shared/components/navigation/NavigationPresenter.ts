@@ -1,7 +1,6 @@
 import { Presenter } from "../../../shared/presentation/Presenter";
 import { NavigationViewModel } from "./NavigationViewModel";
-import { navigationData as navigationDataEn } from "./datas/navigationData.en";
-import { navigationData as navigationDataFr } from "./datas/navigationData.fr";
+import { navigationData } from "./datas/navigationData";
 
 export class NavigationPresenter extends Presenter<NavigationViewModel> {
   protected onActivate(): Array<() => void> {
@@ -9,8 +8,9 @@ export class NavigationPresenter extends Presenter<NavigationViewModel> {
   }
 
   protected buildViewModel(): NavigationViewModel {
+    const lang = this.store.get("lang");
     return {
-      items: this.store.get("lang") === "fr" ? navigationDataFr : navigationDataEn,
+      items: navigationData.map((item) => ({ ...item, name: item.name[lang] })),
     };
   }
 }
