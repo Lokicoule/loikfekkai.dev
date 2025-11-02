@@ -1,33 +1,22 @@
-import { Callback, GlobalStore, KeyInCache } from "../persistence/GlobalStore";
+import { GlobalState, GlobalStore } from "../persistence/GlobalStore";
 
-export class SubscriptionManager {
-  private store: GlobalStore;
-  private key: KeyInCache;
-  private subscriberName: string;
-  private callback: Callback;
+export class SubscriptionManager<K extends keyof GlobalState = "lang"> {
+  private readonly dispose: () => void;
 
   constructor(
-    store: GlobalStore,
-    key: KeyInCache,
-    subscriberName: string,
-    callback: Callback
+    private readonly store: GlobalStore,
+    private readonly key: K,
+    _subscriberName: string,
+    callback: (value: GlobalState[K]) => void
   ) {
-    this.store = store;
-    this.key = key;
-    this.subscriberName = subscriberName;
-    this.callback = callback;
-    this.setupSubscription();
+    this.dispose = store.subscribe(key, callback);
   }
 
-  private setupSubscription() {
-    this.store.subscribe(this.key, this.subscriberName, this.callback);
-  }
-
-  public getValue() {
+  public getValue(): GlobalState[K] {
     return this.store.get(this.key);
   }
 
   public unsubscribe(): void {
-    this.store.unsubscribe(this.key, this.subscriberName);
+    this.dispose();
   }
 }

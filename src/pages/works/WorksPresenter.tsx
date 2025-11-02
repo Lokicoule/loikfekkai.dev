@@ -8,7 +8,7 @@ import { workData as workDataFr } from "./datas/workData.fr";
 
 export class WorksPresenter extends Presenter<WorksViewModel> {
   private langSubscriptionManager: SubscriptionManager;
-  private filterSubscriptionManager: SubscriptionManager;
+  private filterSubscriptionManager: SubscriptionManager<"workFilter">;
   private translatingService: TranslatingService;
 
   constructor(store: GlobalStore, translatingService: TranslatingService) {

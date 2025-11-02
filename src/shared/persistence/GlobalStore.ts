@@ -1,68 +1,40 @@
 export type Language = "en" | "fr";
 export type WorkFilter = "all" | "backend" | "frontend" | "tools";
 
-type GlobalState = {
+export type GlobalState = {
   lang: Language;
   workFilter: WorkFilter;
 };
 
-type State = GlobalState[keyof GlobalState];
-
-export type Callback = (data: State) => void;
-
-export type KeyInCache = "lang" | "workFilter";
+type Subscribers = {
+  [K in keyof GlobalState]: Set<(value: GlobalState[K]) => void>;
+};
 
 export class GlobalStore {
-  private subscribers: Map<KeyInCache, Map<string, Callback>>;
-  private data: Record<KeyInCache, GlobalState[KeyInCache]>;
+  private readonly subscribers: Subscribers = {
+    lang: new Set(),
+    workFilter: new Set(),
+  };
+  private readonly state: GlobalState;
 
   public constructor(lang: Language, workFilter: WorkFilter) {
-    this.subscribers = new Map();
-
-    this.data = {
-      lang,
-      workFilter,
-    } as Record<KeyInCache, GlobalState[KeyInCache]>;
+    this.state = { lang, workFilter };
   }
 
-  public subscribe(key: KeyInCache, subscriberName: string, cb: Callback) {
-    let keySubscribers = this.subscribers.get(key);
-
-    if (!keySubscribers) {
-      keySubscribers = new Map();
-    }
-
-    keySubscribers.set(subscriberName, cb);
-    this.subscribers.set(key, keySubscribers);
+  public get<K extends keyof GlobalState>(key: K): GlobalState[K] {
+    return this.state[key];
   }
 
-  public get(key: KeyInCache) {
-    return this.data[key];
+  public set<K extends keyof GlobalState>(key: K, value: GlobalState[K]): void {
+    this.state[key] = value;
+    this.subscribers[key].forEach((cb) => cb(value));
   }
 
-  public set(key: KeyInCache, data: GlobalState[KeyInCache]) {
-    this.data[key] = data;
-    this.notify(key);
-  }
-
-  public notify(key: KeyInCache) {
-    const newState = this.get(key);
-
-    const keySubscribers = this.subscribers.get(key);
-    if (!keySubscribers) {
-      return;
-    }
-
-    keySubscribers.forEach((cb) => {
-      cb(newState);
-    });
-  }
-
-  public unsubscribe(key: KeyInCache, subscriberName: string) {
-    const keySubscribers = this.subscribers.get(key);
-
-    if (keySubscribers) {
-      keySubscribers.delete(subscriberName);
-    }
+  public subscribe<K extends keyof GlobalState>(
+    key: K,
+    cb: (value: GlobalState[K]) => void
+  ): () => void {
+    this.subscribers[key].add(cb);
+    return () => this.subscribers[key].delete(cb);
   }
 }
