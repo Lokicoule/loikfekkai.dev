@@ -1,12 +1,12 @@
 import { GlobalStore } from "../../shared/persistence/GlobalStore";
-import { Presenter } from "../../shared/presentation/Presenter";
+import { LegacyPresenter } from "../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
 import { TranslatingService } from "../../shared/services/translating/translatingService";
 import { WorksViewModel } from "./WorksViewModel";
 import { workData as workDataEn } from "./datas/workData.en";
 import { workData as workDataFr } from "./datas/workData.fr";
 
-export class WorksPresenter extends Presenter<WorksViewModel> {
+export class WorksPresenter extends LegacyPresenter<WorksViewModel> {
   private langSubscriptionManager: SubscriptionManager;
   private filterSubscriptionManager: SubscriptionManager<"workFilter">;
   private translatingService: TranslatingService;

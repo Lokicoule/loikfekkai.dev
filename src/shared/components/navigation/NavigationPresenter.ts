@@ -1,5 +1,5 @@
 import { GlobalStore } from "../../../shared/persistence/GlobalStore";
-import { Presenter } from "../../../shared/presentation/Presenter";
+import { LegacyPresenter } from "../../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../../shared/presentation/SubscriptionManager";
 
 import { NavigationViewModel } from "./NavigationViewModel";
@@ -7,7 +7,7 @@ import { NavigationViewModel } from "./NavigationViewModel";
 import { navigationData as navigationDataEn } from "./datas/navigationData.en";
 import { navigationData as navigationDataFr } from "./datas/navigationData.fr";
 
-export class NavigationPresenter extends Presenter<NavigationViewModel> {
+export class NavigationPresenter extends LegacyPresenter<NavigationViewModel> {
   private subscriptionManager: SubscriptionManager;
 
   constructor(store: GlobalStore) {

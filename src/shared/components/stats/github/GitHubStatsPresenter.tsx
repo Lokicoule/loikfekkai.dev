@@ -1,11 +1,11 @@
 import { GlobalStore } from "../../../persistence/GlobalStore";
-import { Presenter } from "../../../presentation/Presenter";
+import { LegacyPresenter } from "../../../presentation/Presenter";
 import { GitHubRepository } from "../../../repositories/github/GitHubRepository";
 import { GitHubRepositoryConfig, GitHubStats } from "../../../repositories/github/types";
 import { CacheService } from "../../../services/cache/CacheService";
 import { GitHubStatsViewModel } from "./GitHubStatsViewModel";
 
-export class GitHubStatsPresenter extends Presenter<GitHubStatsViewModel> {
+export class GitHubStatsPresenter extends LegacyPresenter<GitHubStatsViewModel> {
   private readonly githubRepository: GitHubRepository;
   private readonly cacheService: CacheService;
   private readonly callbacks: Map<string, (vm?: GitHubStatsViewModel) => void>;

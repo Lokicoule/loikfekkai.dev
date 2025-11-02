@@ -2,13 +2,13 @@ import {
   GlobalStore,
   type Language,
 } from "../../../shared/persistence/GlobalStore";
-import { Presenter } from "../../../shared/presentation/Presenter";
+import { LegacyPresenter } from "../../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../../shared/presentation/SubscriptionManager";
 import { TranslatingService } from "../../services/translating/translatingService";
 import { HeroViewModel } from "./HeroViewModel";
 import { contactInfoData as contactInfoDataEn } from "./datas/contactInfoData.en";
 import { contactInfoData as contactInfoDataFr } from "./datas/contactInfoData.fr";
-export class HeroPresenter extends Presenter<HeroViewModel> {
+export class HeroPresenter extends LegacyPresenter<HeroViewModel> {
   private subscriptionManager: SubscriptionManager;
   private translatingService: TranslatingService;
 

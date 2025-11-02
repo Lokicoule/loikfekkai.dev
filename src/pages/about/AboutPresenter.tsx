@@ -1,12 +1,12 @@
 import { TranslatingService } from "../../shared/services/translating/translatingService";
 import { GlobalStore } from "../../shared/persistence/GlobalStore";
-import { Presenter } from "../../shared/presentation/Presenter";
+import { LegacyPresenter } from "../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
 import { AboutViewModel } from "./AboutViewModel";
 import { aboutDataEn as dataEn } from "./datas/aboutData.en";
 import { aboutDataFr as dataFr } from "./datas/aboutData.fr";
 
-export class AboutPresenter extends Presenter<AboutViewModel> {
+export class AboutPresenter extends LegacyPresenter<AboutViewModel> {
   private subscriptionManager: SubscriptionManager;
   private translatingService: TranslatingService;
 

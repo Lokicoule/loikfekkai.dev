@@ -1,6 +1,6 @@
 import { TranslatingService } from "../../shared/services/translating/translatingService";
 import { GlobalStore } from "../../shared/persistence/GlobalStore";
-import { Presenter } from "../../shared/presentation/Presenter";
+import { LegacyPresenter } from "../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
 import { ResumeViewModel } from "./ResumeViewModel";
 import { educationData as educationDataEn } from "./datas/educationData.en";
@@ -11,7 +11,7 @@ import { knowledgeData } from "./datas/knowledgeData";
 import { skillData as skillDataEn } from "./datas/skillData.en";
 import { skillData as skillDataFr } from "./datas/skillData.fr";
 
-export class ResumePresenter extends Presenter<ResumeViewModel> {
+export class ResumePresenter extends LegacyPresenter<ResumeViewModel> {
   private subscriptionManager: SubscriptionManager;
   private translatingService: TranslatingService;
 

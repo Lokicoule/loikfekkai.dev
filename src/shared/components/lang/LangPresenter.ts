@@ -1,9 +1,9 @@
 import { GlobalStore } from "../../../shared/persistence/GlobalStore";
-import { Presenter } from "../../../shared/presentation/Presenter";
+import { LegacyPresenter } from "../../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../../shared/presentation/SubscriptionManager";
 import { LangViewModel } from "./LangViewModel";
 
-export class LangPresenter extends Presenter<LangViewModel> {
+export class LangPresenter extends LegacyPresenter<LangViewModel> {
   private subscriptionManager: SubscriptionManager;
 
   constructor(store: GlobalStore) {

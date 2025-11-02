@@ -1,10 +1,10 @@
 import { TranslatingService } from "../../shared/services/translating/translatingService";
 import { GlobalStore } from "../../shared/persistence/GlobalStore";
-import { Presenter } from "../../shared/presentation/Presenter";
+import { LegacyPresenter } from "../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
 import { ContactViewModel } from "./ContactViewModel";
 
-export class ContactPresenter extends Presenter<ContactViewModel> {
+export class ContactPresenter extends LegacyPresenter<ContactViewModel> {
   private subscriptionManager: SubscriptionManager;
   private translatingService: TranslatingService;
 

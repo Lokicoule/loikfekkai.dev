@@ -1,10 +1,10 @@
 import { TranslatingService } from "../../shared/services/translating/translatingService";
 import { GlobalStore } from "../../shared/persistence/GlobalStore";
-import { Presenter } from "../../shared/presentation/Presenter";
+import { LegacyPresenter } from "../../shared/presentation/Presenter";
 import { SubscriptionManager } from "../../shared/presentation/SubscriptionManager";
 import { NotFoundViewModel } from "./NotFoundViewModel";
 
-export class NotFoundPresenter extends Presenter<NotFoundViewModel> {
+export class NotFoundPresenter extends LegacyPresenter<NotFoundViewModel> {
   private subscriptionManager: SubscriptionManager;
   private translatingService: TranslatingService;
 

@@ -1,5 +1,5 @@
 import { GlobalStore } from "../../../persistence/GlobalStore";
-import { Presenter } from "../../../presentation/Presenter";
+import { LegacyPresenter } from "../../../presentation/Presenter";
 import { NpmRepository } from "../../../repositories/npm/NpmRepository";
 import { NpmStats } from "../../../repositories/npm/types";
 import { CacheService } from "../../../services/cache/CacheService";
@@ -7,7 +7,7 @@ import { NpmStatsViewModel } from "./NpmStatsViewModel";
 
 type ViewModelCallback = (vm?: NpmStatsViewModel) => void;
 
-export class NpmStatsPresenter extends Presenter<NpmStatsViewModel> {
+export class NpmStatsPresenter extends LegacyPresenter<NpmStatsViewModel> {
   private readonly npmRepository: NpmRepository;
   private readonly cacheService: CacheService;
   private readonly callbacks: Map<string, ViewModelCallback>;
