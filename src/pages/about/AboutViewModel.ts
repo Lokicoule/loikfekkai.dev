@@ -1,14 +1,11 @@
 export interface AboutViewModelProps {
   whoAmI: {
     title: string;
-    description: string;
+    description: JSX.Element;
   };
   whatDoIOffer: {
     title: string;
-    description: Array<{
-      title: string;
-      description: string;
-    }>;
+    description: JSX.Element;
   };
   livingTheDream: {
     title: string;
@@ -18,7 +15,7 @@ export interface AboutViewModelProps {
 }
 
 export class AboutViewModel {
-  constructor(private readonly props: AboutViewModelProps) {}
+  constructor(private readonly props: AboutViewModelProps) { }
 
   public get whoAmI() {
     return this.props.whoAmI;

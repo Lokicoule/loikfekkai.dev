@@ -3,39 +3,49 @@ import type { AboutViewModelProps } from "../AboutViewModel";
 export const aboutDataEn: AboutViewModelProps = {
   whoAmI: {
     title: "Who am I?",
-    description:
-      "I am a full-stack developer passionate about software design and concerned about the future of our planet. In the early years of my career, I honed my skills at Atos, primarily working with a Java, Spring, and Angular stack. I had the privilege of contributing to several projects for the Ministry of Ecology, an experience that reinforced my desire to use technology for a positive environmental impact. For the past three years, I have turned to more modern technologies, exploring TypeScript, NodeJS, and React in depth. My goal? To get back to basics by simplifying what can be simplified.",
+    description: (
+      <>
+        You know that feeling when you're working on a project and the codebase is so <strong>convoluted</strong> you can't even understand your own code from last week?
+        <br />
+        <br />
+        I've been there. <strong>Too many times</strong>. That's why I became <strong>obsessed</strong> with <strong>software design</strong>, <strong>clean architecture</strong>, and <strong>making things simpler</strong>.
+        <br />
+        <br />
+        I started at <strong>Atos</strong>, working on <strong>Java/Spring/Angular</strong> projects for the <strong>Ministry of Ecology</strong>. It reinforced something important for me: technology should <strong>serve a purpose</strong>, <strong>solve real problems</strong>, and ideally <strong>make the world a bit better</strong>.
+        <br />
+        <br />
+        For the past few years, I've been deep in the <strong>TypeScript</strong> ecosystem (<strong>Node.js, React, NestJS</strong>). Not because they're trendy, but because they let me focus on what matters: building things that <strong>work well</strong> and are <strong>easy to maintain</strong>.
+        <br />
+        <br />
+        My goal? <strong>Strip away the unnecessary</strong>. <strong>Simplify</strong> what can be simplified. Write code that future developers (including me) <strong>won't curse at</strong>.
+      </>
+    ),
   },
   whatDoIOffer: {
     title: "What do I offer?",
-    description: [
-      {
-        title: "Software Design Expertise:",
-        description: "I love crafting well-structured, maintainable code.",
-      },
-      {
-        title: "Full-Stack Fluency:",
-        description:
-          "Comfortable on both the front-end and back-end with a love for TypeScript.",
-      },
-      {
-        title: "Problem-Solving Prowess:",
-        description:
-          "Unraveling complex challenges and simplifying them is my jam.",
-      },
-    ],
+    description: (
+      <>
+        For me, <strong>clean code</strong> isn't about aesthetics: it's a way to build <strong>lasting systems</strong> that stay <strong>simple to maintain</strong>. My <strong>tendency toward abstraction</strong> might seem excessive, but it ensures <strong>testable code</strong> and <strong>well-defined responsibilities</strong>.
+        <br />
+        <br />
+        <strong>Comfortable from backend to frontend</strong>. <strong>TypeScript</strong> is my <strong>language of choice</strong> — for the <strong>safety</strong> it provides and the <strong>DX</strong> it delivers.
+        <br />
+        <br />
+        I like <strong>digging into business logic</strong>, understanding what lies behind <strong>ambiguous needs</strong>, and deriving <strong>clear solutions</strong>, <strong>coherent</strong>, and <strong>lasting</strong> from it.
+      </>
+    ),
   },
   livingTheDream: {
     title: "Living the Dream (Remotely!)",
     description: (
       <>
-        When I'm not in front of a computer, you'll find me on the waves in
-        Mimizan, a small coastal town near Bordeaux. Surfing and coding are the
-        perfect balance for me, providing essential life balance.
+        When I'm not behind my screen, you'll probably find me on the waves in Mimizan, a small coastal town near Bordeaux.
         <br />
-        As a remote developer, I harmonize these two passions to foster personal
-        growth while bringing renewed energy and total commitment to your
-        projects, no matter where I am.
+        <br />
+        Surfing and coding, that's my way of balancing things. One clears my mind, the other fills it. One teaches me to let go, the other to solve. And between the two, I find what inspires me: movement, focus, the search for the right flow.
+        <br />
+        <br />
+        Working remotely, I've learned to maintain that balance: moving forward efficiently, without sacrificing what matters. The result? More clarity, more energy, and above all more joy in what I create.
       </>
     ),
   },

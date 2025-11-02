@@ -3,42 +3,49 @@ import type { AboutViewModelProps } from "../AboutViewModel";
 export const aboutDataFr: AboutViewModelProps = {
   whoAmI: {
     title: "Qui suis-je ?",
-    description:
-      "Développeur full-stack passionné par l'innovation technologique et la transformation digitale, j'ai construit mon parcours autour de la création de solutions logicielles intelligentes et performantes. " +
-      "Mon parcours m'a conduit de grands groupes comme Atos à l'entrepreneuriat, en passant par des projets de transformation digitale innovants. J'ai développé une expertise solide dans les écosystèmes Node.js, TypeScript et React, toujours animé par la volonté de simplifier et d'optimiser les systèmes informatiques.",
+    description: (
+      <>
+        Vous connaissez ce moment où vous reprenez un projet et la base de code est tellement <strong>alambiquée</strong> que vous ne comprenez même plus votre propre code de la semaine dernière ?
+        <br />
+        <br />
+        J'y suis passé. <strong>Bien trop souvent</strong>. C'est pour ça que je suis devenu <strong>obsédé</strong> par le <strong>software design</strong>, la <strong>clean architecture</strong>, et la <strong>simplification</strong>.
+        <br />
+        <br />
+        J'ai démarré chez <strong>Atos</strong>, sur des projets <strong>Java/Spring/Angular</strong> pour le <strong>Ministère de l'Écologie</strong>. Ça a renforcé quelque chose d'important pour moi : la tech doit <strong>servir un but</strong>, <strong>résoudre de vrais problèmes</strong>, et (avec un brin de naïveté peut-être) <strong>rendre le monde un peu meilleur</strong>.
+        <br />
+        <br />
+        Ces dernières années, j'ai plongé dans l'écosystème <strong>TypeScript</strong> (<strong>Node.js, React, NestJS</strong>). Pas parce que c'est tendance, mais parce que ça me permet de me concentrer sur ce qui compte : construire des choses qui <strong>fonctionnent bien</strong> et qui sont <strong>faciles à maintenir</strong>.
+        <br />
+        <br />
+        Mon objectif ? <strong>Virer le superflu</strong>. <strong>Simplifier</strong> ce qui peut l'être. Écrire du code que les futurs développeurs (moi y compris) <strong>prendront plaisir à relire</strong>.
+      </>
+    ),
   },
   whatDoIOffer: {
-    title: "Mes compétences",
-    description: [
-      {
-        title: "Une expertise en conception logicielle :",
-        description:
-          "Je prends soin de développer un code clair, maintenable, testable et évolutif. Chaque ligne de code est pensée pour sa lisibilité et sa performance.",
-      },
-      {
-        title: "De la polyvalence :",
-        description:
-          "Également à l'aise en front-end et back-end, je trouve mon équilibre avec TypeScript comme langage de prédilection.",
-      },
-      {
-        title: "Une capacité à résoudre les problèmes :",
-        description:
-          "J'excelle dans la transformation digitale, la conception de microservices et l'optimisation des processus. Mon approche repose sur une analyse approfondie et des solutions pragmatiques qui génèrent une réelle valeur ajoutée.",
-      },
-    ],
+    title: "Ce que j'apporte",
+    description: (
+      <>
+        Pour moi, le <strong>clean code</strong> n'a rien d'esthétique : c'est un moyen de bâtir des <strong>systèmes pérennes</strong> et <strong>simples à maintenir</strong>. Mon <strong>penchant pour l'abstraction</strong> peut sembler excessif, mais il assure un code <strong>testable</strong> et des <strong>responsabilités bien définies</strong>.
+        <br />
+        <br />
+        <strong>À l'aise du backend au frontend</strong>. <strong>TypeScript</strong> est mon <strong>langage de choix</strong> — pour la <strong>sécurité</strong> qu'il offre et la <strong>DX</strong> qu'il procure.
+        <br />
+        <br />
+        J'aime <strong>creuser la logique métier</strong>, comprendre ce qui se cache derrière les <strong>besoins ambigus</strong> et en tirer des <strong>solutions claires</strong>, <strong>cohérentes</strong> et <strong>durables</strong>.
+      </>
+    ),
   },
   livingTheDream: {
     title: "Équilibre professionnel",
     description: (
       <>
-        Quand je ne suis pas devant mon écran, vous me trouverez sur les vagues
-        de Mimizan, petite ville côtière près de Bordeaux. Le surf et le code
-        sont pour moi une combinaison parfaite, qui m’offre un équilibre de vie
-        essentiel.
+        Quand je ne suis pas derrière mon écran, vous me trouverez probablement sur les vagues de Mimizan, une petite ville côtière près de Bordeaux.
         <br />
-        En tant que développeur à distance, j’harmonise ces deux passions pour
-        favoriser mon épanouissement personnel tout en apportant une énergie
-        renouvelée et un engagement total à vos projets, où que je sois.
+        <br />
+        Le surf et le code, c'est ma façon d'équilibrer les choses. L'un me vide la tête, l'autre la remplit. L'un m'apprend à lâcher prise, l'autre à résoudre. Et entre les deux, je trouve ce qui m'inspire : le mouvement, la concentration, la recherche du bon flow.
+        <br />
+        <br />
+        En travaillant à distance, j'ai appris à garder cet équilibre : avancer efficacement, sans sacrifier ce qui compte. Résultat ? Plus de clarté, plus d'énergie, et surtout plus de plaisir dans ce que je crée.
       </>
     ),
   },

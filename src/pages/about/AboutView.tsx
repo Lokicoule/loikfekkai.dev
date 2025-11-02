@@ -45,16 +45,9 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
             <h2 className="text-[25px] text-secondary font-medium pb-5 font-primary">
               {viewModel.whatDoIOffer.title}
             </h2>
-            <div className="space-y-6">
-              {viewModel.whatDoIOffer.description.map((item, index) => (
-                <p
-                  key={index}
-                  className="text-md leading-8 text-tertiary text-justify rounded-2xl bg-primary p-5 lg:p-0 lg:bg-transparent"
-                >
-                  <strong>{item.title}</strong> {item.description}
-                </p>
-              ))}
-            </div>
+            <p className="text-md leading-8 text-tertiary text-justify rounded-2xl bg-primary p-5 lg:p-0 lg:bg-transparent">
+              {viewModel.whatDoIOffer.description}
+            </p>
           </div>
         )}
         {viewModel.livingTheDream && (
