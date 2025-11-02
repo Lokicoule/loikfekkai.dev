@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaDownload } from "react-icons/fa";
 import { NpmStats } from "../../../ports";
 import { formatNumber } from "../../../utils/formatNumber";
+import { store } from "../../../composition/container";
 import { RemoteStatsPresenter, RemoteStatsViewModel } from "../RemoteStatsPresenter";
 
 type NpmStatsViewProps = {
@@ -33,25 +34,26 @@ export const NpmStatsView: React.FC<NpmStatsViewProps> = ({
   ) {
     return null;
   }
+  const lang = store.get("lang");
 
   return (
     <div className="flex items-center gap-4 text-xs text-secondary">
       {stats.weeklyDownloads > 0 && (
         <div className="flex items-center gap-1">
           <FaDownload className="text-secondary" size={12} />
-          <span>{formatNumber(stats.weeklyDownloads)}/week</span>
+          <span>{formatNumber(stats.weeklyDownloads, lang)}/week</span>
         </div>
       )}
       {stats.yearlyDownloads > 0 && (
         <div className="flex items-center gap-1">
           <FaDownload className="text-secondary" size={12} />
-          <span>{formatNumber(stats.yearlyDownloads)}/year</span>
+          <span>{formatNumber(stats.yearlyDownloads, lang)}/year</span>
         </div>
       )}
       {stats.allTimeDownloads > 0 && (
         <div className="flex items-center gap-1">
           <FaDownload className="text-secondary" size={12} />
-          <span>{formatNumber(stats.allTimeDownloads)} total</span>
+          <span>{formatNumber(stats.allTimeDownloads, lang)} total</span>
         </div>
       )}
     </div>

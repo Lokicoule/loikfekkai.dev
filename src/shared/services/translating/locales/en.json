@@ -1,10 +1,8 @@
 {
   "about": {
     "description": {
-      "content": "Hi! I'm Loïk, a passionate <span class='gradient-underline-animation'>full-stack software engineer</span> with a keen interest in technology and the environment. Throughout my career, my commitment to environmental causes has guided my project choices, with significant experience in projects focused on dematerialization. I have a particular interest in blockchain and the opportunities for freedom and transparency it offers.<br /><br />Naturally, I'm looking for an opportunity in a company focused on <span class='gradient-underline-animation'>innovation</span> and <span class='gradient-underline-animation'>collaboration</span> that shares my environmental values and interest in decentralization.",
       "meta": "Discover who I am, my background, and my values as a full-stack software engineer."
     },
-    "services": "My Services",
     "title": "About"
   },
   "client": "Client",
@@ -36,13 +34,11 @@
     "downloadResume": "Download resume",
     "jobTitle": "Software Engineer"
   },
-  "name": "Name",
   "notFound": {
     "description": {
       "content": "The page you're looking for doesn't exist or has been moved",
       "meta": "The page you're looking for doesn't exist or has been moved"
     },
-    "goHome": "Go back to homepage",
     "title": "404 - Page not found"
   },
   "place": "Place",
@@ -57,7 +53,6 @@
     "experience": {
       "keyAchievements": "Key Achievements",
       "personalExperience": "Personal Experience",
-      "roleAndResponsibilities": "Role and Responsibilities",
       "title": "Experience"
     },
     "knowledge": {
@@ -69,7 +64,6 @@
     "title": "My Resume"
   },
   "roleAndResponsibilities": "Role and Responsibilities",
-  "tag": "Tag",
   "technologiesUsed": "Stack",
   "works": {
     "description": {
