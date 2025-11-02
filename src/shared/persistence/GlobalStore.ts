@@ -32,10 +32,6 @@ export class GlobalStore {
       keySubscribers = new Map();
     }
 
-    if (keySubscribers.has(subscriberName)) {
-      console.log(`${subscriberName} already subscribed to ${key}, skipping.`);
-    }
-
     keySubscribers.set(subscriberName, cb);
     this.subscribers.set(key, keySubscribers);
   }
