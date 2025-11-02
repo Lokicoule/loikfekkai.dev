@@ -49,4 +49,10 @@ export const aboutDataEn: AboutViewModelProps = {
       </>
     ),
   },
+  outro: (
+    <>
+      My goal is simple: bring real added value to every project, with rigor,
+      innovation, and a long-term vision.
+    </>
+  ),
 };
