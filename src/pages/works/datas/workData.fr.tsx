@@ -277,7 +277,7 @@ export const workData: WorkProps[] = [
   },
   {
     id: "work-6",
-    name: "Architecture du Portfolio",
+    name: "Portfolio",
     category: "frontend",
     statsConfig: {
       github: { owner: "loikfekkai", repo: "loikfekkai.dev" },

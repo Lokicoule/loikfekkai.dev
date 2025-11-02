@@ -20,7 +20,7 @@ export const GitHubStatsView: React.FC<GitHubStatsViewProps> = ({
     presenter.load(setVm, repository);
 
     return () => {
-      presenter.unload();
+      presenter.unload(repository);
     };
   }, [presenter, repository]);
 

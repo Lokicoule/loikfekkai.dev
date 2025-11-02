@@ -8,6 +8,7 @@ import { GitHubStatsViewModel } from "./GitHubStatsViewModel";
 export class GitHubStatsPresenter extends Presenter<GitHubStatsViewModel> {
   private readonly githubRepository: GitHubRepository;
   private readonly cacheService: CacheService;
+  private readonly callbacks: Map<string, (vm?: GitHubStatsViewModel) => void>;
 
   constructor(
     store: GlobalStore,
@@ -17,32 +18,22 @@ export class GitHubStatsPresenter extends Presenter<GitHubStatsViewModel> {
     super(store);
     this.githubRepository = githubRepository;
     this.cacheService = cacheService;
-  }
-
-  protected rebuildViewModel(repository: GitHubRepositoryConfig): void {
-    this.vm = new GitHubStatsViewModel({
-      repository,
-      loading: true,
-    });
+    this.callbacks = new Map();
   }
 
   public async load(
     cb: (vm?: GitHubStatsViewModel) => void,
     repository: GitHubRepositoryConfig
   ): Promise<void> {
-    this.rebuildViewModel(repository);
-    super.load(cb);
+    const repoKey = this.getRepositoryKey(repository);
+    this.callbacks.set(repoKey, cb);
 
-    const cacheKey = `github_stats_${repository.owner}_${repository.repo}`;
+    cb(new GitHubStatsViewModel({ repository, loading: true }));
 
+    const cacheKey = `github_stats_${repoKey}`;
     const cachedStats = this.cacheService.get<GitHubStats>(cacheKey);
     if (cachedStats) {
-      this.vm = new GitHubStatsViewModel({
-        repository,
-        stats: cachedStats,
-        loading: false,
-      });
-      this.cb(this.vm);
+      this.notifyCallback(repoKey, repository, cachedStats, false);
       return;
     }
 
@@ -51,16 +42,35 @@ export class GitHubStatsPresenter extends Presenter<GitHubStatsViewModel> {
       this.cacheService.set(cacheKey, stats);
     }
 
-    this.vm = new GitHubStatsViewModel({
-      repository,
-      stats: stats || undefined,
-      loading: false,
-    });
-
-    this.cb(this.vm);
+    this.notifyCallback(repoKey, repository, stats, false);
   }
 
-  public unload(): void {
+  public unload(repository?: GitHubRepositoryConfig): void {
+    if (repository) {
+      this.callbacks.delete(this.getRepositoryKey(repository));
+    } else {
+      this.callbacks.clear();
+    }
     super.unload();
+  }
+
+  private notifyCallback(
+    repoKey: string,
+    repository: GitHubRepositoryConfig,
+    stats: GitHubStats | null,
+    loading: boolean
+  ): void {
+    const callback = this.callbacks.get(repoKey);
+    if (callback) {
+      callback(new GitHubStatsViewModel({ repository, stats: stats || undefined, loading }));
+    }
+  }
+
+  private getRepositoryKey(repository: GitHubRepositoryConfig): string {
+    return `${repository.owner}_${repository.repo}`;
+  }
+
+  protected rebuildViewModel(repository: GitHubRepositoryConfig): void {
+    this.vm = new GitHubStatsViewModel({ repository, loading: true });
   }
 }

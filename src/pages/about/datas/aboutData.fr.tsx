@@ -17,7 +17,7 @@ export const aboutDataFr: AboutViewModelProps = {
         Ces dernières années, j'ai plongé dans l'écosystème <strong>TypeScript</strong> (<strong>Node.js, React, NestJS</strong>). Pas parce que c'est tendance, mais parce que ça me permet de me concentrer sur ce qui compte : construire des choses qui <strong>fonctionnent bien</strong> et qui sont <strong>faciles à maintenir</strong>.
         <br />
         <br />
-        Mon objectif ? <strong>Virer le superflu</strong>. <strong>Simplifier</strong> ce qui peut l'être. Écrire du code que les futurs développeurs (moi y compris) <strong>prendront plaisir à relire</strong>.
+        Mon objectif ? <strong>Éliminer le superflu</strong>. <strong>Simplifier</strong> ce qui peut l'être. Écrire du code que les futurs développeurs (moi y compris) <strong>prendront plaisir à relire</strong>.
       </>
     ),
   },
