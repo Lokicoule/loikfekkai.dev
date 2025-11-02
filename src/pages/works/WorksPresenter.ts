@@ -38,7 +38,7 @@ export class WorksPresenter extends Presenter<WorksViewModel> {
         keyFeatures: this.translator.translate("works.keyFeatures"),
         description: this.translator.translate("description"),
         technologiesUsed: this.translator.translate("technologiesUsed"),
-        client: this.translator.translate("project"),
+        project: this.translator.translate("project"),
       },
     };
   }

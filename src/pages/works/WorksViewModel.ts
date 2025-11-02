@@ -32,7 +32,7 @@ export type WorkLabels = {
   keyFeatures: string;
   description: string;
   technologiesUsed: string;
-  client: string;
+  project: string;
 };
 
 export function filterWorks(works: WorkProps[], filter: WorkFilter): WorkProps[] {

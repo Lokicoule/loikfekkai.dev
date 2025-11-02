@@ -5,7 +5,7 @@ import { Language } from "../../../shared/persistence/GlobalStore";
 import { WorkLabels, WorkProps } from "../WorksViewModel";
 import WorkModal from "./WorkModal/WorkModal";
 import GitHubStatsView from "../../../shared/components/stats/github/GitHubStatsView";
-import { githubStatsPresenter } from "../../../shared/composition/container";
+import { githubStatsPresenter } from "../../../shared/composition";
 
 type WorkListProps = {
   works: WorkProps[];

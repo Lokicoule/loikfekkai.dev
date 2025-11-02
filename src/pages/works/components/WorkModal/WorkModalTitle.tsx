@@ -8,7 +8,7 @@ import NpmStatsView from "../../../../shared/components/stats/npm/NpmStatsView";
 import {
   githubStatsPresenter,
   npmStatsPresenter,
-} from "../../../../shared/composition/container";
+} from "../../../../shared/composition";
 
 type WorkModalTitleProps = {
   work: WorkProps;
@@ -49,7 +49,7 @@ const WorkModalTitle: WorkModalTitleComponent = ({ work, labels, lang }) => {
         <div className="space-y-2">
           <span className="dark:text-white flex items-center text-[15px] sm:text-lg">
             <FiFilePlus className="sm:text-lg hidden sm:block mr-2 md:text-xl" />
-            {labels.client} :&nbsp;
+            {labels.project} :&nbsp;
             <span className="font-medium">{work.tag}</span>
           </span>
         </div>

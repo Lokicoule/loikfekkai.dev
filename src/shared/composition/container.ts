@@ -16,7 +16,7 @@ import { HeroPresenter } from "../components/hero/HeroPresenter";
 import { LangPresenter } from "../components/lang/LangPresenter";
 import { NavigationPresenter } from "../components/navigation/NavigationPresenter";
 import { RemoteStatsPresenter } from "../components/stats/RemoteStatsPresenter";
-import { GitHubRepositoryConfig } from "../ports";
+import { GitHubPort, GitHubRepositoryConfig, NpmPort } from "../ports";
 import { ContactController } from "../../pages/contact/ContactController";
 import { WorksController } from "../../pages/works/WorksController";
 import { LangController } from "../components/lang/LangController";
@@ -32,8 +32,8 @@ loggingService.init();
 
 const store = new GlobalStore("en", "all");
 
-const githubAdapter = new GitHubApiAdapter();
-const npmAdapter = new NpmApiAdapter();
+const githubAdapter: GitHubPort = new GitHubApiAdapter();
+const npmAdapter: NpmPort = new NpmApiAdapter();
 
 const aboutPresenter = new AboutPresenter(store, translatingService);
 const langPresenter = new LangPresenter(store);
