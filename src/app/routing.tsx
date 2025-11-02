@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, RouteObject } from "react-router-dom";
 import Loading from "../pages/loading/Loading";
 import Layout from "../shared/components/layouts/Layout";
 import {
@@ -14,7 +14,6 @@ import {
   worksController,
   worksPresenter,
 } from "../shared/composition";
-import { RouteConfig } from "../shared/services/routing/routingService";
 
 import About from "../pages/about";
 import Contact from "../pages/contact";
@@ -51,7 +50,7 @@ const pageRoutes = (root: string) => [
   },
 ];
 
-const routes: RouteConfig[] = [
+const routes: RouteObject[] = [
   {
     path: "/",
     element: (

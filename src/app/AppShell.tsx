@@ -1,16 +1,18 @@
 import "react-toastify/dist/ReactToastify.css";
 
 import { HelmetProvider } from "react-helmet-async";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { routingService } from "../shared/composition";
 import routes from "./routing";
 import ThemeContainer from "../shared/components/theme/ThemeContainer";
+
+const router = createBrowserRouter(routes);
 
 const AppShell = () => {
   return (
     <HelmetProvider>
       <ThemeContainer>
-        {routingService.createRoutes(routes)}
+        <RouterProvider router={router} />
         <ToastContainer
           position="top-right"
           autoClose={5000}

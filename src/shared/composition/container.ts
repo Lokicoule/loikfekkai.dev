@@ -1,5 +1,12 @@
-import { translatingService, cacheService } from "./setupServices";
-import { githubAdapter, npmAdapter } from "./setupAdapters";
+import { LoggingService } from "../services/logging/loggingService";
+import { MailingService } from "../services/mailing/mailingService";
+import { NotificationService } from "../services/notifications/notificationsService";
+import { LocalStorageService } from "../services/storage/localStorageService";
+import { TranslatingService } from "../services/translating/translatingService";
+import { CacheService } from "../services/cache/CacheService";
+import { GlobalStore } from "../persistence/GlobalStore";
+import { GitHubApiAdapter } from "../adapters/GitHubApiAdapter";
+import { NpmApiAdapter } from "../adapters/NpmApiAdapter";
 import { AboutPresenter } from "../../pages/about/AboutPresenter";
 import { ContactPresenter } from "../../pages/contact/ContactPresenter";
 import { NotFoundPresenter } from "../../pages/notFound/NotFoundPresenter";
@@ -10,8 +17,23 @@ import { LangPresenter } from "../components/lang/LangPresenter";
 import { NavigationPresenter } from "../components/navigation/NavigationPresenter";
 import { RemoteStatsPresenter } from "../components/stats/RemoteStatsPresenter";
 import { GitHubRepositoryConfig } from "../ports";
+import { ContactController } from "../../pages/contact/ContactController";
+import { WorksController } from "../../pages/works/WorksController";
+import { LangController } from "../components/lang/LangController";
 
-import { store } from "./setupCaches";
+const mailingService = new MailingService();
+const notificationsService = new NotificationService();
+const loggingService = new LoggingService();
+const translatingService = new TranslatingService();
+const localStorageService = new LocalStorageService();
+const cacheService = new CacheService(localStorageService);
+
+loggingService.init();
+
+const store = new GlobalStore("en", "all");
+
+const githubAdapter = new GitHubApiAdapter();
+const npmAdapter = new NpmApiAdapter();
 
 const aboutPresenter = new AboutPresenter(store, translatingService);
 const langPresenter = new LangPresenter(store);
@@ -34,7 +56,24 @@ const npmStatsPresenter = new RemoteStatsPresenter(
   "npm_stats"
 );
 
+const contactController = new ContactController(
+  notificationsService,
+  mailingService,
+  loggingService,
+  translatingService
+);
+
+const langController = new LangController(
+  store,
+  notificationsService,
+  translatingService
+);
+
+const worksController = new WorksController(store, notificationsService);
+
 export {
+  store,
+  translatingService,
   aboutPresenter,
   langPresenter,
   navigationPresenter,
@@ -45,4 +84,7 @@ export {
   heroPresenter,
   githubStatsPresenter,
   npmStatsPresenter,
+  contactController,
+  langController,
+  worksController,
 };

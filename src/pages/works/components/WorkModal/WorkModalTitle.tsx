@@ -7,7 +7,7 @@ import NpmStatsView from "../../../../shared/components/stats/npm/NpmStatsView";
 import {
   githubStatsPresenter,
   npmStatsPresenter,
-} from "../../../../shared/composition/setupPresenters";
+} from "../../../../shared/composition/container";
 
 type WorkModalTitleProps = {
   work: WorkProps;

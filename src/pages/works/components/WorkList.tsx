@@ -4,7 +4,7 @@ import SocialLinks from "../../../shared/components/elements/SocialLinks";
 import { WorkLabels, WorkProps } from "../WorksViewModel";
 import WorkModal from "./WorkModal/WorkModal";
 import GitHubStatsView from "../../../shared/components/stats/github/GitHubStatsView";
-import { githubStatsPresenter } from "../../../shared/composition/setupPresenters";
+import { githubStatsPresenter } from "../../../shared/composition/container";
 
 type WorkListProps = {
   works: WorkProps[];
