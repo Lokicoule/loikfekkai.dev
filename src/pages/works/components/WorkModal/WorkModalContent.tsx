@@ -4,11 +4,11 @@ import { GoStack } from "react-icons/go";
 import Disclosure from "../../../../shared/components/adapters/@headlessui/Disclosure";
 import Modal from "../../../../shared/components/adapters/@headlessui/Modal";
 import Stack from "../../../../shared/components/elements/Stack";
-import { translatingService } from "../../../../shared/composition";
-import { WorkProps } from "../../WorksViewModel";
+import { WorkLabels, WorkProps } from "../../WorksViewModel";
 
 type WorkModalContentProps = {
   work: WorkProps;
+  labels: WorkLabels;
 };
 
 type WorkModalContentComponent = React.FC<WorkModalContentProps>;
@@ -48,7 +48,7 @@ const fadeIn = {
   }
 };
 
-const WorkModalContent: WorkModalContentComponent = ({ work }) => {
+const WorkModalContent: WorkModalContentComponent = ({ work, labels }) => {
   return (
     <Modal.Content>
       <motion.div
@@ -60,7 +60,7 @@ const WorkModalContent: WorkModalContentComponent = ({ work }) => {
         <motion.div variants={item}>
           <Disclosure
             icon={<GoStack className="text-lg mr-2 inline-block" />}
-            title={translatingService.translate("technologiesUsed")}
+            title={labels.technologiesUsed}
             defaultOpen
           >
             <motion.div variants={fadeIn}>
@@ -72,7 +72,7 @@ const WorkModalContent: WorkModalContentComponent = ({ work }) => {
         <motion.div variants={item}>
           <Disclosure
             icon={<FiBriefcase className="text-lg mr-2 inline-block" />}
-            title={translatingService.translate("description")}
+            title={labels.description}
             defaultOpen
           >
             <motion.div
@@ -88,7 +88,7 @@ const WorkModalContent: WorkModalContentComponent = ({ work }) => {
           <motion.div variants={item}>
             <Disclosure
               icon={<FiBriefcase className="text-lg mr-2 inline-block" />}
-              title={translatingService.translate("works.keyFeatures")}
+              title={labels.keyFeatures}
               defaultOpen
             >
               <motion.ul
@@ -129,7 +129,7 @@ const WorkModalContent: WorkModalContentComponent = ({ work }) => {
           <motion.div variants={item}>
             <Disclosure
               icon={<FiBriefcase className="text-lg mr-2 inline-block" />}
-              title={translatingService.translate("works.preview")}
+              title={labels.preview}
               defaultOpen
             >
               <motion.iframe

@@ -1,5 +1,3 @@
-import { GlobalStore } from "../../../persistence/GlobalStore";
-import { LegacyPresenter } from "../../../presentation/Presenter";
 import { NpmRepository } from "../../../repositories/npm/NpmRepository";
 import { NpmStats } from "../../../repositories/npm/types";
 import { CacheService } from "../../../services/cache/CacheService";
@@ -7,17 +5,15 @@ import { NpmStatsViewModel } from "./NpmStatsViewModel";
 
 type ViewModelCallback = (vm?: NpmStatsViewModel) => void;
 
-export class NpmStatsPresenter extends LegacyPresenter<NpmStatsViewModel> {
+export class NpmStatsPresenter {
   private readonly npmRepository: NpmRepository;
   private readonly cacheService: CacheService;
   private readonly callbacks: Map<string, ViewModelCallback>;
 
   constructor(
-    store: GlobalStore,
     npmRepository: NpmRepository,
     cacheService: CacheService
   ) {
-    super(store);
     this.npmRepository = npmRepository;
     this.cacheService = cacheService;
     this.callbacks = new Map();
@@ -53,10 +49,5 @@ export class NpmStatsPresenter extends LegacyPresenter<NpmStatsViewModel> {
     } else {
       this.callbacks.clear();
     }
-    super.unload();
-  }
-
-  protected rebuildViewModel(packageName: string): void {
-    this.vm = new NpmStatsViewModel({ packageName, loading: true });
   }
 }

@@ -35,26 +35,3 @@ export abstract class Presenter<T> {
     }
   }
 }
-
-// Transitional shell for not-yet-migrated subclasses; deleted with the last migration.
-export abstract class LegacyPresenter<T> {
-  protected vm?: T;
-  protected cb: (vm?: T) => void;
-  protected store: GlobalStore;
-
-  constructor(store: GlobalStore) {
-    this.store = store;
-    this.cb = () => {};
-  }
-
-  protected abstract rebuildViewModel(...args: never[]): void;
-
-  public load(cb: (vm?: T) => void, ..._args: unknown[]): void {
-    this.cb = cb;
-    this.cb(this.vm);
-  }
-
-  public unload(): void {
-    this.cb = () => {};
-  }
-}

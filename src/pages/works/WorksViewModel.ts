@@ -27,25 +27,20 @@ export interface WorkProps {
   statsConfig?: ProjectStatsConfig;
 }
 
-export interface WorksViewModelProps {
+export type WorkLabels = {
+  preview: string;
+  keyFeatures: string;
+  description: string;
+  technologiesUsed: string;
+  client: string;
+};
+
+export function filterWorks(works: WorkProps[], filter: WorkFilter): WorkProps[] {
+  return filter === "all" ? works : works.filter((work) => work.category === filter);
+}
+
+export type WorksViewModel = {
   works: WorkProps[];
-  filter?: string;
-}
-
-export class WorksViewModel {
-  constructor(private readonly props: WorksViewModelProps) { }
-
-  public get works() {
-    return this.props.filter === "all"
-      ? this.props.works
-      : this.props.works.filter((work) => work.category === this.props.filter);
-  }
-
-  public get filter() {
-    return this.props.filter;
-  }
-
-  public get attributes() {
-    return this.props;
-  }
-}
+  filter: WorkFilter;
+  labels: WorkLabels;
+};

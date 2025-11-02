@@ -1,16 +1,17 @@
 import Modal from "../../../../shared/components/adapters/@headlessui/Modal";
-import { WorkProps } from "../../WorksViewModel";
+import { WorkLabels, WorkProps } from "../../WorksViewModel";
 import WorkModalContent from "./WorkModalContent";
 import WorkModalTitle from "./WorkModalTitle";
 
 type WorkModalProps = {
   work: WorkProps;
+  labels: WorkLabels;
   triggerButton: React.ReactElement;
 };
 
 type WorkModalComponent = React.FC<WorkModalProps>;
 
-const WorkModal: WorkModalComponent = ({ work, triggerButton }) => {
+const WorkModal: WorkModalComponent = ({ work, labels, triggerButton }) => {
   return (
     <Modal
       triggerButton={triggerButton}
@@ -19,8 +20,8 @@ const WorkModal: WorkModalComponent = ({ work, triggerButton }) => {
     >
       {() => (
         <>
-          <WorkModalTitle work={work} />
-          <WorkModalContent work={work} />
+          <WorkModalTitle work={work} labels={labels} />
+          <WorkModalContent work={work} labels={labels} />
         </>
       )}
     </Modal>

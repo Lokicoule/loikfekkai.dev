@@ -1,8 +1,7 @@
 import { FiFilePlus } from "react-icons/fi";
 import Modal from "../../../../shared/components/adapters/@headlessui/Modal";
-import { WorkProps } from "../../WorksViewModel";
+import { WorkLabels, WorkProps } from "../../WorksViewModel";
 import SocialLinks from "../../../../shared/components/elements/SocialLinks";
-import { translatingService } from "../../../../shared/composition";
 import GitHubStatsView from "../../../../shared/components/stats/github/GitHubStatsView";
 import NpmStatsView from "../../../../shared/components/stats/npm/NpmStatsView";
 import {
@@ -12,11 +11,12 @@ import {
 
 type WorkModalTitleProps = {
   work: WorkProps;
+  labels: WorkLabels;
 };
 
 type WorkModalTitleComponent = React.FC<WorkModalTitleProps>;
 
-const WorkModalTitle: WorkModalTitleComponent = ({ work }) => {
+const WorkModalTitle: WorkModalTitleComponent = ({ work, labels }) => {
   return (
     <Modal.Title>
       <h2 className="text-primary text-4xl text-center font-primary">
@@ -45,7 +45,7 @@ const WorkModalTitle: WorkModalTitleComponent = ({ work }) => {
         <div className="space-y-2">
           <span className="dark:text-white flex items-center text-[15px] sm:text-lg">
             <FiFilePlus className="sm:text-lg hidden sm:block mr-2 md:text-xl" />
-            {translatingService.translate("project")} :&nbsp;
+            {labels.client} :&nbsp;
             <span className="font-medium">{work.tag}</span>
           </span>
         </div>

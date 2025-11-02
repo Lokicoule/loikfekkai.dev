@@ -22,12 +22,10 @@ const contactPresenter = new ContactPresenter(store, translatingService);
 const notFoundPresenter = new NotFoundPresenter(store, translatingService);
 const heroPresenter = new HeroPresenter(store, translatingService);
 const githubStatsPresenter = new GitHubStatsPresenter(
-  store,
   githubRepository,
   cacheService
 );
 const npmStatsPresenter = new NpmStatsPresenter(
-  store,
   npmRepository,
   cacheService
 );

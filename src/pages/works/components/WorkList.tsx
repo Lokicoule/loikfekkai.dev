@@ -1,18 +1,19 @@
 import React from "react";
 import { GoRepo } from "react-icons/go";
 import SocialLinks from "../../../shared/components/elements/SocialLinks";
-import { WorkProps } from "../WorksViewModel";
+import { WorkLabels, WorkProps } from "../WorksViewModel";
 import WorkModal from "./WorkModal/WorkModal";
 import GitHubStatsView from "../../../shared/components/stats/github/GitHubStatsView";
 import { githubStatsPresenter } from "../../../shared/composition/setupPresenters";
 
 type WorkListProps = {
   works: WorkProps[];
+  labels: WorkLabels;
 };
 
 type WorkListComponent = React.FC<WorkListProps>;
 
-const WorkList: WorkListComponent = ({ works }) => {
+const WorkList: WorkListComponent = ({ works, labels }) => {
   return (
     <>
       {works.map((item) => (
@@ -29,6 +30,7 @@ const WorkList: WorkListComponent = ({ works }) => {
                 </button>
               }
               work={item}
+              labels={labels}
             />
           </div>
 

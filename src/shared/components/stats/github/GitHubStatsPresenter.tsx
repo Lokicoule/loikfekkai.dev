@@ -1,21 +1,17 @@
-import { GlobalStore } from "../../../persistence/GlobalStore";
-import { LegacyPresenter } from "../../../presentation/Presenter";
 import { GitHubRepository } from "../../../repositories/github/GitHubRepository";
 import { GitHubRepositoryConfig, GitHubStats } from "../../../repositories/github/types";
 import { CacheService } from "../../../services/cache/CacheService";
 import { GitHubStatsViewModel } from "./GitHubStatsViewModel";
 
-export class GitHubStatsPresenter extends LegacyPresenter<GitHubStatsViewModel> {
+export class GitHubStatsPresenter {
   private readonly githubRepository: GitHubRepository;
   private readonly cacheService: CacheService;
   private readonly callbacks: Map<string, (vm?: GitHubStatsViewModel) => void>;
 
   constructor(
-    store: GlobalStore,
     githubRepository: GitHubRepository,
     cacheService: CacheService
   ) {
-    super(store);
     this.githubRepository = githubRepository;
     this.cacheService = cacheService;
     this.callbacks = new Map();
@@ -51,7 +47,6 @@ export class GitHubStatsPresenter extends LegacyPresenter<GitHubStatsViewModel> 
     } else {
       this.callbacks.clear();
     }
-    super.unload();
   }
 
   private notifyCallback(
@@ -68,9 +63,5 @@ export class GitHubStatsPresenter extends LegacyPresenter<GitHubStatsViewModel> 
 
   private getRepositoryKey(repository: GitHubRepositoryConfig): string {
     return `${repository.owner}_${repository.repo}`;
-  }
-
-  protected rebuildViewModel(repository: GitHubRepositoryConfig): void {
-    this.vm = new GitHubStatsViewModel({ repository, loading: true });
   }
 }
