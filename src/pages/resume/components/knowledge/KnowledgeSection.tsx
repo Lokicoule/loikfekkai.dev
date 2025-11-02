@@ -8,9 +8,6 @@ type KnowledgeSectionProps = {
 
 const KnowledgeItem: React.FC<KnowledgeProps> = ({ name, type }) => {
   const typeColors: Record<string, string> = {
-    /* framework: "bg-secondary",
-    library: "bg-[#DDE7F2] dark:bg-[#7393A7]",
-    database: "bg-[#99dbf5] dark:bg-[#1D2D50]", */
     methodology: "bg-[#9ac5f4] dark:bg-[#133B5C]",
     architecture: "bg-[#a7ecee] dark:bg-[#1E5F74]",
   };

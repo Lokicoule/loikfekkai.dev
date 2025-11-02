@@ -36,8 +36,6 @@ const WorksView: WorksViewComponent = ({ presenter, controller }) => {
       className="lg:rounded-2xl lg:bg-primary"
     >
       <div className="flex flex-col space-y-8 pb-8">
-        {" "}
-        {/* Added container with bottom padding */}
         <div className="container mx-auto px-4 md:px-10 lg:px-14">
           <FilterWorksList
             onFilterChange={handleFilterChange}

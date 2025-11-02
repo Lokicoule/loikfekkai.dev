@@ -21,10 +21,10 @@ export class ContactController {
       return { ok: false, reason: "pending" };
     }
 
-    const errors = validateContactForm(data);
-    if (errors.length > 0) {
+    const [firstError] = validateContactForm(data);
+    if (firstError) {
       this.notifications.show(
-        Notification.createError(this.errorMessage(errors[0]))
+        Notification.createError(this.errorMessage(firstError))
       );
       return { ok: false, reason: "validation" };
     }

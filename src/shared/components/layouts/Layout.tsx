@@ -18,10 +18,11 @@ type LayoutProps = PropsWithChildren<{
 }>;
 type LayoutComponent = React.FC<LayoutProps>;
 
+const HERO_ROUTES = ["/", "/about"];
+
 const Layout: LayoutComponent = ({ children, lang, hero }) => {
-  //FIXME: This is a temporary solution to hide the hero on pages other than the home / about page
   const pathname = useLocation().pathname;
-  const hideHero = pathname !== "/" && pathname !== "/about";
+  const hideHero = !HERO_ROUTES.includes(pathname);
 
   return (
     <div className="min-h-screen bg-gradient-to-t from-[#FFEEBB] via-[#A7ECEE] via-[#99DBF5] to-[#9AC5F4] dark:from-[#FCDAB7] dark:via-[#1E5F74] dark:via-[#133B5C] dark:to-[#1D2D50] bg-no-repeat bg-fixed">
