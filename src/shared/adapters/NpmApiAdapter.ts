@@ -1,74 +1,42 @@
-export interface NpmDownloadsResponse {
-  downloads: number;
-  start: string;
-  end: string;
-  package: string;
-}
+import { NpmPort, NpmStats } from "../ports";
 
-export interface NpmRangeDownloadsResponse {
-  start: string;
-  end: string;
-  package: string;
-  downloads: Array<{
-    day: string;
-    downloads: number;
-  }>;
-}
+type NpmPointResponse = { downloads: number };
+type NpmRangeResponse = { downloads: Array<{ day: string; downloads: number }> };
 
-export type NpmDownloadRange = "last-day" | "last-week" | "last-month" | "last-year";
+export class NpmApiAdapter implements NpmPort {
+  constructor(private readonly baseUrl: string = "https://api.npmjs.org") {}
 
-export type NpmDownloadRangeInput = NpmDownloadRange | "all-time" | string;
+  async fetchPackageStats(packageName: string): Promise<NpmStats | null> {
+    const [weekly, yearly, allTime] = await Promise.all([
+      this.fetchJson<NpmPointResponse>(`/downloads/point/last-week/${packageName}`),
+      this.fetchJson<NpmRangeResponse>(`/downloads/range/last-year/${packageName}`),
+      this.fetchJson<NpmRangeResponse>(
+        `/downloads/range/2000-01-01:2100-01-01/${packageName}`
+      ),
+    ]);
 
-export class NpmApiAdapter {
-  private convertRangeToNpmFormat(range: NpmDownloadRangeInput): string {
-    if (range === "all-time") {
-      return "2000-01-01:2100-01-01";
-    }
-    return range;
-  }
-  private readonly baseUrl: string;
-
-  constructor(baseUrl: string = "https://api.npmjs.org") {
-    this.baseUrl = baseUrl;
-  }
-
-  async fetchWeeklyDownloads(
-    packageName: string
-  ): Promise<NpmDownloadsResponse | null> {
-    try {
-      const response = await fetch(
-        `${this.baseUrl}/downloads/point/last-week/${packageName}`
-      );
-
-      if (!response.ok) {
-        console.warn(
-          `npm API returned ${response.status} for weekly downloads of ${packageName}`
-        );
-        return null;
-      }
-
-      return await response.json();
-    } catch (error) {
+    if (!weekly && !yearly && !allTime) {
       return null;
     }
+
+    const sum = (range: NpmRangeResponse | null) =>
+      range ? range.downloads.reduce((total, day) => total + day.downloads, 0) : 0;
+
+    return {
+      weeklyDownloads: weekly?.downloads ?? 0,
+      yearlyDownloads: sum(yearly),
+      allTimeDownloads: sum(allTime),
+    };
   }
 
-  async fetchRangeDownloads(
-    packageName: string,
-    range: NpmDownloadRangeInput = "last-year"
-  ): Promise<NpmRangeDownloadsResponse | null> {
+  private async fetchJson<T>(path: string): Promise<T | null> {
     try {
-      const npmRange = this.convertRangeToNpmFormat(range);
-      const response = await fetch(
-        `${this.baseUrl}/downloads/range/${npmRange}/${packageName}`
-      );
-
+      const response = await fetch(`${this.baseUrl}${path}`);
       if (!response.ok) {
         return null;
       }
-
       return await response.json();
-    } catch (error) {
+    } catch {
       return null;
     }
   }

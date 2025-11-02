@@ -1,33 +1,30 @@
 import { useEffect, useState } from "react";
 import { FaDownload } from "react-icons/fa";
+import { NpmStats } from "../../../ports";
 import { formatNumber } from "../../../utils/formatNumber";
-import { NpmStatsViewModel } from "./NpmStatsViewModel";
-import { NpmStatsPresenter } from "./NpmStatsPresenter";
+import { RemoteStatsPresenter, RemoteStatsViewModel } from "../RemoteStatsPresenter";
 
 type NpmStatsViewProps = {
   packageName: string;
-  presenter: NpmStatsPresenter;
+  presenter: RemoteStatsPresenter<string, NpmStats>;
 };
 
 export const NpmStatsView: React.FC<NpmStatsViewProps> = ({
   packageName,
   presenter,
 }) => {
-  const [vm, setVm] = useState<NpmStatsViewModel | undefined>();
+  const [vm, setVm] = useState<RemoteStatsViewModel<string, NpmStats>>();
 
-  useEffect(() => {
-    presenter.load(setVm, packageName);
+  useEffect(
+    () => presenter.attach(packageName, setVm),
+    [presenter, packageName]
+  );
 
-    return () => {
-      presenter.unload(packageName);
-    };
-  }, [presenter, packageName]);
-
-  if (!vm?.attributes.stats || vm.attributes.loading) {
+  if (!vm?.stats || vm.loading) {
     return null;
   }
 
-  const { stats } = vm.attributes;
+  const { stats } = vm;
 
   if (
     stats.weeklyDownloads === 0 &&

@@ -1,7 +1,7 @@
 import { GitHubApiAdapter } from "../adapters/GitHubApiAdapter";
 import { NpmApiAdapter } from "../adapters/NpmApiAdapter";
 
-const githubApiAdapter = new GitHubApiAdapter();
-const npmApiAdapter = new NpmApiAdapter();
+const githubAdapter = new GitHubApiAdapter();
+const npmAdapter = new NpmApiAdapter();
 
-export { githubApiAdapter, npmApiAdapter };
+export { githubAdapter, npmAdapter };

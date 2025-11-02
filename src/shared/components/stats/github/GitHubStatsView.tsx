@@ -1,35 +1,30 @@
 import { useEffect, useState } from "react";
 import { FaStar, FaCodeBranch } from "react-icons/fa";
-import { GitHubRepositoryConfig } from "../../../repositories/github/types";
+import { GitHubRepositoryConfig, GitHubStats } from "../../../ports";
 import { formatNumber } from "../../../utils/formatNumber";
-import { GitHubStatsViewModel } from "./GitHubStatsViewModel";
-import { GitHubStatsPresenter } from "./GitHubStatsPresenter";
+import { RemoteStatsPresenter, RemoteStatsViewModel } from "../RemoteStatsPresenter";
 
 type GitHubStatsViewProps = {
   repository: GitHubRepositoryConfig;
-  presenter: GitHubStatsPresenter;
+  presenter: RemoteStatsPresenter<GitHubRepositoryConfig, GitHubStats>;
 };
 
 export const GitHubStatsView: React.FC<GitHubStatsViewProps> = ({
   repository,
   presenter,
 }) => {
-  const [vm, setVm] = useState<GitHubStatsViewModel | undefined>();
+  const [vm, setVm] =
+    useState<RemoteStatsViewModel<GitHubRepositoryConfig, GitHubStats>>();
 
-  useEffect(() => {
-    presenter.load(setVm, repository);
+  useEffect(
+    () => presenter.attach(repository, setVm),
+    [presenter, repository]
+  );
 
-    return () => {
-      presenter.unload(repository);
-    };
-  }, [presenter, repository]);
-
-  if (!vm?.attributes.stats || vm.attributes.loading) {
+  if (!vm?.stats || vm.loading) {
     return null;
   }
-
-  const { stats } = vm.attributes;
-
+  const { stats } = vm;
   if (stats.stars === 0 && stats.forks === 0) {
     return null;
   }

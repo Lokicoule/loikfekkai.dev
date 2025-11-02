@@ -31,3 +31,29 @@ export interface StoragePort {
   setItem<T>(key: string, value: T): void;
   removeItem(key: string): void;
 }
+
+export interface GitHubRepositoryConfig {
+  owner: string;
+  repo: string;
+}
+
+export interface GitHubStats {
+  stars: number;
+  forks: number;
+  issues: number;
+  watchers: number;
+}
+
+export interface GitHubPort {
+  fetchRepositoryStats(config: GitHubRepositoryConfig): Promise<GitHubStats | null>;
+}
+
+export interface NpmStats {
+  weeklyDownloads: number;
+  yearlyDownloads: number;
+  allTimeDownloads: number;
+}
+
+export interface NpmPort {
+  fetchPackageStats(packageName: string): Promise<NpmStats | null>;
+}
