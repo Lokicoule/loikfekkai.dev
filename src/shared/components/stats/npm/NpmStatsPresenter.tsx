@@ -5,9 +5,12 @@ import { NpmStats } from "../../../repositories/npm/types";
 import { CacheService } from "../../../services/cache/CacheService";
 import { NpmStatsViewModel } from "./NpmStatsViewModel";
 
+type ViewModelCallback = (vm?: NpmStatsViewModel) => void;
+
 export class NpmStatsPresenter extends Presenter<NpmStatsViewModel> {
   private readonly npmRepository: NpmRepository;
   private readonly cacheService: CacheService;
+  private readonly callbacks: Map<string, ViewModelCallback>;
 
   constructor(
     store: GlobalStore,
@@ -17,50 +20,43 @@ export class NpmStatsPresenter extends Presenter<NpmStatsViewModel> {
     super(store);
     this.npmRepository = npmRepository;
     this.cacheService = cacheService;
+    this.callbacks = new Map();
   }
 
-  protected rebuildViewModel(packageName: string): void {
-    this.vm = new NpmStatsViewModel({
-      packageName,
-      loading: true,
-    });
-  }
+  public async load(cb: ViewModelCallback, packageName: string): Promise<void> {
+    this.callbacks.set(packageName, cb);
 
-  public async load(
-    cb: (vm?: NpmStatsViewModel) => void,
-    packageName: string
-  ): Promise<void> {
-    this.rebuildViewModel(packageName);
-    super.load(cb);
+    cb(new NpmStatsViewModel({ packageName, loading: true }));
 
     const cacheKey = `npm_stats_${packageName}`;
-
     const cachedStats = this.cacheService.get<NpmStats>(cacheKey);
+
     if (cachedStats) {
-      this.vm = new NpmStatsViewModel({
-        packageName,
-        stats: cachedStats,
-        loading: false,
-      });
-      this.cb(this.vm);
+      const callback = this.callbacks.get(packageName);
+      callback?.(new NpmStatsViewModel({ packageName, stats: cachedStats, loading: false }));
       return;
     }
 
     const stats = await this.npmRepository.fetchPackageStats(packageName);
+
     if (stats) {
       this.cacheService.set(cacheKey, stats);
     }
 
-    this.vm = new NpmStatsViewModel({
-      packageName,
-      stats: stats || undefined,
-      loading: false,
-    });
-
-    this.cb(this.vm);
+    const callback = this.callbacks.get(packageName);
+    callback?.(new NpmStatsViewModel({ packageName, stats: stats || undefined, loading: false }));
   }
 
-  public unload(): void {
+  public unload(packageName?: string): void {
+    if (packageName) {
+      this.callbacks.delete(packageName);
+    } else {
+      this.callbacks.clear();
+    }
     super.unload();
+  }
+
+  protected rebuildViewModel(packageName: string): void {
+    this.vm = new NpmStatsViewModel({ packageName, loading: true });
   }
 }

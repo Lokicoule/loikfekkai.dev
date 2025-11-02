@@ -19,7 +19,7 @@ export const NpmStatsView: React.FC<NpmStatsViewProps> = ({
     presenter.load(setVm, packageName);
 
     return () => {
-      presenter.unload();
+      presenter.unload(packageName);
     };
   }, [presenter, packageName]);
 
