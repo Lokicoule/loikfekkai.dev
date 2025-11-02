@@ -17,7 +17,11 @@ const contactController = new ContactController(
   translatingService
 );
 
-const langController = new LangController(store, notificationsService);
+const langController = new LangController(
+  store,
+  notificationsService,
+  translatingService
+);
 
 const worksController = new WorksController(store, notificationsService);
 

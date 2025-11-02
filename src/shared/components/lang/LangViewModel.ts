@@ -1,11 +1,5 @@
-export interface LangViewModelProps {
-  lang: string;
-}
+import type { Language } from "../../../shared/persistence/GlobalStore";
 
-export class LangViewModel {
-  constructor(private readonly props: LangViewModelProps) {}
-
-  public get lang() {
-    return this.props.lang;
-  }
-}
+export type LangViewModel = {
+  lang: Language;
+};

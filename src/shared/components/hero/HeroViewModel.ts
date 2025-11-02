@@ -1,3 +1,5 @@
+import type { Language } from "../../../shared/persistence/GlobalStore";
+
 export type HeroInfo = {
   label: string;
   value: string;
@@ -5,14 +7,7 @@ export type HeroInfo = {
   href?: string;
 };
 
-export type HeroViewModelProps = {
+export type HeroViewModel = {
   infos: HeroInfo[];
+  lang: Language;
 };
-
-export class HeroViewModel {
-  constructor(private readonly props: HeroViewModelProps) {}
-
-  public get infos() {
-    return this.props.infos;
-  }
-}

@@ -1,44 +1,23 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { GlobalStore } from "../../../shared/persistence/GlobalStore";
-import { translatingService } from "../../composition";
+import { Language, GlobalStore } from "../../../shared/persistence/GlobalStore";
+import { NotificationPort, TranslationPort } from "../../ports";
 import { Notification } from "../../services/notifications/domainObjects/Notification";
-import { NotificationService } from "../../services/notifications/notificationsService";
 
 export class LangController {
   constructor(
     private readonly store: GlobalStore,
-    private readonly notificationService: NotificationService
-  ) { }
+    private readonly notifications: NotificationPort,
+    private readonly translator: TranslationPort
+  ) {}
 
-  public createHook() {
-    const store = this.store;
-    const notificationService = this.notificationService;
-
-    function useLangController() {
-      const navigate = useNavigate();
-      const location = useLocation();
-
-      const handleLanguageChange = (language: string) => {
-        if (language === "en" || language === "fr") {
-          const newPath = location.pathname.replace(
-            /\/(en|fr)(\/|$)/,
-            `/${language}/`
-          );
-
-          translatingService.setLanguage(language);
-          store.set("lang", language);
-
-          navigate(newPath, { replace: true });
-        } else {
-          notificationService.show(
-            Notification.createError(`Language ${language} is not supported!`)
-          );
-        }
-      };
-
-      return { handleLanguageChange };
+  public changeLanguage(language: string): void {
+    if (language !== "en" && language !== "fr") {
+      this.notifications.show(
+        Notification.createError(`Language ${language} is not supported!`)
+      );
+      return;
     }
-
-    return useLangController;
+    const lang: Language = language;
+    this.translator.setLanguage(lang);
+    this.store.set("lang", lang);
   }
 }

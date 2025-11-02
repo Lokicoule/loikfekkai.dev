@@ -6,14 +6,6 @@ export interface NavigationItemProps {
   default?: boolean;
 }
 
-export interface NavigationViewModelProps {
+export type NavigationViewModel = {
   items: NavigationItemProps[];
-}
-
-export class NavigationViewModel {
-  constructor(private readonly props: NavigationViewModelProps) {}
-
-  public get items() {
-    return this.props.items;
-  }
-}
+};

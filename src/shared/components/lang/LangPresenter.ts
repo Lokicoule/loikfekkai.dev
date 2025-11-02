@@ -1,41 +1,14 @@
-import { GlobalStore } from "../../../shared/persistence/GlobalStore";
-import { LegacyPresenter } from "../../../shared/presentation/Presenter";
-import { SubscriptionManager } from "../../../shared/presentation/SubscriptionManager";
+import { Presenter } from "../../../shared/presentation/Presenter";
 import { LangViewModel } from "./LangViewModel";
 
-export class LangPresenter extends LegacyPresenter<LangViewModel> {
-  private subscriptionManager: SubscriptionManager;
-
-  constructor(store: GlobalStore) {
-    super(store);
-    this.subscriptionManager = new SubscriptionManager(
-      store,
-      "lang",
-      LangPresenter.name,
-      (lang) => this.handleLangChange(lang)
-    );
+export class LangPresenter extends Presenter<LangViewModel> {
+  protected onActivate(): Array<() => void> {
+    return [this.store.subscribe("lang", () => this.notify())];
   }
 
-  private handleLangChange(lang: string) {
-    this.rebuildViewModel(lang);
-    this.cb(this.vm);
-  }
-
-  protected rebuildViewModel(lang: string) {
-    this.vm = new LangViewModel({
-      lang,
-    });
-  }
-
-  public load(cb: (vm?: LangViewModel) => void): void {
-    this.rebuildViewModel(this.subscriptionManager.getValue());
-
-    super.load(cb);
-  }
-
-  public unload(): void {
-    this.subscriptionManager.unsubscribe();
-
-    super.unload();
+  protected buildViewModel(): LangViewModel {
+    return {
+      lang: this.store.get("lang"),
+    };
   }
 }

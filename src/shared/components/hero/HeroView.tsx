@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
 import { FaDownload, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { usePresenter } from "../../presentation/usePresenter";
 import HeroSocialLinks from "../elements/SocialLinks";
 import HeroContactInfo from "./ContactInfo";
 import { HeroPresenter } from "./HeroPresenter";
-import { HeroViewModel } from "./HeroViewModel";
 import img from "/avatar.jpg";
 import resume_vf from "/loik_fekkai_cv.pdf";
 import resume_en from "/loik_fekkai_resume.pdf";
@@ -28,11 +27,7 @@ type HeroViewProps = {
 type HeroViewComponent = React.FC<HeroViewProps>;
 
 const HeroView: HeroViewComponent = ({ presenter }) => {
-  const [viewModel, setViewModel] = useState<HeroViewModel | undefined>();
-
-  useEffect(() => {
-    presenter.load((vm) => setViewModel(vm));
-  }, [presenter]);
+  const viewModel = usePresenter(presenter);
 
   if (!viewModel) {
     return null;
@@ -53,7 +48,7 @@ const HeroView: HeroViewComponent = ({ presenter }) => {
           Loik Fekkai
         </h1>
         <h3 className="rounded-lg mb-4 px-5 py-1.5 text-secondary bg-secondary inline-block capitalize">
-          {presenter.translateAndSanitize("hero.jobTitle")}
+          {presenter.translate("hero.jobTitle")}
         </h3>
 
         <div className="flex justify-center space-x-3">
@@ -64,12 +59,12 @@ const HeroView: HeroViewComponent = ({ presenter }) => {
         </div>
 
         <a
-          href={presenter.getLang() === "fr" ? resume_vf : resume_en}
+          href={viewModel.lang === "fr" ? resume_vf : resume_en}
           download
           className="inline-flex items-center mx-auto bg-sky-to-blue duration-200 transition ease-linear px-8 py-3 text-lg text-white rounded-[35px] mt-6 hover:brightness-125"
         >
           <FaDownload className="mr-2" />
-          {presenter.translateAndSanitize("hero.downloadResume")}
+          {presenter.translate("hero.downloadResume")}
         </a>
       </div>
     </div>

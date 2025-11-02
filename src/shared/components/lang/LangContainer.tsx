@@ -7,16 +7,11 @@ type LangContainerProps = {
   presenter: LangPresenter;
 };
 
-type LangContainerComponent = React.FC<LangContainerProps>;
-
-const LangContainer: LangContainerComponent = ({ controller, presenter }) => {
-  const useLangController = controller.createHook();
-  const { handleLanguageChange } = useLangController();
-
+const LangContainer: React.FC<LangContainerProps> = ({ controller, presenter }) => {
   return (
     <div className="flex items-center">
       <LangView
-        onLanguageChange={handleLanguageChange}
+        onLanguageChange={(language) => controller.changeLanguage(language)}
         presenter={presenter}
       />
     </div>

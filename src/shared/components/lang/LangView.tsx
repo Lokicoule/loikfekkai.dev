@@ -1,8 +1,8 @@
 import { Popover, Transition } from "@headlessui/react";
-import React, { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import { FiChevronUp } from "react-icons/fi";
+import { usePresenter } from "../../presentation/usePresenter";
 import { LangPresenter } from "./LangPresenter";
-import { LangViewModel } from "./LangViewModel";
 
 type LangViewProps = {
   onLanguageChange: (language: string) => void;
@@ -12,11 +12,7 @@ type LangViewProps = {
 type LangViewComponent = React.FC<LangViewProps>;
 
 const LangView: LangViewComponent = ({ presenter, onLanguageChange }) => {
-  const [viewModel, setViewModel] = useState<LangViewModel | undefined>();
-
-  useEffect(() => {
-    presenter.load((vm) => setViewModel(vm));
-  }, [presenter]);
+  const viewModel = usePresenter(presenter);
 
   if (!viewModel) {
     return null;

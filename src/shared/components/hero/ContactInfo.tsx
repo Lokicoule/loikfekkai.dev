@@ -1,7 +1,7 @@
 import IconWrapper from "../elements/IconWrapper";
-import type { HeroViewModelProps } from "./HeroViewModel";
+import type { HeroViewModel } from "./HeroViewModel";
 
-type ContactInfoProps = HeroViewModelProps;
+type ContactInfoProps = Pick<HeroViewModel, "infos">;
 type ContactInfoComponent = React.FC<ContactInfoProps>;
 
 const colors: string[] = [

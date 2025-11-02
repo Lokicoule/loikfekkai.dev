@@ -28,7 +28,6 @@ const NavigationItem: NavigationItemComponent = ({
 
   return (
     <Link
-      key={item.id}
       className={currentClassName}
       to={item.routePath}
       onClick={onClick}

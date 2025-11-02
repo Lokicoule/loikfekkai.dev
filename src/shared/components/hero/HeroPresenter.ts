@@ -1,56 +1,28 @@
-import {
-  GlobalStore,
-  type Language,
-} from "../../../shared/persistence/GlobalStore";
-import { LegacyPresenter } from "../../../shared/presentation/Presenter";
-import { SubscriptionManager } from "../../../shared/presentation/SubscriptionManager";
-import { TranslatingService } from "../../services/translating/translatingService";
+import { GlobalStore } from "../../../shared/persistence/GlobalStore";
+import { Presenter } from "../../../shared/presentation/Presenter";
+import { TranslationPort } from "../../ports";
 import { HeroViewModel } from "./HeroViewModel";
 import { contactInfoData as contactInfoDataEn } from "./datas/contactInfoData.en";
 import { contactInfoData as contactInfoDataFr } from "./datas/contactInfoData.fr";
-export class HeroPresenter extends LegacyPresenter<HeroViewModel> {
-  private subscriptionManager: SubscriptionManager;
-  private translatingService: TranslatingService;
 
-  constructor(store: GlobalStore, service: TranslatingService) {
+export class HeroPresenter extends Presenter<HeroViewModel> {
+  constructor(store: GlobalStore, private readonly translator: TranslationPort) {
     super(store);
-    this.subscriptionManager = new SubscriptionManager(
-      store,
-      "lang",
-      HeroPresenter.name,
-      (lang) => this.handleContactChange(lang)
-    );
-    this.translatingService = service;
   }
 
-  private handleContactChange(lang: string) {
-    this.rebuildViewModel(lang);
-    this.cb(this.vm);
+  protected onActivate(): Array<() => void> {
+    return [this.store.subscribe("lang", () => this.notify())];
   }
 
-  protected rebuildViewModel(lang: string) {
-    this.vm = new HeroViewModel({
+  protected buildViewModel(): HeroViewModel {
+    const lang = this.store.get("lang");
+    return {
       infos: lang === "fr" ? contactInfoDataFr : contactInfoDataEn,
-    });
+      lang,
+    };
   }
 
-  public load(cb: (vm?: HeroViewModel) => void): void {
-    this.rebuildViewModel(this.subscriptionManager.getValue());
-
-    super.load(cb);
-  }
-
-  public unload(): void {
-    this.subscriptionManager.unsubscribe();
-
-    super.unload();
-  }
-
-  public translateAndSanitize(key: string): string {
-    return this.translatingService.translateAndSanitize(key);
-  }
-
-  public getLang(): Language {
-    return this.subscriptionManager.getValue() as Language;
+  public translate(key: string): string {
+    return this.translator.translate(key);
   }
 }

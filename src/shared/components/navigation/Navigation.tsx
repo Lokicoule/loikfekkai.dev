@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { usePresenter } from "../../presentation/usePresenter";
 import NavigationItem from "./NavigationItem";
 import { NavigationPresenter } from "./NavigationPresenter";
-import { NavigationViewModel } from "./NavigationViewModel";
 
 type NavigationProps = {
   presenter: NavigationPresenter;
@@ -20,11 +19,7 @@ const Navigation: NavigationComponent = ({
   onClick,
   presenter,
 }) => {
-  const [viewModel, setViewModel] = useState<NavigationViewModel | undefined>();
-
-  useEffect(() => {
-    presenter.load((vm) => setViewModel(vm));
-  }, [presenter]);
+  const viewModel = usePresenter(presenter);
 
   if (!viewModel) {
     return null;
