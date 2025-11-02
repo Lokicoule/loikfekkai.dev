@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { FaDownload } from "react-icons/fa";
 import { NpmStats } from "../../../ports";
+import { Language } from "../../../persistence/GlobalStore";
 import { formatNumber } from "../../../utils/formatNumber";
-import { store } from "../../../composition/container";
 import { RemoteStatsPresenter, RemoteStatsViewModel } from "../RemoteStatsPresenter";
 
 type NpmStatsViewProps = {
   packageName: string;
   presenter: RemoteStatsPresenter<string, NpmStats>;
+  lang: Language;
 };
 
 export const NpmStatsView: React.FC<NpmStatsViewProps> = ({
   packageName,
   presenter,
+  lang,
 }) => {
   const [vm, setVm] = useState<RemoteStatsViewModel<string, NpmStats>>();
 
@@ -34,7 +36,6 @@ export const NpmStatsView: React.FC<NpmStatsViewProps> = ({
   ) {
     return null;
   }
-  const lang = store.get("lang");
 
   return (
     <div className="flex items-center gap-4 text-xs text-secondary">

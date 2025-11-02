@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { FaStar, FaCodeBranch } from "react-icons/fa";
 import { GitHubRepositoryConfig, GitHubStats } from "../../../ports";
+import { Language } from "../../../persistence/GlobalStore";
 import { formatNumber } from "../../../utils/formatNumber";
-import { store } from "../../../composition/container";
 import { RemoteStatsPresenter, RemoteStatsViewModel } from "../RemoteStatsPresenter";
 
 type GitHubStatsViewProps = {
   repository: GitHubRepositoryConfig;
   presenter: RemoteStatsPresenter<GitHubRepositoryConfig, GitHubStats>;
+  lang: Language;
 };
 
 export const GitHubStatsView: React.FC<GitHubStatsViewProps> = ({
   repository,
   presenter,
+  lang,
 }) => {
   const [vm, setVm] =
     useState<RemoteStatsViewModel<GitHubRepositoryConfig, GitHubStats>>();
@@ -29,7 +31,6 @@ export const GitHubStatsView: React.FC<GitHubStatsViewProps> = ({
   if (stats.stars === 0 && stats.forks === 0) {
     return null;
   }
-  const lang = store.get("lang");
 
   return (
     <div className="flex items-center gap-4 text-xs text-secondary">

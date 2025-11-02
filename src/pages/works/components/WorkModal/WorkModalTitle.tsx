@@ -1,5 +1,6 @@
 import { FiFilePlus } from "react-icons/fi";
 import Modal from "../../../../shared/components/adapters/@headlessui/Modal";
+import { Language } from "../../../../shared/persistence/GlobalStore";
 import { WorkLabels, WorkProps } from "../../WorksViewModel";
 import SocialLinks from "../../../../shared/components/elements/SocialLinks";
 import GitHubStatsView from "../../../../shared/components/stats/github/GitHubStatsView";
@@ -12,11 +13,12 @@ import {
 type WorkModalTitleProps = {
   work: WorkProps;
   labels: WorkLabels;
+  lang: Language;
 };
 
 type WorkModalTitleComponent = React.FC<WorkModalTitleProps>;
 
-const WorkModalTitle: WorkModalTitleComponent = ({ work, labels }) => {
+const WorkModalTitle: WorkModalTitleComponent = ({ work, labels, lang }) => {
   return (
     <Modal.Title>
       <h2 className="text-primary text-4xl text-center font-primary">
@@ -28,6 +30,7 @@ const WorkModalTitle: WorkModalTitleComponent = ({ work, labels }) => {
           <GitHubStatsView
             repository={work.statsConfig.github}
             presenter={githubStatsPresenter}
+            lang={lang}
           />
         </div>
       )}
@@ -37,6 +40,7 @@ const WorkModalTitle: WorkModalTitleComponent = ({ work, labels }) => {
           <NpmStatsView
             packageName={work.statsConfig.npm}
             presenter={npmStatsPresenter}
+            lang={lang}
           />
         </div>
       )}

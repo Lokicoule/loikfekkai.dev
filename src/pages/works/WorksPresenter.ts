@@ -32,6 +32,7 @@ export class WorksPresenter extends Presenter<WorksViewModel> {
     return {
       works: filterWorks(works, filter),
       filter,
+      lang,
       labels: {
         preview: this.translator.translate("works.preview"),
         keyFeatures: this.translator.translate("works.keyFeatures"),

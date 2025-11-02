@@ -1,6 +1,7 @@
 import React from "react";
 import { GoRepo } from "react-icons/go";
 import SocialLinks from "../../../shared/components/elements/SocialLinks";
+import { Language } from "../../../shared/persistence/GlobalStore";
 import { WorkLabels, WorkProps } from "../WorksViewModel";
 import WorkModal from "./WorkModal/WorkModal";
 import GitHubStatsView from "../../../shared/components/stats/github/GitHubStatsView";
@@ -9,11 +10,12 @@ import { githubStatsPresenter } from "../../../shared/composition/container";
 type WorkListProps = {
   works: WorkProps[];
   labels: WorkLabels;
+  lang: Language;
 };
 
 type WorkListComponent = React.FC<WorkListProps>;
 
-const WorkList: WorkListComponent = ({ works, labels }) => {
+const WorkList: WorkListComponent = ({ works, labels, lang }) => {
   return (
     <>
       {works.map((item) => (
@@ -31,6 +33,7 @@ const WorkList: WorkListComponent = ({ works, labels }) => {
               }
               work={item}
               labels={labels}
+              lang={lang}
             />
           </div>
 
@@ -44,6 +47,7 @@ const WorkList: WorkListComponent = ({ works, labels }) => {
               <GitHubStatsView
                 repository={item.statsConfig.github}
                 presenter={githubStatsPresenter}
+                lang={lang}
               />
             )}
           </div>

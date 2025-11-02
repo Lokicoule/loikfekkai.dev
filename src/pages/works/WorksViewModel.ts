@@ -1,6 +1,6 @@
 import { SocialLinkProps } from "../../shared/components/elements/SocialLinks";
 import { StackProps } from "../../shared/components/elements/Stack";
-import { WorkFilter } from "../../shared/persistence/GlobalStore";
+import { Language, WorkFilter } from "../../shared/persistence/GlobalStore";
 
 type KeyFeaturesProps = {
   id: string;
@@ -43,4 +43,5 @@ export type WorksViewModel = {
   works: WorkProps[];
   filter: WorkFilter;
   labels: WorkLabels;
+  lang: Language;
 };

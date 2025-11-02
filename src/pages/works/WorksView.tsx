@@ -43,7 +43,11 @@ const WorksView: WorksViewComponent = ({ presenter, controller }) => {
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 md:px-10 lg:px-14">
-          <WorkList works={viewModel.works} labels={viewModel.labels} />
+          <WorkList
+            works={viewModel.works}
+            labels={viewModel.labels}
+            lang={viewModel.lang}
+          />
         </div>
       </div>
     </PageLayout>

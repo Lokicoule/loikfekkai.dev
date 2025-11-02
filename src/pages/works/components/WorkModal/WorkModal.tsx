@@ -1,4 +1,5 @@
 import Modal from "../../../../shared/components/adapters/@headlessui/Modal";
+import { Language } from "../../../../shared/persistence/GlobalStore";
 import { WorkLabels, WorkProps } from "../../WorksViewModel";
 import WorkModalContent from "./WorkModalContent";
 import WorkModalTitle from "./WorkModalTitle";
@@ -6,12 +7,13 @@ import WorkModalTitle from "./WorkModalTitle";
 type WorkModalProps = {
   work: WorkProps;
   labels: WorkLabels;
+  lang: Language;
   triggerButton: React.ReactElement;
 };
 
 type WorkModalComponent = React.FC<WorkModalProps>;
 
-const WorkModal: WorkModalComponent = ({ work, labels, triggerButton }) => {
+const WorkModal: WorkModalComponent = ({ work, labels, lang, triggerButton }) => {
   return (
     <Modal
       triggerButton={triggerButton}
@@ -20,7 +22,7 @@ const WorkModal: WorkModalComponent = ({ work, labels, triggerButton }) => {
     >
       {() => (
         <>
-          <WorkModalTitle work={work} labels={labels} />
+          <WorkModalTitle work={work} labels={labels} lang={lang} />
           <WorkModalContent work={work} labels={labels} />
         </>
       )}
