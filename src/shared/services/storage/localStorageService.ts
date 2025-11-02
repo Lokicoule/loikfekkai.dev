@@ -1,4 +1,6 @@
-export class LocalStorageService {
+import { StoragePort } from "../../ports";
+
+export class LocalStorageService implements StoragePort {
   public setItem<T>(key: string, value: T): void {
     try {
       const serializedValue = JSON.stringify(value);

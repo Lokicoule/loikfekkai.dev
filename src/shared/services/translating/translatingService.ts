@@ -6,8 +6,9 @@ import en from "./locales/en.json";
 import fr from "./locales/fr.json";
 
 import type { Language } from "../../persistence/GlobalStore";
+import type { TranslationPort } from "../../ports";
 
-export class TranslatingService {
+export class TranslatingService implements TranslationPort {
   public translate(key: string): string {
     return i18next.t(key);
   }

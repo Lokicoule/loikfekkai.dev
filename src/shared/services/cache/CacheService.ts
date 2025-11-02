@@ -1,23 +1,22 @@
-import { LocalStorageService } from "../storage/localStorageService";
+import { StoragePort } from "../../ports";
 
 interface CacheEntry<T> {
   data: T;
   timestamp: number;
 }
 
+const DEFAULT_TTL_MS = 60 * 60 * 1000;
+
 export class CacheService {
-  private readonly storage: LocalStorageService;
+  private readonly storage: StoragePort;
   private readonly defaultTTL: number;
 
-  constructor(
-    storage: LocalStorageService,
-    defaultTTL: number = 60 * 60 * 1000 // 1 hour by default
-  ) {
+  constructor(storage: StoragePort, defaultTTL: number = DEFAULT_TTL_MS) {
     this.storage = storage;
     this.defaultTTL = defaultTTL;
   }
 
-  public get<T>(key: string, ttl?: number): T | null {
+  public get<T>(key: string): T | null {
     const cachedValue = this.storage.getItem<CacheEntry<T>>(key);
 
     if (!cachedValue) {
@@ -25,8 +24,7 @@ export class CacheService {
     }
 
     const now = Date.now();
-    const cacheTTL = ttl ?? this.defaultTTL;
-    const hasExpired = now - cachedValue.timestamp > cacheTTL;
+    const hasExpired = now - cachedValue.timestamp > this.defaultTTL;
 
     if (hasExpired) {
       this.storage.removeItem(key);

@@ -23,7 +23,7 @@ export class ContactController {
     const contactFormOrError = ContactForm.create(data);
 
     if (contactFormOrError instanceof Error) {
-      this.notifications.showToast(
+      this.notifications.show(
         Notification.createError(
           `Contact error:\n${contactFormOrError.message}`
         )
@@ -33,19 +33,19 @@ export class ContactController {
 
     const notification = Notification.createInfo("Sending message...");
 
-    this.notifications.showToast(notification);
+    this.notifications.show(notification);
     this.isPending = true;
 
     try {
       await this.mailingService.sendEmail(
         contactFormOrError.toDTO(),
         () =>
-          this.notifications.updateToast(
+          this.notifications.update(
             notification.withMessageAndType("Message sent!", "success")
           ),
         (error: Error) => {
           this.loggingService.logError(error);
-          this.notifications.updateToast(
+          this.notifications.update(
             notification.withMessageAndType("Message failed to send!", "error")
           );
         }

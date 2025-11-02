@@ -1,16 +1,17 @@
 import { toast } from "react-toastify";
+import { NotificationPort } from "../../ports";
 import { Notification } from "./domainObjects/Notification";
 
-export class NotificationService {
-  public showToast(notification: Notification) {
+export class NotificationService implements NotificationPort {
+  public show(notification: Notification) {
     toast(notification.getMessage(), {
-      toastId: notification.getId().getValue(),
+      toastId: notification.getId(),
       type: notification.getType(),
     });
   }
 
-  public updateToast(notification: Notification) {
-    toast.update(notification.getId().getValue(), {
+  public update(notification: Notification) {
+    toast.update(notification.getId(), {
       render: notification.getMessage(),
       type: notification.getType(),
     });

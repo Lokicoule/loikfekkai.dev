@@ -21,7 +21,7 @@ export class WorksController {
     if (Object.values(WorkFilter).includes(filter as WorkFilter)) {
       this.store.set("workFilter", filter as WorkFilter);
     } else {
-      this.notificationService.showToast(
+      this.notificationService.show(
         Notification.createWarning(`Filter ${filter} is not supported!`)
       );
     }

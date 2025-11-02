@@ -1,7 +1,8 @@
 import * as Sentry from "@sentry/react";
+import { LoggingPort } from "../../ports";
 
-export class LoggingService {
-  public logError(error: Error): void {
+export class LoggingService implements LoggingPort {
+  public logError(error: unknown): void {
     Sentry.captureException(error);
   }
 
