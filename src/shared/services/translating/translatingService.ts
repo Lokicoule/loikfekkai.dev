@@ -18,7 +18,8 @@ export class TranslatingService implements TranslationPort {
   }
 
   public get language(): Language {
-    return i18next.language === "fr" ? "fr" : "en";
+    // resolvedLanguage, not language: the detector can report a region tag ("fr-FR")
+    return i18next.resolvedLanguage === "fr" ? "fr" : "en";
   }
 
   public async init(): Promise<void> {
