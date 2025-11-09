@@ -1,10 +1,11 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { FiBriefcase } from "react-icons/fi";
 import { GoStack } from "react-icons/go";
 import Disclosure from "../../../../shared/components/adapters/@headlessui/Disclosure";
 import Modal from "../../../../shared/components/adapters/@headlessui/Modal";
 import Stack from "../../../../shared/components/elements/Stack";
 import { WorkLabels, WorkProps } from "../../WorksViewModel";
+import { DURATION, EASE_OUT } from "../../../../shared/motion";
 
 type WorkModalContentProps = {
   work: WorkProps;
@@ -18,8 +19,8 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
+      staggerChildren: DURATION.fast,
+      delayChildren: DURATION.fast
     }
   }
 };
@@ -30,9 +31,8 @@ const item = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 10
+      duration: DURATION.base,
+      ease: EASE_OUT
     }
   }
 };
@@ -42,8 +42,8 @@ const fadeIn = {
   show: {
     opacity: 1,
     transition: {
-      duration: 0.5,
-      ease: "easeOut"
+      duration: DURATION.slow,
+      ease: EASE_OUT
     }
   }
 };
@@ -95,31 +95,29 @@ const WorkModalContent: WorkModalContentComponent = ({ work, labels }) => {
                 className="dark:text-white text-sm"
                 variants={container}
               >
-                <AnimatePresence>
-                  {work.keyFeatures.map((keyFeature, i) => (
-                    <motion.li
-                      key={i}
-                      className="font-medium text-sm mb-2"
-                      variants={item}
+                {work.keyFeatures.map((keyFeature, i) => (
+                  <motion.li
+                    key={i}
+                    className="font-medium text-sm mb-2"
+                    variants={item}
+                  >
+                    <span className="block mb-1">{keyFeature.key}</span>
+                    <motion.ul
+                      className="list-disc list-inside"
+                      variants={container}
                     >
-                      <span className="block mb-1">{keyFeature.key}</span>
-                      <motion.ul
-                        className="list-disc list-inside"
-                        variants={container}
-                      >
-                        {keyFeature.features.map((feature, i) => (
-                          <motion.li
-                            key={i}
-                            className="font-medium text-sm text-gray-600 dark:text-gray-400 mb-1"
-                            variants={item}
-                          >
-                            {feature}
-                          </motion.li>
-                        ))}
-                      </motion.ul>
-                    </motion.li>
-                  ))}
-                </AnimatePresence>
+                      {keyFeature.features.map((feature, i) => (
+                        <motion.li
+                          key={i}
+                          className="font-medium text-sm text-gray-600 dark:text-gray-400 mb-1"
+                          variants={item}
+                        >
+                          {feature}
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                  </motion.li>
+                ))}
               </motion.ul>
             </Disclosure>
           </motion.div>
