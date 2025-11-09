@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useAsyncCallback } from "../../../shared/hooks/useAsyncCallback";
 import { ContactFormData } from "../contactFormValidation";
 import { SubmitResult } from "../ContactController";
 import TextInputField from "../../../shared/components/elements/form/TextInputField";
 import TextAreaField from "../../../shared/components/elements/form/TextAreaField";
-import { BsSendCheck } from "react-icons/bs";
+import { DURATION } from "../../../shared/motion";
 
 export interface ContactFormElements extends HTMLFormControlsCollection {
   name: HTMLInputElement;
@@ -94,15 +95,47 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit, labels }) =
               type="submit"
               disabled={status === "pending"}
             >
-              {status === "pending" ? labels.sending : labels.submit}
+              <AnimatePresence mode="popLayout" initial={false}>
+                <motion.span
+                  key={status === "pending" ? "sending" : "submit"}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: DURATION.fast }}
+                  className="inline-block"
+                >
+                  {status === "pending" ? labels.sending : labels.submit}
+                </motion.span>
+              </AnimatePresence>
             </button>
           </div>
         </div>
       ) : (
-        <span className="text-green-500 p-2 rounder-lg">
-          <BsSendCheck className="inline-block mr-2 text-xl" />
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: DURATION.base }}
+          className="text-green-500 p-2 rounded-lg inline-flex items-center gap-2"
+        >
+          <motion.svg
+            viewBox="0 0 24 24"
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2.5}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+          >
+            <motion.path
+              d="M4 12l5 5L20 7"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+            />
+          </motion.svg>
           {labels.success}
-        </span>
+        </motion.span>
       )}
     </form>
   );
