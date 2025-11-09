@@ -1,5 +1,6 @@
 import "react-toastify/dist/ReactToastify.css";
 
+import { MotionConfig } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -11,18 +12,20 @@ const router = createBrowserRouter(routes);
 const AppShell = () => {
   return (
     <HelmetProvider>
-      <ThemeContainer>
-        <RouterProvider router={router} />
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          closeOnClick
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
-      </ThemeContainer>
+      <MotionConfig reducedMotion="user">
+        <ThemeContainer>
+          <RouterProvider router={router} />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+        </ThemeContainer>
+      </MotionConfig>
     </HelmetProvider>
   );
 };
