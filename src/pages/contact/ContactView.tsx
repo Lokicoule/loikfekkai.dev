@@ -1,5 +1,7 @@
+import { useState } from "react";
 import PageLayout from "../../shared/components/layouts/PageLayout";
 import { usePresenter } from "../../shared/presentation/usePresenter";
+import { useAsyncCallback } from "../../shared/hooks/useAsyncCallback";
 
 import { ContactController } from "./ContactController";
 import { ContactPresenter } from "./ContactPresenter";
@@ -14,14 +16,31 @@ type ContactViewComponent = React.FC<ContactViewProps>;
 
 const ContactView: ContactViewComponent = ({ controller, presenter }) => {
   const viewModel = usePresenter(presenter);
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, sendMessage] = useAsyncCallback((data: ContactFormData) =>
+    controller.submitContactForm(data)
+  );
 
   if (!viewModel) {
     return null;
   }
 
-  const handleSubmit = (data: ContactFormData) => {
-    return controller.submitContactForm(data);
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.target;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
+
+  const handleSubmit = () => sendMessage(formData);
 
   return (
     <PageLayout
@@ -38,7 +57,13 @@ const ContactView: ContactViewComponent = ({ controller, presenter }) => {
           {presenter.translate("contact.description.content")}
         </h3>
         <div className="mt-10">
-          <ContactFormView onSubmit={handleSubmit} labels={viewModel.labels} />
+          <ContactFormView
+            formData={formData}
+            onChange={handleChange}
+            status={status}
+            onSubmit={handleSubmit}
+            labels={viewModel.labels}
+          />
         </div>
       </div>
     </PageLayout>

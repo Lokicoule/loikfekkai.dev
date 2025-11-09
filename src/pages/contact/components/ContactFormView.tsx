@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useAsyncCallback } from "../../../shared/hooks/useAsyncCallback";
+import { AsyncStatus } from "../../../shared/hooks/useAsyncCallback";
 import { ContactFormData } from "../contactFormValidation";
-import { SubmitResult } from "../ContactController";
 import TextInputField from "../../../shared/components/elements/form/TextInputField";
 import TextAreaField from "../../../shared/components/elements/form/TextAreaField";
 import { DURATION } from "../../../shared/motion";
@@ -18,7 +16,10 @@ interface ContactFormElement extends HTMLFormElement {
 }
 
 interface ContactFormViewProps {
-  onSubmit: (data: ContactFormData) => Promise<SubmitResult>;
+  formData: ContactFormData;
+  onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  status: AsyncStatus;
+  onSubmit: () => Promise<void>;
   labels: {
     name: string;
     email: string;
@@ -29,29 +30,17 @@ interface ContactFormViewProps {
   };
 }
 
-const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit, labels }) => {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, sendMessage] = useAsyncCallback(onSubmit);
-
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = event.target;
-
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
+const ContactFormView: React.FC<ContactFormViewProps> = ({
+  formData,
+  onChange,
+  status,
+  onSubmit,
+  labels,
+}) => {
   const handleSubmit = async (event: React.FormEvent<ContactFormElement>) => {
     event.preventDefault();
 
-    await sendMessage(formData);
+    await onSubmit();
   };
 
   return (
@@ -61,7 +50,7 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit, labels }) =
         name="name"
         type="text"
         value={formData.name}
-        onChange={handleChange}
+        onChange={onChange}
         minLength={2}
         maxLength={50}
         required
@@ -72,7 +61,7 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit, labels }) =
         name="email"
         type="email"
         value={formData.email}
-        onChange={handleChange}
+        onChange={onChange}
         required
         autoComplete="email"
       />
@@ -80,7 +69,7 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({ onSubmit, labels }) =
         label={labels.message}
         name="message"
         value={formData.message}
-        onChange={handleChange}
+        onChange={onChange}
         required
         rows={5}
         minLength={10}
