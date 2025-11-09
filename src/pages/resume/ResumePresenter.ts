@@ -66,6 +66,7 @@ export class ResumePresenter extends Presenter<ResumeViewModel> {
           "roleAndResponsibilities"
         ),
       },
+      lang,
     };
   }
 

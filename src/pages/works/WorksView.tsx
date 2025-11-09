@@ -34,6 +34,7 @@ const WorksView: WorksViewComponent = ({ presenter, controller }) => {
         description: presenter.translate("works.description.meta"),
       }}
       className="lg:rounded-2xl lg:bg-primary"
+      lang={viewModel.lang}
     >
       <div className="flex flex-col space-y-8 pb-8">
         <div className="container mx-auto px-4 md:px-10 lg:px-14">

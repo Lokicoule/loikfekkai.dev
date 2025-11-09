@@ -15,7 +15,9 @@ export class AboutPresenter extends Presenter<AboutViewModel> {
   }
 
   protected buildViewModel(): AboutViewModel {
-    return this.store.get("lang") === "fr" ? dataFr : dataEn;
+    const lang = this.store.get("lang");
+
+    return { ...(lang === "fr" ? dataFr : dataEn), lang };
   }
 
   public translate(key: string): string {

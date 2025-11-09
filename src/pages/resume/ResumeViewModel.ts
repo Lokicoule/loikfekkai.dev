@@ -1,4 +1,5 @@
 import { StackProps } from "../../shared/components/elements/Stack";
+import { Language } from "../../shared/persistence/GlobalStore";
 
 interface ClientProps {
   abbreviation?: string;
@@ -70,4 +71,5 @@ export type ResumeViewModel = {
   skills: SkillProps[];
   knowledges: KnowledgeProps[];
   labels: ExperienceLabels;
+  lang: Language;
 };

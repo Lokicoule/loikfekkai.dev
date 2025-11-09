@@ -23,6 +23,7 @@ const AboutView: AboutViewComponent = ({ presenter }) => {
       }}
       title={presenter.translate("about.title")}
       className="lg:rounded-2xl lg:bg-primary"
+      lang={viewModel.lang}
     >
       <div className="flex flex-col space-y-8 pb-8">
         {viewModel.whoAmI && (

@@ -1,3 +1,5 @@
+import { Language } from "../../shared/persistence/GlobalStore";
+
 export interface AboutViewModelProps {
   whoAmI: {
     title: string;
@@ -14,4 +16,4 @@ export interface AboutViewModelProps {
   outro?: JSX.Element;
 }
 
-export type AboutViewModel = AboutViewModelProps;
+export type AboutViewModel = AboutViewModelProps & { lang: Language };

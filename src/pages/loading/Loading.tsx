@@ -1,4 +1,5 @@
 import PageLayout from "../../shared/components/layouts/PageLayout";
+import { store } from "../../shared/composition";
 
 type LoadingProps = {
   className?: string;
@@ -12,6 +13,7 @@ const Loading: LoadingComponent = ({ className }) => {
       <PageLayout
         title=""
         className={`${className}  h-full lg:rounded-2xl lg:bg-primary`}
+        lang={store.get("lang")}
       />
     </div>
   );

@@ -22,6 +22,7 @@ const NotFoundView: NotFoundViewComponent = ({ presenter }) => {
         description: presenter.translate("notFound.description.meta"),
       }}
       className="lg:rounded-2xl lg:bg-primary"
+      lang={viewModel.lang}
     >
       <div className="flex flex-col justify-center items-center text-center mx-4 md:mx-[60px] p-4 md:p-16 mb-[30px] md:mb-[60px] leading-tight bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-500 inline-block text-transparent bg-clip-text">
         <h2 className="text-6xl font-extrabold">404</h2>
