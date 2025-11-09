@@ -14,7 +14,7 @@ const AppShell = () => {
     <HelmetProvider>
       <MotionConfig reducedMotion="user">
         <ThemeContainer>
-          <RouterProvider router={router} />
+          <RouterProvider router={router} future={{ v7_startTransition: true }} />
           <ToastContainer
             position="top-right"
             autoClose={5000}
