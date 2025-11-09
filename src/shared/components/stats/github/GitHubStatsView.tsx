@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { FaStar, FaCodeBranch } from "react-icons/fa";
 import { GitHubRepositoryConfig, GitHubStats } from "../../../ports";
 import { Language } from "../../../persistence/GlobalStore";
 import { formatNumber } from "../../../utils/formatNumber";
 import { RemoteStatsPresenter, RemoteStatsViewModel } from "../RemoteStatsPresenter";
+import { DURATION } from "../../../motion";
 
 type GitHubStatsViewProps = {
   repository: GitHubRepositoryConfig;
@@ -24,16 +26,26 @@ export const GitHubStatsView: React.FC<GitHubStatsViewProps> = ({
     [presenter, repository]
   );
 
-  if (!vm?.stats || vm.loading) {
-    return null;
+  if (!vm || vm.loading) {
+    return (
+      <div
+        className="h-4 w-24 rounded bg-secondary/20 animate-pulse motion-reduce:animate-none"
+        aria-hidden
+      />
+    );
   }
   const { stats } = vm;
-  if (stats.stars === 0 && stats.forks === 0) {
+  if (!stats || (stats.stars === 0 && stats.forks === 0)) {
     return null;
   }
 
   return (
-    <div className="flex items-center gap-4 text-xs text-secondary">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: DURATION.fast }}
+      className="flex items-center gap-4 text-xs text-secondary"
+    >
       {stats.stars > 0 && (
         <div className="flex items-center gap-1">
           <FaStar className="text-secondary" size={12} />
@@ -46,7 +58,7 @@ export const GitHubStatsView: React.FC<GitHubStatsViewProps> = ({
           <span>{formatNumber(stats.forks, lang)}</span>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
