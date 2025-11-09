@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { AsyncStatus } from "../../../shared/hooks/useAsyncCallback";
 import { ContactFormData } from "../contactFormValidation";
 import TextInputField from "../../../shared/components/elements/form/TextInputField";
@@ -37,6 +37,8 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({
   onSubmit,
   labels,
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+
   const handleSubmit = async (event: React.FormEvent<ContactFormElement>) => {
     event.preventDefault();
 
@@ -120,7 +122,11 @@ const ContactFormView: React.FC<ContactFormViewProps> = ({
               d="M4 12l5 5L20 7"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+              transition={{
+                duration: shouldReduceMotion ? 0 : 0.4,
+                ease: "easeOut",
+                delay: shouldReduceMotion ? 0 : 0.1,
+              }}
             />
           </motion.svg>
           {labels.success}
