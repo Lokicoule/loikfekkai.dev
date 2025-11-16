@@ -29,7 +29,7 @@ const Layout: LayoutComponent = ({ children, lang, hero }) => {
       <div className="flex flex-col items-center">
       <Header lang={lang} />
 
-      <main className="container">
+      <main id="content" className="container">
         <div className="grid grid-cols-12 gap-8 lg:gap-10">
           <div
             className={`col-span-12 lg:col-span-4 ${

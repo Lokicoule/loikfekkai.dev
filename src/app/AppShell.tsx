@@ -14,6 +14,13 @@ const AppShell = () => {
     <HelmetProvider>
       <MotionConfig reducedMotion="user">
         <ThemeContainer>
+          <a
+            href="#content"
+            lang="en"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-primary focus:px-4 focus:py-2 focus:rounded-lg"
+          >
+            Skip to content
+          </a>
           <RouterProvider router={router} future={{ v7_startTransition: true }} />
           <ToastContainer
             position="top-right"

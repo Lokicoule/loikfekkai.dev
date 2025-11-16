@@ -12,7 +12,7 @@ const MobileMenu: React.FC = () => {
     <Popover>
       {({ open, close }) => (
         <>
-          <Popover.Button className="lg:hidden flex justify-center cursor-pointer w-10 h-10 bg-sky-to-blue rounded-full items-center text-xl hover:text-2xl text-white font-bold hover:brightness-125 transition-all duration-300 ease-in-out focus-no-outline">
+          <Popover.Button className="lg:hidden flex justify-center cursor-pointer w-10 h-10 bg-sky-to-blue rounded-full items-center text-xl hover:text-2xl text-white font-bold hover:brightness-125 transition-all duration-300 ease-in-out focus-ring">
             {open ? <AiOutlineClose /> : <AiOutlineMenu />}
           </Popover.Button>
           <Transition

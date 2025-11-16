@@ -16,7 +16,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
       <textarea
         id={name}
         name={name}
-        className="block autofill:bg-transparent py-2.5 px-0 w-full text-secondary bg-transparent border-0 border-b-2 border-primary appearance-none focus:gradient-underline-fixed focus-no-outline peer"
+        className="block autofill:bg-transparent py-2.5 px-0 w-full text-secondary bg-transparent border-0 border-b-2 border-primary appearance-none focus:gradient-underline-fixed focus-ring peer"
         onChange={onChange}
         required={required}
         {...props}

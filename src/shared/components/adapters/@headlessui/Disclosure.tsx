@@ -18,7 +18,7 @@ const Disclosure: React.FC<IDisclosureProps> = ({
     <HeadlessDisclosure as="div" className="mt-2" defaultOpen={defaultOpen}>
       {({ open }) => (
         <>
-          <HeadlessDisclosure.Button className="w-full flex justify-between rounded-lg px-4 py-2 text-sm font-medium bg-tertiary text-primary focus-no-outline">
+          <HeadlessDisclosure.Button className="w-full flex justify-between rounded-lg px-4 py-2 text-sm font-medium bg-tertiary text-primary focus-ring">
             <div className="flex items-center">
               {icon}
               {title}

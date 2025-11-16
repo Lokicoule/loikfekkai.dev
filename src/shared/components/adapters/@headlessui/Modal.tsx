@@ -79,7 +79,7 @@ const Modal: ModalComponent = ({
                 <div className="overflow-y-scroll max-h-[80vh] no-scrollbar">
                   <BsXCircle
                     onClick={handleClose}
-                    className="h-10 w-10 cursor-pointer absolute -bottom-12 right-1/2 transform translate-x-1/2 md:-right-10 md:-top-6 z-50 text-white transition transform hover:rotate-45 duration-300 ease-in-out focus-no-outline"
+                    className="h-10 w-10 cursor-pointer absolute -bottom-12 right-1/2 transform translate-x-1/2 md:-right-10 md:-top-6 z-50 text-white transition transform hover:rotate-45 duration-300 ease-in-out focus-ring"
                     tabIndex={0}
                   />
                   <Dialog.Panel className={panelClassName} as="div">
