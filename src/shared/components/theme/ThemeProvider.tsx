@@ -11,15 +11,21 @@ export type Mode = "light" | "dark";
 
 const THEME_STORAGE_KEY = "theme";
 
-const initialMode = (): Mode => {
-  const stored = localStorage.getItem(THEME_STORAGE_KEY);
-  if (stored === "light" || stored === "dark") {
-    return stored;
+const readStoredMode = (): Mode | null => {
+  try {
+    const stored = localStorage.getItem(THEME_STORAGE_KEY);
+    return stored === "light" || stored === "dark" ? stored : null;
+  } catch {
+    // storage can be blocked (cookies disabled); theme falls back to the system preference
+    return null;
   }
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
 };
+
+const initialMode = (): Mode =>
+  readStoredMode() ??
+  (window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light");
 
 interface ThemeContextType {
   mode: Mode;
@@ -57,7 +63,9 @@ const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   useLayoutEffect(() => {
     document.body.classList.toggle("dark", mode === "dark");
-    localStorage.setItem(THEME_STORAGE_KEY, mode);
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, mode);
+    } catch {}
   }, [mode]);
 
   return (
