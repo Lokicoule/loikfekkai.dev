@@ -5,6 +5,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import { flushSync } from "react-dom";
 
 export type Mode = "light" | "dark";
 
@@ -35,7 +36,15 @@ export const useTheme = () => {
 
   const toggleThemeMode = () => {
     const newMode = mode === "light" ? "dark" : "light";
-    setMode(newMode);
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (document.startViewTransition && !reduceMotion) {
+      document.startViewTransition(() => flushSync(() => setMode(newMode)));
+    } else {
+      setMode(newMode);
+    }
   };
 
   return { mode, setMode, toggleThemeMode };
