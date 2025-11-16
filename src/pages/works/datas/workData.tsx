@@ -20,7 +20,6 @@ export type WorkItemData = {
   category: WorkFilter;
   tag: Localized<string>;
   description: Localized<string>;
-  logo?: JSX.Element;
   link?: string;
   technologiesUsed: StackProps;
   keyFeatures?: KeyFeatureData[];

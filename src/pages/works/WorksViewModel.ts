@@ -19,7 +19,6 @@ export interface WorkProps {
   category: WorkFilter;
   tag: string;
   description: string;
-  logo?: JSX.Element;
   link?: string;
   technologiesUsed: StackProps;
   keyFeatures?: KeyFeaturesProps[];
