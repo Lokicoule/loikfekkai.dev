@@ -1,17 +1,7 @@
-import ThemeProvider, { useTheme } from "./ThemeProvider";
-
-const ThemeWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const { mode } = useTheme();
-
-  return <div className={mode === "dark" ? "dark" : ""}>{children}</div>;
-};
+import ThemeProvider from "./ThemeProvider";
 
 const ThemeContainer: React.FC<React.PropsWithChildren> = ({ children }) => {
-  return (
-    <ThemeProvider>
-      <ThemeWrapper>{children}</ThemeWrapper>
-    </ThemeProvider>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 };
 
 export default ThemeContainer;

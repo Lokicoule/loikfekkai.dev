@@ -8,6 +8,18 @@ import React, {
 
 export type Mode = "light" | "dark";
 
+const THEME_STORAGE_KEY = "theme";
+
+const initialMode = (): Mode => {
+  const stored = localStorage.getItem(THEME_STORAGE_KEY);
+  if (stored === "light" || stored === "dark") {
+    return stored;
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
 interface ThemeContextType {
   mode: Mode;
   setMode: (mode: Mode) => void;
@@ -30,21 +42,13 @@ export const useTheme = () => {
 };
 
 const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const systemPreference = window.matchMedia("(prefers-color-scheme: dark)")
-    .matches
-    ? "dark"
-    : "light";
+  const [mode, setMode] = useState<Mode>(initialMode);
 
-  const [mode, setMode] = useState<Mode>(systemPreference);
-
-  const value = useMemo(() => ({ mode, setMode }), [mode, setMode]);
+  const value = useMemo(() => ({ mode, setMode }), [mode]);
 
   useLayoutEffect(() => {
-    if (mode === "dark") {
-      document.body.classList.add("dark");
-    } else if (mode === "light") {
-      document.body.classList.remove("dark");
-    }
+    document.body.classList.toggle("dark", mode === "dark");
+    localStorage.setItem(THEME_STORAGE_KEY, mode);
   }, [mode]);
 
   return (
