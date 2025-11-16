@@ -18,10 +18,9 @@ export const fadeRise: Variants = {
 };
 
 export const sectionReveal: Variants = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
     transition: { duration: DURATION.base, ease: EASE_OUT },
   },
 };
